@@ -48,12 +48,12 @@ export default function Home() {
             
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
-                href="https://github.com/your-username/lexipro-strike-pack" 
+                href="https://github.com/brokenbartender/LexiPro-Showcase" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-white text-surface px-8 py-4 font-display font-bold tracking-widest uppercase text-xs rounded-lg hover:bg-primary hover:text-white transition-colors shadow-xl text-center inline-block cursor-pointer"
               >
-                Download Strike Pack
+                Audit Architecture
               </a>
               <button 
                 onClick={handleIntegrityCheck}

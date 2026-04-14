@@ -42,7 +42,7 @@ export default function Footer() {
           <h4 className="font-display text-[10px] tracking-widest text-primary uppercase">Connectivity</h4>
           <div className="flex space-x-4">
             <a 
-              href="https://github.com/your-username" 
+              href="https://github.com/brokenbartender/LexiPro-Showcase" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-10 h-10 border border-outline-variant flex items-center justify-center hover:border-primary hover:text-primary transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary"
