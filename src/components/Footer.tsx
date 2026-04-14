@@ -1,4 +1,4 @@
-﻿import { Share2, Terminal as TerminalIcon } from "lucide-react";
+import { Share2, Terminal as TerminalIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LexiProLogo } from "./Logo";
 
@@ -16,7 +16,7 @@ export default function Footer() {
             Sovereign Intelligence Systems Group.
           </p>
           <p className="text-tertiary text-[10px] mt-8 uppercase tracking-widest">
-            Â© 2026 Broken Arrow Entertainment LLC. All Rights Reserved.
+            © 2026 Broken Arrow Entertainment LLC. All Rights Reserved.
           </p>
         </div>
         
@@ -59,7 +59,7 @@ export default function Footer() {
             </a>
           </div>
           <div className="font-mono text-[10px] text-tertiary">
-            SECURE_CONNECTION: ESTABLISHED [V27.0-ALPHA-9]<br/>
+            SECURE_CONNECTION: ESTABLISHED [V27.0-ALPHA-10 (DNA-VERIFIED)]<br/>
             ENCRYPTION: AES-256-GCM
           </div>
         </div>

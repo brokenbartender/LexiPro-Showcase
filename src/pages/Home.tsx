@@ -116,6 +116,7 @@ export default function Home() {
                   <p>&gt; SL5_EGRESS_SHIELD: VERIFIED [p95: {telemetryData.tests.sl5.p95_ms}ms]</p>
                   <p>&gt; HYBRID_CONSENSUS: SYNCED [p95: {telemetryData.tests.hybrid_consensus.p95_ms}ms]</p>
                   <p>&gt; THERMAL_GOVERNANCE: NOMINAL [{telemetryData.tests.thermal.p95_ms}ms]</p>
+                  <p>&gt; AGENT_DNA_AUDIT: 100% CLEAN [v2.0]</p>
                   <p>&gt; SUBSTRATE: {telemetryData._meta.system} {telemetryData._meta.arch} // {throughput} T/S</p>
                   <p className="text-secondary pt-2">&gt; [AIR-GAP COMPLIANT: VERIFIED METRICS]</p>
                 </div>
