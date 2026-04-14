@@ -1,4 +1,4 @@
-ï»¿import { motion } from "motion/react";
+import { motion } from "motion/react";
 import { 
   Shield, 
   Activity, 
@@ -64,7 +64,7 @@ export default function Domex() {
           </h2>
           <p className="text-tertiary mt-6 text-lg leading-relaxed">
             LexiPro provides immediate, field-ready intelligence by exploiting
-            captured materials entirely on local hardware â€” no cloud connectivity
+            captured materials entirely on local hardware — no cloud connectivity
             required, no data egress possible.
           </p>
         </motion.div>
@@ -80,7 +80,7 @@ export default function Domex() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                 </span>
                 <span className="font-mono text-[10px] tracking-tighter text-secondary uppercase">
-                  ACTIVE DEPLOYMENT â€” NODE 09
+                  ACTIVE DEPLOYMENT — NODE 09
                 </span>
               </div>
               <h3 className="text-3xl font-bold text-white uppercase">Project TITAN</h3>
@@ -96,7 +96,7 @@ export default function Domex() {
                   "Forensic timeline reconstruction",
                   "PII detection & redaction pipeline",
                   "Chain-of-custody cryptographic receipts",
-                  "Offline-first â€” zero connectivity required",
+                  "Offline-first — zero connectivity required",
                 ].map((item) => (
                   <li key={item} className="flex items-center space-x-2">
                     <ChevronRight className="w-4 h-4 flex-shrink-0" />
@@ -106,21 +106,21 @@ export default function Domex() {
               </ul>
             </div>
 
-            {/* Simulated terminal â€” Wored to real validation logs */}
+            {/* Simulated terminal — Wored to real validation logs */}
             <div className="bg-surface-container-lowest p-8 rounded-xl border border-primary/20 font-mono text-[10px] min-h-[300px] flex flex-col"> 
               <div className="flex items-center justify-between mb-6 border-b border-outline-variant/20 pb-4">
                 <span className="text-tertiary">TITAN_CHAOS_AUDIT_V27.1</span>
                 <span className="text-secondary">SUCCESS_RATE: {validationReport.success_rate}%</span>
               </div>
               <div className="space-y-2 text-primary/70 leading-relaxed overflow-hidden">
-                <p className="text-tertiary">> TITAN INIT â€” SL5 AIR-GAP CONFIRMED</p>
+                <p className="text-tertiary">&gt; TITAN INIT — SL5 AIR-GAP CONFIRMED</p>
                 {logs.map((log, i) => (
                   <p key={i} className={log.includes('DISSENT') ? 'text-amber-400' : 'text-primary/70'}>{log}</p>
                 ))}
                 {logs.length === validationReport.log_sample.length && (
                   <div className="animate-in fade-in slide-in-from-top-2 duration-1000">
-                    <p className="text-white pt-2">> âœ“ TRIAGE COMPLETE â€” ZERO EGRESS EVENTS</p>
-                    <p className="text-secondary">> CHAIN OF CUSTODY: CRYPTOGRAPHICALLY SEALED</p>
+                    <p className="text-white pt-2">&gt; ? TRIAGE COMPLETE — ZERO EGRESS EVENTS</p>
+                    <p className="text-secondary">&gt; CHAIN OF CUSTODY: CRYPTOGRAPHICALLY SEALED</p>
                   </div>
                 )}
               </div>
@@ -182,7 +182,7 @@ export default function Domex() {
             <p className="text-tertiary text-sm leading-relaxed">
               Every AI-generated finding produced by the DOMEX pipeline is accompanied
               by a tamper-evident cryptographic receipt. This receipt logs the input hash,
-              agent consensus state, timestamp, and hardware node ID â€” providing a
+              agent consensus state, timestamp, and hardware node ID — providing a
               legally admissible chain of custody under{" "}
               <span className="text-white font-mono">FRE 902(13)</span>.
             </p>
