@@ -10,8 +10,7 @@ export default function Domex() {
         </div>
         
         <div className="relative glass-panel rounded-2xl p-12 overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
-            <img src="https://picsum.photos/seed/tactical/1200/800" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/40 via-surface-container to-transparent">
           </div>
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">

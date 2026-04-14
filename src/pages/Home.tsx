@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Cpu, Shield, Activity, Database, FileText } from "lucide-react";
 import { useTelemetry } from "../hooks/useTelemetry";
 import { useState } from "react";
+import telemetryData from '../../telemetry/telemetry_output.json';
 
 export default function Home() {
   const throughput = useTelemetry(482.15);
@@ -83,7 +84,10 @@ export default function Home() {
                 <div className="w-2 h-2 rounded-full bg-tertiary"></div>
                 <div className="w-2 h-2 rounded-full bg-secondary"></div>
               </div>
-              <div className="font-mono text-[10px] text-primary">LIVE_TELEMETRY_STREAM // RECV_0492</div>
+              <div className="font-mono text-[10px] text-primary flex space-x-2 items-center">
+                <span>LIVE_TELEMETRY_STREAM // RECV_0492</span>
+                <span className="bg-primary/20 text-primary px-1 rounded">[SIMULATED REPLAY OF VERIFIED HARDWARE LIMITS]</span>
+              </div>
             </div>
             <div className="space-y-6 font-mono">
               <div className="flex justify-between items-end">
@@ -108,11 +112,11 @@ export default function Home() {
               </div>
               <div className="bg-surface-container-lowest p-4 rounded text-[10px] leading-relaxed text-primary/80 overflow-hidden h-32 relative">
                 <div className="space-y-1">
-                  <p>&gt; OMEGA_V8: 2,316 TOOLS [p95: 11.60ms]</p>
-                  <p>&gt; SL5_EGRESS_SHIELD: VERIFIED [p95: 0.004ms]</p>
-                  <p>&gt; SWARM_CONSENSUS (3x): SYNCED [p95: 152.32ms]</p>
-                  <p>&gt; THERMAL_GOVERNANCE: NOMINAL [0.0004ms]</p>
-                  <p>&gt; SUBSTRATE: INTEL i5-10210U // {throughput} T/S</p>
+                  <p>&gt; OMEGA_V8: {telemetryData.telemetry.omega.tool_count} TOOLS [p95: {telemetryData.telemetry.omega.p95_ms}ms]</p>
+                  <p>&gt; SL5_EGRESS_SHIELD: VERIFIED [p95: {telemetryData.telemetry.sl5.p95_ms}ms]</p>
+                  <p>&gt; SWARM_CONSENSUS (3x): SYNCED [p95: {telemetryData.telemetry.consensus.p95_ms}ms]</p>
+                  <p>&gt; THERMAL_GOVERNANCE: NOMINAL [{telemetryData.telemetry.thermal.reaction_time_ms}ms]</p>
+                  <p>&gt; SUBSTRATE: {telemetryData._metadata.os_env} {telemetryData._metadata.node_arch} // {throughput} T/S</p>
                   <p className="text-secondary pt-2">&gt; [AIR-GAP COMPLIANT: VERIFIED METRICS]</p>
                 </div>
                 <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>

@@ -25,8 +25,7 @@ export default function Technology() {
             </div>
           </div>
           <div className="relative glass-panel rounded-xl overflow-hidden flex items-center justify-center p-12">
-            <div className="absolute inset-0 opacity-10">
-              <img src="https://picsum.photos/seed/os-kernel/800/800" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            <div className="absolute inset-0 opacity-10 bg-[conic-gradient(at_center,_var(--tw-gradient-stops))] from-primary/20 via-surface to-secondary/20">
             </div>
             <div className="relative z-10 text-center space-y-4">
               <Server className="w-16 h-16 text-primary mx-auto" />

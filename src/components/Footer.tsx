@@ -16,7 +16,7 @@ export default function Footer() {
             Sovereign Intelligence Systems Group.
           </p>
           <p className="text-tertiary text-[10px] mt-8 uppercase tracking-widest">
-            © 2024 Broken Arrow Entertainment LLC. All Rights Reserved.
+            © 2026 Broken Arrow Entertainment LLC. All Rights Reserved.
           </p>
         </div>
         
