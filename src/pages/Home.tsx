@@ -112,11 +112,11 @@ export default function Home() {
               </div>
               <div className="bg-surface-container-lowest p-4 rounded text-[10px] leading-relaxed text-primary/80 overflow-hidden h-32 relative">
                 <div className="space-y-1">
-                  <p>&gt; OMEGA_V8: {telemetryData.telemetry.omega.tool_count} TOOLS [p95: {telemetryData.telemetry.omega.p95_ms}ms]</p>
-                  <p>&gt; SL5_EGRESS_SHIELD: VERIFIED [p95: {telemetryData.telemetry.sl5.p95_ms}ms]</p>
-                  <p>&gt; SWARM_CONSENSUS (3x): SYNCED [p95: {telemetryData.telemetry.consensus.p95_ms}ms]</p>
-                  <p>&gt; THERMAL_GOVERNANCE: NOMINAL [{telemetryData.telemetry.thermal.reaction_time_ms}ms]</p>
-                  <p>&gt; SUBSTRATE: {telemetryData._metadata.os_env} {telemetryData._metadata.node_arch} // {throughput} T/S</p>
+                  <p>&gt; OMEGA_V8: {telemetryData.tests.omega.tool_count} TOOLS [p95: {telemetryData.tests.omega.p95_ms}ms]</p>
+                  <p>&gt; SL5_EGRESS_SHIELD: VERIFIED [p95: {telemetryData.tests.sl5.p95_ms}ms]</p>
+                  <p>&gt; HYBRID_CONSENSUS: SYNCED [p95: {telemetryData.tests.hybrid_consensus.p95_ms}ms]</p>
+                  <p>&gt; THERMAL_GOVERNANCE: NOMINAL [{telemetryData.tests.thermal.p95_ms}ms]</p>
+                  <p>&gt; SUBSTRATE: {telemetryData._meta.system} {telemetryData._meta.arch} // {throughput} T/S</p>
                   <p className="text-secondary pt-2">&gt; [AIR-GAP COMPLIANT: VERIFIED METRICS]</p>
                 </div>
                 <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>

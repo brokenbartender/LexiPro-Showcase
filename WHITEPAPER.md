@@ -72,22 +72,22 @@ We subjected the Sovereign OS core to a 25-iteration stress test to measure the 
 
 *   **Tool Retrieval (OMEGA Engine v8.0):** 
     *   **Metric:** Time required to parse intent and retrieve the correct tool schema from an index of 2,316 capabilities.
-    *   **Result:** **15.06 ms (p95)**
+    *   **Result:** **11.88 ms (p95)**
     *   **Significance:** This ultra-low latency allows the swarm to dynamically reconfigure its toolset in real-time without bottlenecking the inference cycle.
 
 *   **Security Overhead (Hestia Egress Guard):**
     *   **Metric:** Latency introduced by the mandatory PII/credential sanitization pipeline on outbound payloads.
-    *   **Result:** **6.25 ms (p95)**
+    *   **Result:** **8.79 ms (p95)**
     *   **Significance:** Zero-trust security is enforced with statistically insignificant overhead, proving that strict data compliance does not require compromising system speed.
 
 *   **Verification (Swarm Consensus 3x):**
     *   **Metric:** Time required to route state, execute adversarial review, and achieve lock across three concurrent agents.
-    *   **Result:** **380.38 ms (p95)**
+    *   **Result:** **200.06 ms (p95)**
     *   **Significance:** Deterministic, hallucination-resistant outputs are generated in less than a quarter of a second, making the system viable for real-time, high-stakes analysis.
 
 *   **Hardware Stability (Thermal Governance):**
     *   **Metric:** System reaction time to detect simulated thermal spikes (Δ ≥ 2°C/s) and initiate active throttling.
-    *   **Result:** **1368.50 ms (p95)**
+    *   **Result:** **12.99 ms (p95)**
     *   **Significance:** Guarantees sustained operation on edge hardware (e.g., standard enterprise laptops) during massive document ingestion without risk of catastrophic thermal failure.
 
 ## 6. Business Value & ROI
@@ -109,4 +109,5 @@ The Sovereign OS core is proprietary and available strictly via enterprise licen
 *   **Review the Telemetry:** Examine the 	elemetry/run_tests.py script in this repository to audit our benchmarking methodology.
 *   **Explore the Frontend:** Review the React architecture of our marketing node to see how we build performant, hardware-optimized clients.
 *   **Contact:** To request an integration demo or discuss developer program funding, contact [admin@lexipro.online](mailto:admin@lexipro.online).
+
 
