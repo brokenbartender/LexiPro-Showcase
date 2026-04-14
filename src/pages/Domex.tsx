@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from "motion/react";
-import { 
+import { Activity, motion, AnimatePresence } from "motion/react";
+import { Activity, 
   Shield, 
   Search, 
   ChevronRight, 
@@ -8,7 +8,7 @@ import {
   Lock,
   Database
 } from "lucide-react";
-import { useSystemFeed } from "../hooks/useSystemFeed";
+import { Activity, useSystemFeed } from "../hooks/useSystemFeed";
 import validationReport from "../../telemetry/validation_report.json";
 
 const WORKFLOW_STEPS = [
