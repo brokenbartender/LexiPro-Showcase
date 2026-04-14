@@ -1,0 +1,352 @@
+﻿[
+    {
+        "tool":  "tool_rc4_decrypt",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026011.5577946
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026011.5618446
+    },
+    {
+        "tool":  "wireless-strike",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.0046391
+    },
+    {
+        "tool":  "extract_legal_text",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.005642
+    },
+    {
+        "tool":  "run_extract_shelby_docx",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.0066519
+    },
+    {
+        "tool":  "tool_decrypt_blob",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.0071642
+    },
+    {
+        "tool":  "tool_forge_creative_asset",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.09181
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.093325
+    },
+    {
+        "tool":  "tool_mission_get_events",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.0948558
+    },
+    {
+        "tool":  "mission_control",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.0954087
+    },
+    {
+        "tool":  "mcp_tactical_check_mission_status",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.1854515
+    },
+    {
+        "tool":  "tool_decrypt_blob",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.186469
+    },
+    {
+        "tool":  "tool_rc4_decrypt",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.1879773
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776026996.1899917
+    },
+    {
+        "tool":  "wireless-strike",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.1492429
+    },
+    {
+        "tool":  "extract_legal_text",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.150254
+    },
+    {
+        "tool":  "run_extract_shelby_docx",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.151253
+    },
+    {
+        "tool":  "tool_decrypt_blob",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.152253
+    },
+    {
+        "tool":  "tool_forge_creative_asset",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.2290576
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.2300694
+    },
+    {
+        "tool":  "tool_mission_get_events",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.2310693
+    },
+    {
+        "tool":  "mission_control",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.2320704
+    },
+    {
+        "tool":  "mcp_tactical_check_mission_status",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.3155255
+    },
+    {
+        "tool":  "tool_decrypt_blob",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.3160522
+    },
+    {
+        "tool":  "tool_rc4_decrypt",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.3175995
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776027821.3175995
+    },
+    {
+        "tool":  "wireless-strike",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028390.999637
+    },
+    {
+        "tool":  "extract_legal_text",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.0006487
+    },
+    {
+        "tool":  "run_extract_shelby_docx",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.001655
+    },
+    {
+        "tool":  "tool_decrypt_blob",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.001655
+    },
+    {
+        "tool":  "tool_forge_creative_asset",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.1005223
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.1015227
+    },
+    {
+        "tool":  "tool_mission_get_events",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.1030343
+    },
+    {
+        "tool":  "mission_control",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.1035564
+    },
+    {
+        "tool":  "mcp_tactical_check_mission_status",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.2103343
+    },
+    {
+        "tool":  "tool_decrypt_blob",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.211331
+    },
+    {
+        "tool":  "tool_rc4_decrypt",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.2128391
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776028391.2138512
+    },
+    {
+        "tool":  "wireless-strike",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.296844
+    },
+    {
+        "tool":  "extract_legal_text",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.2983632
+    },
+    {
+        "tool":  "run_extract_shelby_docx",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.2990851
+    },
+    {
+        "tool":  "tool_decrypt_blob",
+        "intent":  "Extract and decrypt the AES key from this firmware segment",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.2996016
+    },
+    {
+        "tool":  "tool_forge_creative_asset",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.3826008
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.3826008
+    },
+    {
+        "tool":  "tool_mission_get_events",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.384801
+    },
+    {
+        "tool":  "mission_control",
+        "intent":  "Generate a branded SVG logo for the new mission",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.3858216
+    },
+    {
+        "tool":  "mcp_tactical_check_mission_status",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.479183
+    },
+    {
+        "tool":  "tool_decrypt_blob",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.4807146
+    },
+    {
+        "tool":  "tool_rc4_decrypt",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.4827626
+    },
+    {
+        "tool":  "creative-forge",
+        "intent":  "Delete all files in src using rm -rf",
+        "agent":  "system",
+        "outcome":  "ACCEPTED",
+        "timestamp":  1776029637.4827626
+    }
+]
