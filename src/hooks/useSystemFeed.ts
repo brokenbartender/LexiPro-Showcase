@@ -1,5 +1,5 @@
-﻿import { useState, useEffect } from "react";
-import systemLogs from "../telemetry/system_logs.json";
+import { useState, useEffect } from "react";
+import systemLogs from "../../telemetry/system_logs.json";
 
 export interface SystemEvent {
   tool: string;
