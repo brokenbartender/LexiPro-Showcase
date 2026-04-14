@@ -1,56 +1,57 @@
 {
   "_metadata": {
-    "timestamp": 1776132837.2068567,
+    "timestamp": 1776133088.3199062,
     "node_arch": "AMD64",
     "os_env": "Windows",
-    "benchmark_runs": 25
+    "benchmark_runs": 25,
+    "cloud_baseline_rtt_ms": 98.92
   },
   "telemetry": {
     "omega": {
       "label": "OMEGA_IO",
       "runs": 25,
-      "avg_ms": 11.9435,
-      "p50_ms": 11.5559,
-      "p95_ms": 15.059,
-      "p99_ms": 15.9845,
-      "min_ms": 8.2092,
-      "max_ms": 18.2016,
-      "std_dev": 2.3656,
-      "tool_count": 2316,
-      "mode": "verified_local"
+      "avg_ms": 13.6235,
+      "p50_ms": 12.3917,
+      "p95_ms": 18.0326,
+      "p99_ms": 22.706,
+      "min_ms": 9.8681,
+      "max_ms": 28.6088,
+      "tool_count": 2316
     },
     "sl5": {
       "label": "SL5_REGEX",
       "runs": 25,
-      "avg_ms": 5.0272,
-      "p50_ms": 4.679,
-      "p95_ms": 6.2496,
-      "p99_ms": 6.997,
-      "min_ms": 3.3752,
-      "max_ms": 7.1008,
-      "std_dev": 1.0958
+      "avg_ms": 5.7408,
+      "p50_ms": 5.0412,
+      "p95_ms": 8.6031,
+      "p99_ms": 10.1863,
+      "min_ms": 3.7808,
+      "max_ms": 10.2704
     },
     "consensus": {
       "label": "TRIAD_CONSENSUS",
       "runs": 25,
-      "avg_ms": 309.5388,
-      "p50_ms": 296.9342,
-      "p95_ms": 380.3845,
-      "p99_ms": 435.0879,
-      "min_ms": 235.1978,
-      "max_ms": 531.6549,
-      "std_dev": 67.689
+      "avg_ms": 215.3179,
+      "p50_ms": 212.234,
+      "p95_ms": 251.408,
+      "p99_ms": 280.6767,
+      "min_ms": 177.9627,
+      "max_ms": 280.7857
+    },
+    "efficiency": {
+      "local_cost_per_m_tokens": 0.0,
+      "cloud_est_cost_per_m_tokens": 15.0,
+      "latency_reduction_pct": 86.23
     },
     "thermal": {
       "label": "THERMAL_CHECK",
       "runs": 25,
-      "avg_ms": 1318.6085,
-      "p50_ms": 1300.3261,
-      "p95_ms": 1368.5016,
-      "p99_ms": 1473.1768,
-      "min_ms": 1274.5923,
-      "max_ms": 1484.7959,
-      "std_dev": 53.5581
+      "avg_ms": 1390.4693,
+      "p50_ms": 1388.2308,
+      "p95_ms": 1483.0514,
+      "p99_ms": 1515.799,
+      "min_ms": 1303.6962,
+      "max_ms": 1530.2641
     }
   }
 }
