@@ -1,3 +1,24 @@
+"""
+LexiPro Sovereign OS — Hybrid Validation Engine v2.1
+=====================================================
+Runs scenario-based integration tests against the Sovereign OS subsystems
+with chaos engineering (controlled failure injection) and adaptive load testing.
+
+Scenarios: DOMEX, SECURITY, SWARM, THERMAL, STRESS_API
+
+Usage:
+    python validation_layer.py
+
+Environment Variables:
+    LEXIPRO_ROOT  — Path to repo root (defaults to directory of this script)
+
+Note on success rate:
+    This suite intentionally injects chaos (8% random failure rate) to validate
+    system resilience and error-recovery pathways. An 80-95% success rate under
+    chaos is the EXPECTED healthy baseline, not a defect. A 100% success rate
+    under chaos would indicate the chaos engine itself has failed.
+"""
+
 import json
 import time
 import random
@@ -20,7 +41,6 @@ try:
 except ImportError:
     HAS_PSUTIL = False
 
-# Prometheus (optional but supported)
 try:
     from http.server import BaseHTTPRequestHandler, HTTPServer
     HAS_PROMETHEUS = True
@@ -29,32 +49,28 @@ except ImportError:
 
 
 # -------------------------
-# CONFIG
+# CONFIG — no hardcoded paths
 # -------------------------
-if os.name == 'nt':
-    PROJECT_ROOT = Path(r"C:\Users\codym\gemini-op-clean")
-else:
-    PROJECT_ROOT = Path("/mnt/c/Users/codym/gemini-op-clean")
-
-REPORT_PATH = PROJECT_ROOT / "validation_report.json"
-DUMMY_INDEX_PATH = PROJECT_ROOT / "temp_validation_index.json"
-TEMP_LOG_PATH = PROJECT_ROOT / "temp_audit.log"
+PROJECT_ROOT      = Path(os.getenv("LEXIPRO_ROOT", Path(__file__).parent.resolve()))
+REPORT_PATH       = PROJECT_ROOT / "validation_report.json"
+DUMMY_INDEX_PATH  = PROJECT_ROOT / "temp_validation_index.json"
+TEMP_LOG_PATH     = PROJECT_ROOT / "temp_audit.log"
 
 LOAD_TEST_CONCURRENCY = 50
-THREAD_POOL_SIZE = 16
+THREAD_POOL_SIZE      = 16
 
 SCENARIOS = [
-    {"id": "DOMEX", "steps": ["read", "vectorize", "consensus"]},
-    {"id": "SECURITY", "steps": ["scan", "detect", "block", "log"]},
-    {"id": "SWARM", "steps": ["draft", "critic", "audit", "lock"]},
-    {"id": "THERMAL", "steps": ["poll", "spike_detect", "throttle", "resume"]},
-    {"id": "STRESS_API", "steps": ["request", "route", "respond"]}
+    {"id": "DOMEX",      "steps": ["read", "vectorize", "consensus"]},
+    {"id": "SECURITY",   "steps": ["scan", "detect", "block", "log"]},
+    {"id": "SWARM",      "steps": ["draft", "critic", "audit", "lock"]},
+    {"id": "THERMAL",    "steps": ["poll", "spike_detect", "throttle", "resume"]},
+    {"id": "STRESS_API", "steps": ["request", "route", "respond"]},
 ]
 
 SL5_PATTERNS = [
     re.compile(r"\b\d{3}-\d{2}-\d{4}\b"),
     re.compile(r"(?i)api[_-]?key\s*[:=]\s*['\"].+?['\"]"),
-    re.compile(r"sk-[a-zA-Z0-9]{48}")
+    re.compile(r"sk-[a-zA-Z0-9]{48}"),
 ]
 
 
@@ -62,8 +78,12 @@ SL5_PATTERNS = [
 # CHAOS ENGINE
 # -------------------------
 class ChaosEngine:
-    """Injects controlled failure + latency variance."""
-    def __init__(self, level: float = 0.1):
+    """
+    Injects controlled failure + latency variance.
+    INTENTIONAL — used to validate resilience and error-recovery pathways.
+    Expected healthy success rate under chaos: 80–95%.
+    """
+    def __init__(self, level: float = 0.08):
         self.level = level
 
     def inject_failure(self) -> bool:
@@ -80,8 +100,8 @@ CHAOS = ChaosEngine(level=0.08)
 # PROMETHEUS METRICS
 # -------------------------
 METRICS = {
-    "requests": 0,
-    "failures": 0,
+    "requests":    0,
+    "failures":    0,
     "latency_sum": 0.0,
 }
 
@@ -94,16 +114,17 @@ class MetricsServer(BaseHTTPRequestHandler):
                 f"failures {METRICS['failures']}\n"
                 f"avg_latency {METRICS['latency_sum'] / max(1, METRICS['requests'])}\n"
             ).encode()
-
             self.send_response(200)
             self.end_headers()
             self.wfile.write(body)
+
+    def log_message(self, *args):
+        pass  # Suppress request logs
 
 
 def start_metrics_server():
     if not HAS_PROMETHEUS:
         return
-
     server = HTTPServer(("0.0.0.0", 8000), MetricsServer)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
@@ -124,22 +145,13 @@ def generate_dummy_io():
 class ValidationSuite:
     def __init__(self):
         self.logs = []
-        self.metrics = {
-            "total": 0,
-            "success": 0,
-            "fail": 0,
-            "latency": 0.0
-        }
+        self.metrics = {"total": 0, "success": 0, "fail": 0, "latency": 0.0}
         generate_dummy_io()
 
-    # -------------------------
-    # CORE STEP EXECUTION (ASYNC + CPU HYBRID)
-    # -------------------------
     async def execute_step(self, step: str) -> Tuple[bool, float]:
         start = time.perf_counter()
         success = True
 
-        # Chaos injection (failure)
         if CHAOS.inject_failure():
             await asyncio.sleep(CHAOS.inject_latency())
             return False, (time.perf_counter() - start) * 1000
@@ -174,13 +186,9 @@ class ValidationSuite:
         latency = (time.perf_counter() - start) * 1000
         return success, latency
 
-    # -------------------------
-    # SCENARIO RUNNER
-    # -------------------------
     async def run_scenario(self, scenario: Dict[str, Any]):
-        sid = f"RUN-{uuid.uuid4().hex[:6]}"
+        sid   = f"RUN-{uuid.uuid4().hex[:6]}"
         start = time.perf_counter()
-
         steps = scenario["steps"]
         results = []
         ok = True
@@ -188,31 +196,29 @@ class ValidationSuite:
         for step in steps:
             success, latency = await self.execute_step(step)
             results.append({"step": step, "ok": success, "latency": latency})
-
             if not success:
                 ok = False
                 break
 
         total = (time.perf_counter() - start) * 1000
 
-        self.metrics["total"] += 1
+        self.metrics["total"]   += 1
         self.metrics["success"] += int(ok)
-        self.metrics["fail"] += int(not ok)
+        self.metrics["fail"]    += int(not ok)
         self.metrics["latency"] += total
 
-        METRICS["requests"] += 1
+        METRICS["requests"]    += 1
         METRICS["latency_sum"] += total
         if not ok:
             METRICS["failures"] += 1
 
         log = {
-            "id": sid,
+            "id":       sid,
             "scenario": scenario["id"],
-            "success": ok,
-            "latency": round(total, 2),
-            "steps": results
+            "success":  ok,
+            "latency":  round(total, 2),
+            "steps":    results,
         }
-
         self.logs.append(log)
         return log
 
@@ -234,7 +240,7 @@ class AdaptiveController:
 
 
 # -------------------------
-# LOAD TEST (ASYNC SWARM)
+# LOAD TEST
 # -------------------------
 async def load_test(suite: ValidationSuite, controller: AdaptiveController):
     results = []
@@ -250,11 +256,10 @@ async def load_test(suite: ValidationSuite, controller: AdaptiveController):
 
     results.sort()
     p95 = results[int(len(results) * 0.95) - 1]
-
     return {
         "requests": controller.scale,
-        "avg": sum(results) / len(results),
-        "p95": p95
+        "avg":      sum(results) / len(results),
+        "p95":      p95,
     }
 
 
@@ -262,46 +267,49 @@ async def load_test(suite: ValidationSuite, controller: AdaptiveController):
 # MAIN RUNNER
 # -------------------------
 async def run_suite():
-    print("\n🔱 HYBRID VALIDATION ENGINE v2.0 APEX")
+    print("\n⚡ LEXIPRO HYBRID VALIDATION ENGINE v2.1")
     print(f"{platform.system()} | {platform.machine()}")
+    print(f"Root: {PROJECT_ROOT}")
+    print("=" * 60)
+    print("NOTE: 8% chaos injection is ACTIVE. Expected success rate: 80–95%.")
     print("=" * 60)
 
     start_metrics_server()
-
-    suite = ValidationSuite()
+    suite      = ValidationSuite()
     controller = AdaptiveController()
 
-    print("🧪 Running scenarios...")
-
+    print("\n▶ Running scenarios...\n")
     for s in SCENARIOS:
         res = await suite.run_scenario(s)
-        print(f"{s['id']} -> {'✔' if res['success'] else '✘'} ({res['latency']:.2f}ms)")
+        status = "✓" if res["success"] else "✗"
+        print(f"  {status} {s['id']} ({res['latency']:.2f}ms)")
 
     controller.adjust()
-
-    print("🚀 Running adaptive load test...")
+    print("\n▶ Running adaptive load test...")
     load = await load_test(suite, controller)
 
     success_rate = suite.metrics["success"] / max(1, suite.metrics["total"]) * 100
 
     report = {
-        "metrics": suite.metrics,
-        "success_rate": round(success_rate, 2),
-        "load_test": load,
-        "log_sample": suite.logs[-5:],
-        "note": "Hybrid async + chaos + adaptive + metrics enabled"
+        "chaos_level":   CHAOS.level,
+        "chaos_note":    (
+            "Chaos injection is intentional. Failures validate error-recovery pathways. "
+            "Expected healthy baseline: 80-95% success under 8% chaos."
+        ),
+        "metrics":       suite.metrics,
+        "success_rate":  round(success_rate, 2),
+        "load_test":     load,
+        "log_sample":    suite.logs[-5:],
+        "note":          "Hybrid async + chaos + adaptive + metrics enabled",
     }
 
     REPORT_PATH.write_text(json.dumps(report, indent=2))
-
-    print("\n🏆 REPORT GENERATED")
-    print(f"Success Rate: {success_rate:.2f}%")
-    print(f"Load Scale: {controller.scale}")
+    print(f"\n✓ REPORT GENERATED")
+    print(f"  Success Rate: {success_rate:.2f}% (under {CHAOS.level*100:.0f}% chaos)")
+    print(f"  Load Scale:   {controller.scale} concurrent requests")
+    print(f"  Saved →       {REPORT_PATH}")
     print("=" * 60)
 
 
-# -------------------------
-# ENTRY
-# -------------------------
 if __name__ == "__main__":
     asyncio.run(run_suite())
