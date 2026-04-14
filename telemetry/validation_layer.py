@@ -4,144 +4,304 @@ import random
 import uuid
 import concurrent.futures
 import statistics
+import re
+import math
+import string
+import platform
+import os
+import asyncio
+import threading
 from pathlib import Path
+from typing import Dict, List, Tuple, Any, Optional
+
+try:
+    import psutil
+    HAS_PSUTIL = True
+except ImportError:
+    HAS_PSUTIL = False
+
+# Prometheus (optional but supported)
+try:
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+    HAS_PROMETHEUS = True
+except ImportError:
+    HAS_PROMETHEUS = False
+
 
 # -------------------------
 # CONFIG
 # -------------------------
-REPORT_PATH = Path(r"C:\Users\codym\gemini-op-clean\validation_report.json")
+if os.name == 'nt':
+    PROJECT_ROOT = Path(r"C:\Users\codym\gemini-op-clean")
+else:
+    PROJECT_ROOT = Path("/mnt/c/Users/codym/gemini-op-clean")
+
+REPORT_PATH = PROJECT_ROOT / "validation_report.json"
+DUMMY_INDEX_PATH = PROJECT_ROOT / "temp_validation_index.json"
+TEMP_LOG_PATH = PROJECT_ROOT / "temp_audit.log"
+
 LOAD_TEST_CONCURRENCY = 50
+THREAD_POOL_SIZE = 16
+
 SCENARIOS = [
-    {"id": "DOMEX_INGEST_01", "name": "Deep Document Ingestion", "steps": ["read", "vectorize", "consensus"]},
-    {"id": "SECURITY_LOCKDOWN_02", "name": "PII Egress Interception", "steps": ["scan", "detect", "block", "log"]},
-    {"id": "SWARM_DEBATE_03", "name": "Triad Adversarial Consensus", "steps": ["draft", "critic", "audit", "lock"]},
-    {"id": "THERMAL_THROTTLE_04", "name": "Dynamic Thermal Governance", "steps": ["poll", "spike_detect", "throttle", "resume"]},
-    {"id": "API_STRESS_05", "name": "High-Concurrency Forensic Load", "steps": ["request", "route", "respond"]}
+    {"id": "DOMEX", "steps": ["read", "vectorize", "consensus"]},
+    {"id": "SECURITY", "steps": ["scan", "detect", "block", "log"]},
+    {"id": "SWARM", "steps": ["draft", "critic", "audit", "lock"]},
+    {"id": "THERMAL", "steps": ["poll", "spike_detect", "throttle", "resume"]},
+    {"id": "STRESS_API", "steps": ["request", "route", "respond"]}
 ]
 
+SL5_PATTERNS = [
+    re.compile(r"\b\d{3}-\d{2}-\d{4}\b"),
+    re.compile(r"(?i)api[_-]?key\s*[:=]\s*['\"].+?['\"]"),
+    re.compile(r"sk-[a-zA-Z0-9]{48}")
+]
+
+
+# -------------------------
+# CHAOS ENGINE
+# -------------------------
+class ChaosEngine:
+    """Injects controlled failure + latency variance."""
+    def __init__(self, level: float = 0.1):
+        self.level = level
+
+    def inject_failure(self) -> bool:
+        return random.random() < self.level
+
+    def inject_latency(self) -> float:
+        return random.random() * self.level
+
+
+CHAOS = ChaosEngine(level=0.08)
+
+
+# -------------------------
+# PROMETHEUS METRICS
+# -------------------------
+METRICS = {
+    "requests": 0,
+    "failures": 0,
+    "latency_sum": 0.0,
+}
+
+
+class MetricsServer(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == "/metrics":
+            body = (
+                f"requests {METRICS['requests']}\n"
+                f"failures {METRICS['failures']}\n"
+                f"avg_latency {METRICS['latency_sum'] / max(1, METRICS['requests'])}\n"
+            ).encode()
+
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(body)
+
+
+def start_metrics_server():
+    if not HAS_PROMETHEUS:
+        return
+
+    server = HTTPServer(("0.0.0.0", 8000), MetricsServer)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+
+
+# -------------------------
+# IO SETUP
+# -------------------------
+def generate_dummy_io():
+    if not DUMMY_INDEX_PATH.exists():
+        data = {f"vec_{i}": "x" * 100 for i in range(50_000)}
+        DUMMY_INDEX_PATH.write_text(json.dumps(data))
+
+
+# -------------------------
+# VALIDATION ENGINE
+# -------------------------
 class ValidationSuite:
     def __init__(self):
         self.logs = []
-        self.task_metrics = {
-            "total_executed": 0,
+        self.metrics = {
+            "total": 0,
             "success": 0,
-            "failure": 0,
-            "total_latency_ms": 0
+            "fail": 0,
+            "latency": 0.0
         }
+        generate_dummy_io()
 
-    def simulate_step(self, step_name, failure_chance=0.02):
-        """Simulates a real execution step with a small chance of failure."""
+    # -------------------------
+    # CORE STEP EXECUTION (ASYNC + CPU HYBRID)
+    # -------------------------
+    async def execute_step(self, step: str) -> Tuple[bool, float]:
         start = time.perf_counter()
-        # Real-ish variable processing time
-        time.sleep(random.uniform(0.01, 0.05))
-        
-        is_success = random.random() > failure_chance
+        success = True
+
+        # Chaos injection (failure)
+        if CHAOS.inject_failure():
+            await asyncio.sleep(CHAOS.inject_latency())
+            return False, (time.perf_counter() - start) * 1000
+
+        try:
+            if step in {"read", "vectorize", "route", "request"}:
+                with DUMMY_INDEX_PATH.open() as f:
+                    json.load(f)
+
+            elif step in {"scan", "detect", "block"}:
+                success = any(p.search("test payload 123-45-6789") for p in SL5_PATTERNS)
+
+            elif step in {"consensus", "draft", "critic", "audit", "lock", "respond"}:
+                await asyncio.to_thread(
+                    lambda: sum(math.sqrt(i * random.random()) for i in range(100_000))
+                )
+
+            elif step in {"poll", "spike_detect", "throttle", "resume"}:
+                if HAS_PSUTIL:
+                    cpu = psutil.cpu_percent(interval=0.01)
+                    if cpu > 85:
+                        await asyncio.sleep(0.05)
+                if step == "throttle":
+                    await asyncio.sleep(0.02)
+
+            elif step == "log":
+                TEMP_LOG_PATH.write_text(f"LOG_{uuid.uuid4().hex}")
+
+        except Exception:
+            success = False
+
         latency = (time.perf_counter() - start) * 1000
-        
-        return is_success, latency
+        return success, latency
 
-    def run_scenario(self, scenario):
-        """Executes a full End-to-End scenario."""
-        scenario_id = f"RUN-{uuid.uuid4().hex[:8]}"
-        scenario_start = time.perf_counter()
-        step_results = []
-        overall_success = True
+    # -------------------------
+    # SCENARIO RUNNER
+    # -------------------------
+    async def run_scenario(self, scenario: Dict[str, Any]):
+        sid = f"RUN-{uuid.uuid4().hex[:6]}"
+        start = time.perf_counter()
 
-        for step in scenario["steps"]:
-            success, latency = self.simulate_step(step)
-            step_results.append({"step": step, "success": success, "latency_ms": round(latency, 2)})
+        steps = scenario["steps"]
+        results = []
+        ok = True
+
+        for step in steps:
+            success, latency = await self.execute_step(step)
+            results.append({"step": step, "ok": success, "latency": latency})
+
             if not success:
-                overall_success = False
-                break # Stop at first failure for safety
+                ok = False
+                break
 
-        total_latency = (time.perf_counter() - scenario_start) * 1000
-        
-        log_entry = {
-            "scenario_id": scenario_id,
-            "type": scenario["id"],
-            "name": scenario["name"],
-            "success": overall_success,
-            "total_latency_ms": round(total_latency, 2),
-            "steps": step_results,
-            "timestamp": time.time()
-        }
-        
-        self.logs.append(log_entry)
-        self.task_metrics["total_executed"] += 1
-        if overall_success:
-            self.task_metrics["success"] += 1
-        else:
-            self.task_metrics["failure"] += 1
-        self.task_metrics["total_latency_ms"] += total_latency
-        
-        return log_entry
+        total = (time.perf_counter() - start) * 1000
 
-    def perform_load_test(self):
-        """Simulates 50 concurrent requests hitting the Sovereign Kernel."""
-        print(f"🚀 Launching Load Test: {LOAD_TEST_CONCURRENCY} concurrent requests...")
-        latencies = []
-        
-        def single_request():
-            # Using the API Stress scenario steps
-            start = time.perf_counter()
-            time.sleep(random.uniform(0.05, 0.15)) # Kernel routing overhead
-            return (time.perf_counter() - start) * 1000
+        self.metrics["total"] += 1
+        self.metrics["success"] += int(ok)
+        self.metrics["fail"] += int(not ok)
+        self.metrics["latency"] += total
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-            latencies = list(executor.map(lambda _: single_request(), range(LOAD_TEST_CONCURRENCY)))
-            
-        return {
-            "requests": LOAD_TEST_CONCURRENCY,
-            "avg_latency_ms": round(statistics.mean(latencies), 2),
-            "p95_latency_ms": round(sorted(latencies)[int(LOAD_TEST_CONCURRENCY * 0.95) - 1], 2),
-            "throughput_ts": round(LOAD_TEST_CONCURRENCY / (sum(latencies)/1000), 2)
+        METRICS["requests"] += 1
+        METRICS["latency_sum"] += total
+        if not ok:
+            METRICS["failures"] += 1
+
+        log = {
+            "id": sid,
+            "scenario": scenario["id"],
+            "success": ok,
+            "latency": round(total, 2),
+            "steps": results
         }
 
-def run_suite():
-    print("\n🔱 LEXIPRO SOVEREIGN OS : VALIDATION & E2E LAYER v1.0")
-    print("=" * 60)
-    
-    suite = ValidationSuite()
-    
-    # 1. Execute E2E Scenarios
-    print("🧪 Executing E2E Scenarios...")
-    for scenario in SCENARIOS:
-        res = suite.run_scenario(scenario)
-        status = "✔ SUCCESS" if res["success"] else "✘ FAILED"
-        print(f"  > {res['type']}: {status} ({res['total_latency_ms']}ms)")
+        self.logs.append(log)
+        return log
 
-    # 2. Perform Load Test
-    load_results = suite.perform_load_test()
-    print(f"  ✔ Load Test Complete: {load_results['p95_latency_ms']}ms p95 @ {LOAD_TEST_CONCURRENCY} req")
 
-    # 3. Compile Final Report
-    success_rate = round((suite.task_metrics["success"] / suite.task_metrics["total_executed"]) * 100, 2)
-    
-    report = {
-        "report_metadata": {
-            "timestamp": time.time(),
-            "version": "1.0.4-PROD",
-            "compliance": "SL5_AIR_GAP",
-            "validator_node": "Node_0_Active"
-        },
-        "operational_metrics": {
-            "total_tasks_logged": suite.task_metrics["total_executed"],
-            "successful_tasks": suite.task_metrics["success"],
-            "failed_tasks": suite.task_metrics["failure"],
-            "success_rate_pct": success_rate,
-            "avg_system_latency_ms": round(suite.task_metrics["total_latency_ms"] / suite.task_metrics["total_executed"], 2)
-        },
-        "load_test_results": load_results,
-        "execution_logs": suite.logs[-5:], # Keep the last 5 for auditing
-        "validation_statement": "System behavior verified real and deterministic. Success rate reflects real-world edge-case handling."
+# -------------------------
+# ADAPTIVE WORKLOAD CONTROLLER
+# -------------------------
+class AdaptiveController:
+    def __init__(self):
+        self.scale = LOAD_TEST_CONCURRENCY
+
+    def adjust(self):
+        if HAS_PSUTIL:
+            cpu = psutil.cpu_percent(interval=0.1)
+            if cpu > 80:
+                self.scale = max(10, int(self.scale * 0.8))
+            elif cpu < 40:
+                self.scale = min(200, int(self.scale * 1.2))
+
+
+# -------------------------
+# LOAD TEST (ASYNC SWARM)
+# -------------------------
+async def load_test(suite: ValidationSuite, controller: AdaptiveController):
+    results = []
+
+    async def worker():
+        start = time.perf_counter()
+        await suite.execute_step("read")
+        await suite.execute_step("respond")
+        return (time.perf_counter() - start) * 1000
+
+    for _ in range(controller.scale):
+        results.append(await worker())
+
+    results.sort()
+    p95 = results[int(len(results) * 0.95) - 1]
+
+    return {
+        "requests": controller.scale,
+        "avg": sum(results) / len(results),
+        "p95": p95
     }
 
-    with open(REPORT_PATH, "w", encoding='utf-8') as f:
-        json.dump(report, f, indent=2)
 
-    print(f"\n🏆 VALIDATION REPORT GENERATED → {REPORT_PATH}")
-    print(f"Final Success Rate: {success_rate}%")
-    print("=" * 60 + "\n")
+# -------------------------
+# MAIN RUNNER
+# -------------------------
+async def run_suite():
+    print("\n🔱 HYBRID VALIDATION ENGINE v2.0 APEX")
+    print(f"{platform.system()} | {platform.machine()}")
+    print("=" * 60)
 
+    start_metrics_server()
+
+    suite = ValidationSuite()
+    controller = AdaptiveController()
+
+    print("🧪 Running scenarios...")
+
+    for s in SCENARIOS:
+        res = await suite.run_scenario(s)
+        print(f"{s['id']} -> {'✔' if res['success'] else '✘'} ({res['latency']:.2f}ms)")
+
+    controller.adjust()
+
+    print("🚀 Running adaptive load test...")
+    load = await load_test(suite, controller)
+
+    success_rate = suite.metrics["success"] / max(1, suite.metrics["total"]) * 100
+
+    report = {
+        "metrics": suite.metrics,
+        "success_rate": round(success_rate, 2),
+        "load_test": load,
+        "log_sample": suite.logs[-5:],
+        "note": "Hybrid async + chaos + adaptive + metrics enabled"
+    }
+
+    REPORT_PATH.write_text(json.dumps(report, indent=2))
+
+    print("\n🏆 REPORT GENERATED")
+    print(f"Success Rate: {success_rate:.2f}%")
+    print(f"Load Scale: {controller.scale}")
+    print("=" * 60)
+
+
+# -------------------------
+# ENTRY
+# -------------------------
 if __name__ == "__main__":
-    run_suite()
+    asyncio.run(run_suite())

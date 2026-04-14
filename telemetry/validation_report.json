@@ -1,164 +1,147 @@
 {
-  "report_metadata": {
-    "timestamp": 1776134128.1587274,
-    "version": "1.0.4-PROD",
-    "compliance": "SL5_AIR_GAP",
-    "validator_node": "Node_0_Active"
+  "metrics": {
+    "total": 5,
+    "success": 4,
+    "fail": 1,
+    "latency": 765.6939999960741
   },
-  "operational_metrics": {
-    "total_tasks_logged": 5,
-    "successful_tasks": 5,
-    "failed_tasks": 0,
-    "success_rate_pct": 100.0,
-    "avg_system_latency_ms": 283.59
+  "success_rate": 80.0,
+  "load_test": {
+    "requests": 60,
+    "avg": 130.04875666653484,
+    "p95": 209.21269999962533
   },
-  "load_test_results": {
-    "requests": 50,
-    "avg_latency_ms": 130.03,
-    "p95_latency_ms": 184.22,
-    "throughput_ts": 7.69
-  },
-  "execution_logs": [
+  "log_sample": [
     {
-      "scenario_id": "RUN-a49cb8c8",
-      "type": "DOMEX_INGEST_01",
-      "name": "Deep Document Ingestion",
-      "success": true,
-      "total_latency_ms": 239.1,
+      "id": "RUN-1c89bc",
+      "scenario": "DOMEX",
+      "success": false,
+      "latency": 201.89,
       "steps": [
         {
           "step": "read",
-          "success": true,
-          "latency_ms": 68.02
+          "ok": true,
+          "latency": 103.82829999980459
         },
         {
           "step": "vectorize",
-          "success": true,
-          "latency_ms": 54.09
+          "ok": true,
+          "latency": 90.89510000012524
         },
         {
           "step": "consensus",
-          "success": true,
-          "latency_ms": 116.87
+          "ok": false,
+          "latency": 7.106500001100358
         }
-      ],
-      "timestamp": 1776134125.6281564
+      ]
     },
     {
-      "scenario_id": "RUN-f0856638",
-      "type": "SECURITY_LOCKDOWN_02",
-      "name": "PII Egress Interception",
+      "id": "RUN-25d7cc",
+      "scenario": "SECURITY",
       "success": true,
-      "total_latency_ms": 339.82,
+      "latency": 2.9,
       "steps": [
         {
           "step": "scan",
-          "success": true,
-          "latency_ms": 55.0
+          "ok": true,
+          "latency": 0.06829999983892776
         },
         {
           "step": "detect",
-          "success": true,
-          "latency_ms": 105.72
+          "ok": true,
+          "latency": 0.010300000212737359
         },
         {
           "step": "block",
-          "success": true,
-          "latency_ms": 108.07
+          "ok": true,
+          "latency": 0.005599998985417187
         },
         {
           "step": "log",
-          "success": true,
-          "latency_ms": 70.9
+          "ok": true,
+          "latency": 2.780700000585057
         }
-      ],
-      "timestamp": 1776134126.0069795
+      ]
     },
     {
-      "scenario_id": "RUN-5086c495",
-      "type": "SWARM_DEBATE_03",
-      "name": "Triad Adversarial Consensus",
+      "id": "RUN-852b65",
+      "scenario": "SWARM",
       "success": true,
-      "total_latency_ms": 278.29,
+      "latency": 147.5,
       "steps": [
         {
           "step": "draft",
-          "success": true,
-          "latency_ms": 35.76
+          "ok": true,
+          "latency": 49.70270000012533
         },
         {
           "step": "critic",
-          "success": true,
-          "latency_ms": 70.85
+          "ok": true,
+          "latency": 31.093300000065938
         },
         {
           "step": "audit",
-          "success": true,
-          "latency_ms": 55.08
+          "ok": true,
+          "latency": 32.529000000067754
         },
         {
           "step": "lock",
-          "success": true,
-          "latency_ms": 116.49
+          "ok": true,
+          "latency": 34.13950000140176
         }
-      ],
-      "timestamp": 1776134126.3174345
+      ]
     },
     {
-      "scenario_id": "RUN-60d7eb66",
-      "type": "THERMAL_THROTTLE_04",
-      "name": "Dynamic Thermal Governance",
+      "id": "RUN-b0a8ce",
+      "scenario": "THERMAL",
       "success": true,
-      "total_latency_ms": 233.85,
+      "latency": 74.73,
       "steps": [
         {
           "step": "poll",
-          "success": true,
-          "latency_ms": 71.51
+          "ok": true,
+          "latency": 11.314600000332575
         },
         {
           "step": "spike_detect",
-          "success": true,
-          "latency_ms": 45.39
+          "ok": true,
+          "latency": 10.778900001241709
         },
         {
           "step": "throttle",
-          "success": true,
-          "latency_ms": 89.36
+          "ok": true,
+          "latency": 41.27940000034869
         },
         {
           "step": "resume",
-          "success": true,
-          "latency_ms": 27.42
+          "ok": true,
+          "latency": 11.310699999739882
         }
-      ],
-      "timestamp": 1776134126.568879
+      ]
     },
     {
-      "scenario_id": "RUN-e2c64b96",
-      "type": "API_STRESS_05",
-      "name": "High-Concurrency Forensic Load",
+      "id": "RUN-2504ef",
+      "scenario": "STRESS_API",
       "success": true,
-      "total_latency_ms": 326.87,
+      "latency": 338.67,
       "steps": [
         {
           "step": "request",
-          "success": true,
-          "latency_ms": 77.83
+          "ok": true,
+          "latency": 101.03669999989506
         },
         {
           "step": "route",
-          "success": true,
-          "latency_ms": 204.4
+          "ok": true,
+          "latency": 198.1383000002097
         },
         {
           "step": "respond",
-          "success": true,
-          "latency_ms": 44.55
+          "ok": true,
+          "latency": 39.436399998521665
         }
-      ],
-      "timestamp": 1776134127.0210462
+      ]
     }
   ],
-  "validation_statement": "System behavior verified real and deterministic. Success rate reflects real-world edge-case handling."
+  "note": "Hybrid async + chaos + adaptive + metrics enabled"
 }
