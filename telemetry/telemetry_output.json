@@ -1,57 +1,73 @@
 {
-  "_metadata": {
-    "timestamp": 1776133088.3199062,
-    "node_arch": "AMD64",
-    "os_env": "Windows",
-    "benchmark_runs": 25,
-    "cloud_baseline_rtt_ms": 98.92
+  "_meta": {
+    "timestamp": 1776133329.6285067,
+    "system": "Windows",
+    "arch": "AMD64",
+    "runs": 30,
+    "cloud_market_average_ms": 62.53,
+    "cloud_stack_details": {
+      "Anthropic": 75.93,
+      "OpenAI": 38.26,
+      "Groq": 15.81,
+      "DeepSeek": 104.19,
+      "Google_AI": 78.48
+    }
   },
-  "telemetry": {
+  "tests": {
     "omega": {
-      "label": "OMEGA_IO",
-      "runs": 25,
-      "avg_ms": 13.6235,
-      "p50_ms": 12.3917,
-      "p95_ms": 18.0326,
-      "p99_ms": 22.706,
-      "min_ms": 9.8681,
-      "max_ms": 28.6088,
-      "tool_count": 2316
+      "label": "OMEGA",
+      "runs": 30,
+      "errors": 0,
+      "avg_ms": 12.2807,
+      "p50_ms": 11.4197,
+      "p95_ms": 16.5316,
+      "p99_ms": 18.291,
+      "min_ms": 7.972,
+      "max_ms": 19.2956,
+      "std_dev": 2.9311,
+      "tool_count": 2316,
+      "mode": "verified_local"
     },
     "sl5": {
-      "label": "SL5_REGEX",
-      "runs": 25,
-      "avg_ms": 5.7408,
-      "p50_ms": 5.0412,
-      "p95_ms": 8.6031,
-      "p99_ms": 10.1863,
-      "min_ms": 3.7808,
-      "max_ms": 10.2704
+      "label": "SL5_SCAN",
+      "runs": 30,
+      "errors": 0,
+      "avg_ms": 9.6991,
+      "p50_ms": 9.6453,
+      "p95_ms": 12.6048,
+      "p99_ms": 12.6569,
+      "min_ms": 6.6665,
+      "max_ms": 13.266,
+      "std_dev": 1.8372
     },
     "consensus": {
-      "label": "TRIAD_CONSENSUS",
-      "runs": 25,
-      "avg_ms": 215.3179,
-      "p50_ms": 212.234,
-      "p95_ms": 251.408,
-      "p99_ms": 280.6767,
-      "min_ms": 177.9627,
-      "max_ms": 280.7857
-    },
-    "efficiency": {
-      "local_cost_per_m_tokens": 0.0,
-      "cloud_est_cost_per_m_tokens": 15.0,
-      "latency_reduction_pct": 86.23
+      "label": "CONSENSUS",
+      "runs": 30,
+      "errors": 0,
+      "avg_ms": 209.4228,
+      "p50_ms": 213.1177,
+      "p95_ms": 233.801,
+      "p99_ms": 235.8255,
+      "min_ms": 160.9122,
+      "max_ms": 246.3538,
+      "std_dev": 19.9356
     },
     "thermal": {
-      "label": "THERMAL_CHECK",
-      "runs": 25,
-      "avg_ms": 1390.4693,
-      "p50_ms": 1388.2308,
-      "p95_ms": 1483.0514,
-      "p99_ms": 1515.799,
-      "min_ms": 1303.6962,
-      "max_ms": 1530.2641
+      "label": "THERMAL",
+      "runs": 30,
+      "errors": 0,
+      "avg_ms": 1411.8941,
+      "p50_ms": 1385.9689,
+      "p95_ms": 1526.9975,
+      "p99_ms": 1571.1067,
+      "min_ms": 1325.4723,
+      "max_ms": 1689.2207,
+      "std_dev": 81.0014
     }
+  },
+  "insights": {
+    "sovereign_efficiency_gain_pct": 80.36,
+    "stability_score": 97.07,
+    "local_priority_index": 5.09
   }
 }
