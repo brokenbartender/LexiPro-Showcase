@@ -46,10 +46,10 @@ To maintain transparency without sacrificing the integrity of the air-gap, we ru
 
 | System Component | Metric | Result | Description |
 | :--- | :--- | :--- | :--- |
-| **OMEGA Engine** | Tool Retrieval Latency | **11.60 ms** (p95) | Time to parse and route logic across 2,316 indexed capabilities. |
-| **Hestia Egress Guard** | PII Sanitization | **0.004 ms** (p95) | Overhead latency for the Zero-Trust egress pipeline to intercept simulated SSNs/Keys. |
-| **Serial Swarm** | Triad Consensus Sync | **152.32 ms** (p95) | Time required to route and lock state across 3 concurrent adversarial agents. |
-| **Thermal Governor** | Throttle Reaction | **0.0004 ms** | System reaction time to simulated Δ ≥ 2°C/s thermal spikes to initiate agent throttling. |
+| **OMEGA Engine** | Tool Retrieval Latency | **15.06 ms** (p95) | Time to parse and route logic across 2,316 indexed capabilities (verified local ingest). |
+| **Hestia Egress Guard** | PII Sanitization | **6.25 ms** (p95) | Overhead latency for the Zero-Trust egress pipeline to intercept SSNs/Keys across a 20k word payload. |
+| **Serial Swarm** | Triad Consensus Sync | **380.38 ms** (p95) | Time required to route and lock state across 3 concurrent adversarial agents (actual multi-core hash load). |
+| **Thermal Governor** | Throttle Reaction | **1368.50 ms** | System reaction time via actual WMI hardware metrics polling to initiate agent throttling. |
 
 > *Telemetry data was verified and recorded automatically via the run_tests.py artifact.*
 
@@ -80,3 +80,4 @@ Sovereign OS is strategically positioned for growth across elite enterprise ecos
 ## 🔐 Contact & Access
 Full SL5 source access, integration blueprints, and API funding inquiries are available strictly by request.
 **Contact:** admin@lexipro.online
+

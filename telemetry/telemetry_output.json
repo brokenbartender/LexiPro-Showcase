@@ -1,6 +1,6 @@
 {
   "_metadata": {
-    "timestamp": 1776129706.7723234,
+    "timestamp": 1776132837.2068567,
     "node_arch": "AMD64",
     "os_env": "Windows",
     "benchmark_runs": 25
@@ -9,48 +9,48 @@
     "omega": {
       "label": "OMEGA_IO",
       "runs": 25,
-      "avg_ms": 8.6078,
-      "p50_ms": 8.5777,
-      "p95_ms": 11.6023,
-      "p99_ms": 11.6877,
-      "min_ms": 5.9811,
-      "max_ms": 12.4706,
-      "std_dev": 1.9192,
+      "avg_ms": 11.9435,
+      "p50_ms": 11.5559,
+      "p95_ms": 15.059,
+      "p99_ms": 15.9845,
+      "min_ms": 8.2092,
+      "max_ms": 18.2016,
+      "std_dev": 2.3656,
       "tool_count": 2316,
       "mode": "verified_local"
     },
     "sl5": {
       "label": "SL5_REGEX",
       "runs": 25,
-      "avg_ms": 0.0042,
-      "p50_ms": 0.0029,
-      "p95_ms": 0.0046,
-      "p99_ms": 0.005,
-      "min_ms": 0.0027,
-      "max_ms": 0.031,
-      "std_dev": 0.0056
+      "avg_ms": 5.0272,
+      "p50_ms": 4.679,
+      "p95_ms": 6.2496,
+      "p99_ms": 6.997,
+      "min_ms": 3.3752,
+      "max_ms": 7.1008,
+      "std_dev": 1.0958
     },
     "consensus": {
       "label": "TRIAD_CONSENSUS",
       "runs": 25,
-      "avg_ms": 152.1786,
-      "p50_ms": 151.7372,
-      "p95_ms": 152.3213,
-      "p99_ms": 153.0455,
-      "min_ms": 151.2216,
-      "max_ms": 162.3346,
-      "std_dev": 2.154
+      "avg_ms": 309.5388,
+      "p50_ms": 296.9342,
+      "p95_ms": 380.3845,
+      "p99_ms": 435.0879,
+      "min_ms": 235.1978,
+      "max_ms": 531.6549,
+      "std_dev": 67.689
     },
     "thermal": {
       "label": "THERMAL_CHECK",
       "runs": 25,
-      "avg_ms": 0.0004,
-      "p50_ms": 0.0003,
-      "p95_ms": 0.0005,
-      "p99_ms": 0.0014,
-      "min_ms": 0.0002,
-      "max_ms": 0.002,
-      "std_dev": 0.0004
+      "avg_ms": 1318.6085,
+      "p50_ms": 1300.3261,
+      "p95_ms": 1368.5016,
+      "p99_ms": 1473.1768,
+      "min_ms": 1274.5923,
+      "max_ms": 1484.7959,
+      "std_dev": 53.5581
     }
   }
 }
