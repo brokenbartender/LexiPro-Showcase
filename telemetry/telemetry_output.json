@@ -1,0 +1,56 @@
+{
+  "_metadata": {
+    "timestamp": 1776129706.7723234,
+    "node_arch": "AMD64",
+    "os_env": "Windows",
+    "benchmark_runs": 25
+  },
+  "telemetry": {
+    "omega": {
+      "label": "OMEGA_IO",
+      "runs": 25,
+      "avg_ms": 8.6078,
+      "p50_ms": 8.5777,
+      "p95_ms": 11.6023,
+      "p99_ms": 11.6877,
+      "min_ms": 5.9811,
+      "max_ms": 12.4706,
+      "std_dev": 1.9192,
+      "tool_count": 2316,
+      "mode": "verified_local"
+    },
+    "sl5": {
+      "label": "SL5_REGEX",
+      "runs": 25,
+      "avg_ms": 0.0042,
+      "p50_ms": 0.0029,
+      "p95_ms": 0.0046,
+      "p99_ms": 0.005,
+      "min_ms": 0.0027,
+      "max_ms": 0.031,
+      "std_dev": 0.0056
+    },
+    "consensus": {
+      "label": "TRIAD_CONSENSUS",
+      "runs": 25,
+      "avg_ms": 152.1786,
+      "p50_ms": 151.7372,
+      "p95_ms": 152.3213,
+      "p99_ms": 153.0455,
+      "min_ms": 151.2216,
+      "max_ms": 162.3346,
+      "std_dev": 2.154
+    },
+    "thermal": {
+      "label": "THERMAL_CHECK",
+      "runs": 25,
+      "avg_ms": 0.0004,
+      "p50_ms": 0.0003,
+      "p95_ms": 0.0005,
+      "p99_ms": 0.0014,
+      "min_ms": 0.0002,
+      "max_ms": 0.002,
+      "std_dev": 0.0004
+    }
+  }
+}
