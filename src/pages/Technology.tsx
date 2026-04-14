@@ -1,5 +1,6 @@
-import { motion } from "motion/react";
-import { Cpu, Shield, Zap, Thermometer, Server, Database, GitMerge, Lock } from "lucide-react";
+﻿import { motion } from "motion/react";
+import { Cpu, Shield, Zap, Lock, Database, GitMerge, Server } from "lucide-react";
+import telemetryData from '../../telemetry/telemetry_output.json';
 
 const STACK_LAYERS = [
   {
@@ -19,9 +20,9 @@ const STACK_LAYERS = [
     icon: Lock,
     color: "secondary",
     items: [
-      { label: "Air-Gapped Execution", desc: "Inference is isolated from all network interfaces at the kernel level" },
-      { label: "Zero-Knowledge File Bus", desc: "Cross-agent state sync with hardware-bound AES-256-GCM encryption" },
-      { label: "SL5 Compliance Layer", desc: "Mandatory data sovereignty mandates enforced before any agent runs" },
+      { label: "Air-Gapped Execution", desc: "Inference is isolated from all network interfaces at the kernel level" }, 
+      { label: "Zero-Knowledge File Bus", desc: "Cross-agent state sync with hardware-bound AES-256-GCM encryption" },  
+      { label: "SL5 Compliance Layer", desc: "Mandatory data sovereignty mandates enforced before any agent runs" },    
     ],
   },
   {
@@ -31,8 +32,8 @@ const STACK_LAYERS = [
     color: "primary",
     items: [
       { label: "3-Layer Ensemble Retrieval", desc: "Semantic, keyword, and graph-based retrieval over 2,316 indexed capabilities" },
-      { label: "11.88ms avg retrieval", desc: "p95: 15.5ms — sub-20ms tool routing enables real-time agent reconfiguration" },
-      { label: "Edge-Native RAG", desc: "Qdrant vector DB running locally — no Pinecone cloud calls in SL5 mode" },
+      { label: `${telemetryData.tests.omega.avg_ms.toFixed(2)}ms avg retrieval`, desc: `p95: ${telemetryData.tests.omega.p95_ms.toFixed(2)}ms — sub-20ms tool routing enables real-time agent reconfiguration` },
+      { label: "Edge-Native RAG", desc: "Qdrant vector DB running locally — no Pinecone cloud calls in SL5 mode" },   
     ],
   },
   {
@@ -52,7 +53,7 @@ const STACK_LAYERS = [
     icon: Shield,
     color: "primary",
     items: [
-      { label: "PII Sanitization", desc: "SSN, credential, and API key detection across DOMEX-scale payloads at 8.79ms p95" },
+      { label: "PII Sanitization", desc: `SSN, credential, and API key detection across DOMEX-scale payloads at ${telemetryData.tests.sl5.p95_ms.toFixed(2)}ms p95` },
       { label: "Mandatory Egress Gate", desc: "All outbound requests are blocked unless explicitly approved and sanitized" },
       { label: "Zero-Trust by Default", desc: "L_egress = 0.00ms for all internal workflows — cloud access is opt-in, never opt-out" },
     ],
@@ -60,10 +61,10 @@ const STACK_LAYERS = [
 ];
 
 const METRICS = [
-  { label: "Tool Retrieval (p95)", value: "15.5ms", sub: "OMEGA Engine v8", color: "text-primary" },
-  { label: "PII Scan (p95)", value: "10.6ms", sub: "Hestia Egress Guard", color: "text-secondary" },
-  { label: "Triad Consensus (p95)", value: "231ms", sub: "Serial Swarm — 3 agents", color: "text-primary" },
-  { label: "Thermal React (p95)", value: "15.8ms", sub: "Hardware Governor", color: "text-secondary" },
+  { label: "Tool Retrieval (p95)", value: `${telemetryData.tests.omega.p95_ms.toFixed(1)}ms`, sub: "OMEGA Engine v8", color: "text-primary" },
+  { label: "PII Scan (p95)", value: `${telemetryData.tests.sl5.p95_ms.toFixed(1)}ms`, sub: "Hestia Egress Guard", color: "text-secondary" },
+  { label: "Triad Consensus (p95)", value: `${telemetryData.tests.hybrid_consensus.p95_ms.toFixed(0)}ms`, sub: "Serial Swarm — 3 agents", color: "text-primary" },
+  { label: "Thermal React (p95)", value: `${telemetryData.tests.thermal.p95_ms.toFixed(1)}ms`, sub: "Hardware Governor", color: "text-secondary" },
 ];
 
 export default function Technology() {
@@ -127,7 +128,7 @@ export default function Technology() {
                       <Icon className={`w-6 h-6 ${iconColor}`} />
                     </div>
                     <div>
-                      <div className={`font-mono text-[10px] px-2 py-0.5 rounded ${badgeColor} inline-block mb-1`}>
+                      <div className={`font-mono text-[10px] px-2 py-0.5 rounded ${badgeColor} inline-block mb-1`}>     
                         {layer.layer}
                       </div>
                       <div className="text-white font-bold uppercase text-sm tracking-wide">{layer.name}</div>

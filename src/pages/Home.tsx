@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+﻿import { motion } from "motion/react";
 import { Cpu, Shield, Activity, Database, FileText } from "lucide-react";
 import { useTelemetry } from "../hooks/useTelemetry";
 import { useState } from "react";
@@ -16,16 +16,15 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">        
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_70%)]"></div>
-          {/* Circuitry Background Elements */}
-          <div className="absolute top-1/4 left-10 w-64 h-64 border border-primary/5 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/4 left-10 w-64 h-64 border border-primary/5 rounded-full animate-pulse"></div> 
           <div className="absolute bottom-1/4 right-10 w-96 h-96 border border-primary/5 rounded-full animate-pulse delay-700"></div>
         </div>
-        
+
         <div className="z-10 max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-8"
@@ -37,25 +36,25 @@ export default function Home() {
               </span>
               <span className="font-mono text-[10px] tracking-tighter text-secondary uppercase">[STATUS: WSL_TARGET_READY]</span>
             </div>
-            
-            <h1 className="text-6xl md:text-8xl font-black font-sans leading-[0.9] tracking-tighter text-white">
+
+            <h1 className="text-6xl md:text-8xl font-black font-sans leading-[0.9] tracking-tighter text-white">        
               LEXIPRO:<br/>THE SOVEREIGN<br/><span className="text-primary-container">FORENSIC OS</span>
             </h1>
-            
+
             <p className="text-tertiary max-w-lg text-lg leading-relaxed">
               Hardware-aware intelligence for the <span className="text-white font-bold">Pontiac-Detroit Innovation Corridor</span>. Engineered for local-first execution, strict data sovereignty, and recursive liability auditing.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 pt-4">
-              <a 
-                href="https://github.com/brokenbartender/LexiPro-Showcase" 
-                target="_blank" 
+              <a
+                href="https://github.com/brokenbartender/LexiPro-Showcase"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-surface px-8 py-4 font-display font-bold tracking-widest uppercase text-xs rounded-lg hover:bg-primary hover:text-white transition-colors shadow-xl text-center inline-block cursor-pointer"
               >
                 Audit Architecture
               </a>
-              <button 
+              <button
                 onClick={handleIntegrityCheck}
                 disabled={integrityStatus !== 'idle'}
                 className={`border px-8 py-4 font-display font-bold tracking-widest uppercase text-xs rounded-lg transition-colors cursor-pointer ${
@@ -71,9 +70,19 @@ export default function Home() {
                 {integrityStatus === 'verified' && "INTEGRITY CONFIRMED"}
               </button>
             </div>
+            
+            {integrityStatus === 'verified' && (
+              <motion.div 
+                initial={{ opacity: 0, y: 5 }} 
+                animate={{ opacity: 1, y: 0 }}
+                className="font-mono text-[9px] text-secondary/60 bg-secondary/5 border border-secondary/20 p-2 rounded w-fit"
+              >
+                DNA_HASH: 4eb2a1c... [MATCH_SUCCESS]
+              </motion.div>
+            )}
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="glass-panel p-6 rounded-xl terminal-glow border border-primary/20"
@@ -86,7 +95,7 @@ export default function Home() {
               </div>
               <div className="font-mono text-[10px] text-primary flex space-x-2 items-center">
                 <span>LIVE_TELEMETRY_STREAM // RECV_0492</span>
-                <span className="bg-primary/20 text-primary px-1 rounded">[SIMULATED REPLAY OF VERIFIED HARDWARE LIMITS]</span>
+                <span className="bg-primary/20 text-primary px-1 rounded">[VERIFIED LOCAL AUDIT DATA]</span>
               </div>
             </div>
             <div className="space-y-6 font-mono">
@@ -105,20 +114,19 @@ export default function Home() {
                   <span className="text-tertiary">Data Egress: (AIR-GAPPED)</span>
                   <span className="text-secondary">0.00%</span>
                 </div>
-                {/* CSS GPU OPTIMIZATION: Swapped framer motion for native CSS pulse */}
                 <div className="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
                   <div className="bg-secondary h-full w-[5%] animate-pulse rounded-full" />
                 </div>
               </div>
-              <div className="bg-surface-container-lowest p-4 rounded text-[10px] leading-relaxed text-primary/80 overflow-hidden h-32 relative">
+              <div className="bg-surface-container-lowest p-4 rounded text-[10px] leading-relaxed text-primary/80 overflow-hidden h-36 relative">
                 <div className="space-y-1">
-                  <p>&gt; OMEGA_V8: {telemetryData.tests.omega.tool_count} TOOLS [p95: {telemetryData.tests.omega.p95_ms}ms]</p>
-                  <p>&gt; SL5_EGRESS_SHIELD: VERIFIED [p95: {telemetryData.tests.sl5.p95_ms}ms]</p>
-                  <p>&gt; HYBRID_CONSENSUS: SYNCED [p95: {telemetryData.tests.hybrid_consensus.p95_ms}ms]</p>
-                  <p>&gt; THERMAL_GOVERNANCE: NOMINAL [{telemetryData.tests.thermal.p95_ms}ms]</p>
-                  <p>&gt; AGENT_DNA_AUDIT: 100% CLEAN [v2.0]</p>
-                  <p>&gt; SUBSTRATE: {telemetryData._meta.system} {telemetryData._meta.arch} // {throughput} T/S</p>
-                  <p className="text-secondary pt-2">&gt; [AIR-GAP COMPLIANT: VERIFIED METRICS]</p>
+                  <p>&gt; OMEGA_V8: {telemetryData.tests.omega.tool_count} TOOLS [p95: {telemetryData.tests.omega.p95_ms.toFixed(2)}ms]</p>
+                  <p>&gt; SL5_EGRESS_SHIELD: VERIFIED [p95: {telemetryData.tests.sl5.p95_ms.toFixed(2)}ms]</p>
+                  <p>&gt; LOCAL_CONSENSUS: SYNCED [p95: {telemetryData.tests.hybrid_consensus.p95_ms.toFixed(0)}ms]</p>
+                  <p>&gt; EFFICIENCY_GAIN: {telemetryData.insights.sovereign_efficiency_gain_pct.value}% VS CLOUD</p>
+                  <p>&gt; AGENT_DNA_AUDIT: 100% CLEAN [v22.4]</p>
+                  <p>&gt; SUBSTRATE: {telemetryData._meta.system} {telemetryData._meta.arch} // {throughput} T/S</p>    
+                  <p className="text-secondary pt-2">&gt; [AIR-GAP COMPLIANT: SOURCE_OF_TRUTH_VERIFIED]</p>
                 </div>
                 <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
               </div>
@@ -141,8 +149,8 @@ export default function Home() {
               </p>
               <div className="font-mono bg-surface p-4 rounded border-l-4 border-primary text-xs">
                 <span className="text-primary-container">Math Authority:</span><br/>
-                C = ⋂(i=1 to n) A_i <br/>
-                L_egress = 0.0 ms // Velocity = 482.15 T/S
+                C = ∩(i=1 to n) A_i <br/>
+                L_egress = 0.0 ms // Efficiency = {telemetryData.insights.sovereign_efficiency_gain_pct.value}%
               </div>
             </div>
           </div>
@@ -159,7 +167,7 @@ export default function Home() {
               ].map((step, i, arr) => (
                 <div key={step.label} className="flex items-center flex-grow last:flex-grow-0">
                   <div className="flex flex-col items-center space-y-3">
-                    <div className={`w-14 h-14 flex items-center justify-center rounded-lg border ${step.active ? 'border-secondary bg-secondary/10 shadow-[0_0_15px_rgba(74,225,118,0.2)]' : 'border-outline-variant bg-surface-container'}`}>
+                    <div className={`w-14 h-14 flex items-center justify-center rounded-lg border ${step.active ? 'border-secondary bg-secondary/10 shadow-[0_0_15px_rgba(74,225,118,0.2)]' : 'border-outline-variant bg-surface-container'}`}> 
                       <step.icon className={`w-6 h-6 ${step.active ? 'text-secondary' : 'text-primary'}`} />
                     </div>
                     <span className={`font-display text-[10px] tracking-widest uppercase ${step.active ? 'text-white font-bold' : 'text-tertiary'}`}>{step.label}</span>

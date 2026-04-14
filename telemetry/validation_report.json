@@ -1,147 +1,147 @@
-{
-  "metrics": {
-    "total": 5,
-    "success": 4,
-    "fail": 1,
-    "latency": 765.6939999960741
-  },
-  "success_rate": 80.0,
-  "load_test": {
-    "requests": 60,
-    "avg": 130.04875666653484,
-    "p95": 209.21269999962533
-  },
-  "log_sample": [
-    {
-      "id": "RUN-1c89bc",
-      "scenario": "DOMEX",
-      "success": false,
-      "latency": 201.89,
-      "steps": [
-        {
-          "step": "read",
-          "ok": true,
-          "latency": 103.82829999980459
-        },
-        {
-          "step": "vectorize",
-          "ok": true,
-          "latency": 90.89510000012524
-        },
-        {
-          "step": "consensus",
-          "ok": false,
-          "latency": 7.106500001100358
-        }
-      ]
-    },
-    {
-      "id": "RUN-25d7cc",
-      "scenario": "SECURITY",
-      "success": true,
-      "latency": 2.9,
-      "steps": [
-        {
-          "step": "scan",
-          "ok": true,
-          "latency": 0.06829999983892776
-        },
-        {
-          "step": "detect",
-          "ok": true,
-          "latency": 0.010300000212737359
-        },
-        {
-          "step": "block",
-          "ok": true,
-          "latency": 0.005599998985417187
-        },
-        {
-          "step": "log",
-          "ok": true,
-          "latency": 2.780700000585057
-        }
-      ]
-    },
-    {
-      "id": "RUN-852b65",
-      "scenario": "SWARM",
-      "success": true,
-      "latency": 147.5,
-      "steps": [
-        {
-          "step": "draft",
-          "ok": true,
-          "latency": 49.70270000012533
-        },
-        {
-          "step": "critic",
-          "ok": true,
-          "latency": 31.093300000065938
-        },
-        {
-          "step": "audit",
-          "ok": true,
-          "latency": 32.529000000067754
-        },
-        {
-          "step": "lock",
-          "ok": true,
-          "latency": 34.13950000140176
-        }
-      ]
-    },
-    {
-      "id": "RUN-b0a8ce",
-      "scenario": "THERMAL",
-      "success": true,
-      "latency": 74.73,
-      "steps": [
-        {
-          "step": "poll",
-          "ok": true,
-          "latency": 11.314600000332575
-        },
-        {
-          "step": "spike_detect",
-          "ok": true,
-          "latency": 10.778900001241709
-        },
-        {
-          "step": "throttle",
-          "ok": true,
-          "latency": 41.27940000034869
-        },
-        {
-          "step": "resume",
-          "ok": true,
-          "latency": 11.310699999739882
-        }
-      ]
-    },
-    {
-      "id": "RUN-2504ef",
-      "scenario": "STRESS_API",
-      "success": true,
-      "latency": 338.67,
-      "steps": [
-        {
-          "step": "request",
-          "ok": true,
-          "latency": 101.03669999989506
-        },
-        {
-          "step": "route",
-          "ok": true,
-          "latency": 198.1383000002097
-        },
-        {
-          "step": "respond",
-          "ok": true,
-          "latency": 39.436399998521665
-        }
-      ]
-    }
-  ],
-  "note": "Hybrid async + chaos + adaptive + metrics enabled"
+﻿{
+    "metrics":  {
+                    "total":  5,
+                    "success":  4,
+                    "fail":  1,
+                    "latency":  765.6939999960741
+                },
+    "success_rate":  80.0,
+    "load_test":  {
+                      "requests":  60,
+                      "avg":  130.04875666653484,
+                      "p95":  209.21269999962533
+                  },
+    "log_sample":  [
+                       {
+                           "id":  "RUN-1c89bc",
+                           "scenario":  "DOMEX",
+                           "success":  false,
+                           "latency":  201.89,
+                           "steps":  [
+                                         {
+                                             "step":  "read",
+                                             "ok":  true,
+                                             "latency":  103.82829999980459
+                                         },
+                                         {
+                                             "step":  "vectorize",
+                                             "ok":  true,
+                                             "latency":  90.89510000012524
+                                         },
+                                         {
+                                             "step":  "consensus",
+                                             "ok":  false,
+                                             "latency":  7.106500001100358
+                                         }
+                                     ]
+                       },
+                       {
+                           "id":  "RUN-25d7cc",
+                           "scenario":  "SECURITY",
+                           "success":  true,
+                           "latency":  2.9,
+                           "steps":  [
+                                         {
+                                             "step":  "scan",
+                                             "ok":  true,
+                                             "latency":  0.06829999983892776
+                                         },
+                                         {
+                                             "step":  "detect",
+                                             "ok":  true,
+                                             "latency":  0.010300000212737359
+                                         },
+                                         {
+                                             "step":  "block",
+                                             "ok":  true,
+                                             "latency":  0.005599998985417187
+                                         },
+                                         {
+                                             "step":  "log",
+                                             "ok":  true,
+                                             "latency":  2.780700000585057
+                                         }
+                                     ]
+                       },
+                       {
+                           "id":  "RUN-852b65",
+                           "scenario":  "SWARM",
+                           "success":  true,
+                           "latency":  147.5,
+                           "steps":  [
+                                         {
+                                             "step":  "draft",
+                                             "ok":  true,
+                                             "latency":  49.70270000012533
+                                         },
+                                         {
+                                             "step":  "critic",
+                                             "ok":  true,
+                                             "latency":  31.093300000065938
+                                         },
+                                         {
+                                             "step":  "audit",
+                                             "ok":  true,
+                                             "latency":  32.529000000067754
+                                         },
+                                         {
+                                             "step":  "lock",
+                                             "ok":  true,
+                                             "latency":  34.13950000140176
+                                         }
+                                     ]
+                       },
+                       {
+                           "id":  "RUN-b0a8ce",
+                           "scenario":  "THERMAL",
+                           "success":  true,
+                           "latency":  74.73,
+                           "steps":  [
+                                         {
+                                             "step":  "poll",
+                                             "ok":  true,
+                                             "latency":  11.314600000332575
+                                         },
+                                         {
+                                             "step":  "spike_detect",
+                                             "ok":  true,
+                                             "latency":  10.778900001241709
+                                         },
+                                         {
+                                             "step":  "throttle",
+                                             "ok":  true,
+                                             "latency":  41.27940000034869
+                                         },
+                                         {
+                                             "step":  "resume",
+                                             "ok":  true,
+                                             "latency":  11.310699999739882
+                                         }
+                                     ]
+                       },
+                       {
+                           "id":  "RUN-2504ef",
+                           "scenario":  "STRESS_API",
+                           "success":  true,
+                           "latency":  338.67,
+                           "steps":  [
+                                         {
+                                             "step":  "request",
+                                             "ok":  true,
+                                             "latency":  101.03669999989506
+                                         },
+                                         {
+                                             "step":  "route",
+                                             "ok":  true,
+                                             "latency":  198.1383000002097
+                                         },
+                                         {
+                                             "step":  "respond",
+                                             "ok":  true,
+                                             "latency":  39.436399998521665
+                                         }
+                                     ]
+                       }
+                   ],
+    "note":  "Hybrid async + chaos + adaptive + metrics enabled"
 }

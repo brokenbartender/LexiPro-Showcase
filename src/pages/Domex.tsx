@@ -1,66 +1,69 @@
-import { ChevronRight, Shield, FileSearch, Clock, Archive, Fingerprint, AlertTriangle } from "lucide-react";
-import { motion } from "motion/react";
+﻿import { motion } from "motion/react";
+import { 
+  Shield, 
+  Activity, 
+  Search, 
+  FileText, 
+  ChevronRight, 
+  AlertTriangle,
+  Zap,
+  Lock,
+  Database
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import validationReport from "../../telemetry/validation_report.json";
 
 const WORKFLOW_STEPS = [
-  {
-    id: "01",
-    label: "Ingest",
-    desc: "Captured media and documents are ingested entirely on the edge device. No data leaves the local substrate at any point during this phase.",
-    icon: Archive,
-    color: "text-primary",
-    border: "border-primary/30",
-  },
-  {
-    id: "02",
-    label: "Triage",
-    desc: "The OMEGA Engine runs entity extraction and OCR in parallel across all document types. High-value targets are flagged within milliseconds.",
-    icon: FileSearch,
-    color: "text-secondary",
-    border: "border-secondary/30",
-  },
-  {
-    id: "03",
-    label: "Consensus",
-    desc: "A three-agent Triad (drafter, critic, legal-auditor) independently reviews each high-value target. All three must agree before a finding is finalized.",
-    icon: Shield,
-    color: "text-primary",
-    border: "border-primary/30",
-  },
-  {
-    id: "04",
-    label: "Receipt",
-    desc: "A cryptographic forensic receipt is generated for every AI output — FRE 902(13) compliant, providing a chain of custody for legal admissibility.",
-    icon: Fingerprint,
-    color: "text-secondary",
-    border: "border-secondary/30",
-  },
+  { id: "01", label: "Ingest", icon: Database, color: "text-primary", border: "border-primary/20", desc: "Hardware-isolated intake of captured media and encrypted volumes." },
+  { id: "02", label: "Triage", icon: Search, color: "text-secondary", border: "border-secondary/20", desc: "Real-time OCR and multi-agent priority scoring of document caches." },
+  { id: "03", label: "Extract", icon: Zap, color: "text-primary", border: "border-primary/20", desc: "Automated entity extraction and timeline reconstruction locally." },
+  { id: "04", label: "Seal", icon: Lock, color: "text-secondary", border: "border-secondary/20", desc: "Cryptographic forensic receipt generation (FRE 902.13 compliance)." },
 ];
 
 const SUPPORTED_FORMATS = [
-  "PDF", "DOCX", "XLSX", "PPTX", "TXT", "RTF",
-  "JPG / PNG / TIFF", "MP4 / MOV (frame extraction)",
-  "MSG / EML", "ZIP (recursive)", "Audio (transcription)",
+  "PDF / OCR-Ready", "Forensic EnCase (E01)", "MS Office / PST", 
+  "JSON / SQLite", "Encrypted Volumes", "Captured Images"
 ];
 
 export default function Domex() {
+  const [logs, setLogs] = useState<string[]>([]);
+  
+  useEffect(() => {
+    const rawLogs = validationReport.log_sample.map((run: any) => 
+      `> ${run.id} [${run.scenario}] ... ${run.success ? 'SUCCESS' : 'DISSENT'} (${run.latency.toFixed(2)}ms)`
+    );
+    
+    let current = 0;
+    const interval = setInterval(() => {
+      if (current < rawLogs.length) {
+        setLogs(prev => [...prev, rawLogs[current]]);
+        current++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 1200);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-32 px-8 min-h-screen">
       <div className="max-w-7xl mx-auto space-y-24">
-
+        
         {/* Header */}
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-4"
+          className="max-w-3xl"
         >
-          <span className="font-display text-[10px] tracking-[0.3em] text-primary uppercase block mb-4">
-            TACTICAL OPERATIONS
+          <span className="font-display text-[10px] tracking-[0.3em] text-secondary uppercase block mb-4">
+            TACTICAL EXPLOITATION
           </span>
           <h2 className="text-5xl md:text-7xl font-black font-sans tracking-tighter text-white uppercase">
             DOMEX Triage
           </h2>
-          <p className="text-tertiary mt-6 max-w-2xl text-lg leading-relaxed">
-            Document and Media Exploitation at the edge. LexiPro processes
+          <p className="text-tertiary mt-6 text-lg leading-relaxed">
+            LexiPro provides immediate, field-ready intelligence by exploiting
             captured materials entirely on local hardware — no cloud connectivity
             required, no data egress possible.
           </p>
@@ -84,8 +87,7 @@ export default function Domex() {
               <p className="text-tertiary leading-relaxed">
                 TITAN enables rapid exploitation of captured media and documents in
                 environments where connectivity is non-existent. Designed for
-                time-critical field operations where every second of analysis matters
-                and every finding must be legally defensible.
+                time-critical field operations.
               </p>
               <ul className="space-y-3 font-mono text-xs text-primary">
                 {[
@@ -104,23 +106,23 @@ export default function Domex() {
               </ul>
             </div>
 
-            {/* Simulated terminal */}
-            <div className="bg-surface-container-lowest p-8 rounded-xl border border-primary/20 font-mono text-[10px]">
+            {/* Simulated terminal — Wored to real validation logs */}
+            <div className="bg-surface-container-lowest p-8 rounded-xl border border-primary/20 font-mono text-[10px] min-h-[300px] flex flex-col"> 
               <div className="flex items-center justify-between mb-6 border-b border-outline-variant/20 pb-4">
-                <span className="text-tertiary">DEPLOYMENT_LOG_V4</span>
-                <span className="text-secondary">ACTIVE_NODE: 09</span>
+                <span className="text-tertiary">TITAN_CHAOS_AUDIT_V27.1</span>
+                <span className="text-secondary">SUCCESS_RATE: {validationReport.success_rate}%</span>
               </div>
-              <div className="space-y-2 text-primary/70 leading-relaxed">
-                <p className="text-tertiary">&gt; TITAN INIT — SL5 AIR-GAP CONFIRMED</p>
-                <p>&gt; SCANNING MEDIA_DRIVE_01...</p>
-                <p className="text-white">&gt; 4,209 DOCUMENTS DETECTED</p>
-                <p>&gt; RUNNING SWARM_TRIAGE — 3 AGENTS ONLINE</p>
-                <p className="text-secondary">&gt; 12 HIGH-VALUE TARGETS IDENTIFIED</p>
-                <p>&gt; ENTITY EXTRACTION: COMPLETE</p>
-                <p>&gt; TIMELINE RECONSTRUCTION: COMPLETE</p>
-                <p className="text-secondary">&gt; GENERATING FORENSIC RECEIPTS (FRE 902.13)...</p>
-                <p>&gt; CHAIN OF CUSTODY: CRYPTOGRAPHICALLY SEALED</p>
-                <p className="text-white pt-2">&gt; ✓ TRIAGE COMPLETE — ZERO EGRESS EVENTS</p>
+              <div className="space-y-2 text-primary/70 leading-relaxed overflow-hidden">
+                <p className="text-tertiary">> TITAN INIT — SL5 AIR-GAP CONFIRMED</p>
+                {logs.map((log, i) => (
+                  <p key={i} className={log.includes('DISSENT') ? 'text-amber-400' : 'text-primary/70'}>{log}</p>
+                ))}
+                {logs.length === validationReport.log_sample.length && (
+                  <div className="animate-in fade-in slide-in-from-top-2 duration-1000">
+                    <p className="text-white pt-2">> ✓ TRIAGE COMPLETE — ZERO EGRESS EVENTS</p>
+                    <p className="text-secondary">> CHAIN OF CUSTODY: CRYPTOGRAPHICALLY SEALED</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -183,10 +185,6 @@ export default function Domex() {
               agent consensus state, timestamp, and hardware node ID — providing a
               legally admissible chain of custody under{" "}
               <span className="text-white font-mono">FRE 902(13)</span>.
-            </p>
-            <p className="text-tertiary text-sm leading-relaxed">
-              No finding can be finalized without consensus across all three Triad agents.
-              Dissenting votes are logged and preserved in the audit trail.
             </p>
             <div className="font-mono text-[10px] text-primary/60 pt-2">
               RECEIPT_FORMAT: SHA-256 // AES-256-GCM // FIPS-140-3 ALIGNED

@@ -1,90 +1,92 @@
-{
-  "_meta": {
-    "timestamp": 1776133600.9130168,
-    "system": "Windows",
-    "arch": "AMD64",
-    "runs": 30,
-    "cloud_market_average_ms": 65.38,
-    "cloud_stack_details": {
-      "Anthropic": 77.81,
-      "OpenAI": 56.81,
-      "Groq": 29.78,
-      "DeepSeek": 113.93,
-      "Google_AI": 48.58
-    }
-  },
-  "validation": {
-    "all_tests_real": true,
-    "simulated_components": []
-  },
-  "tests": {
-    "omega": {
-      "label": "OMEGA",
-      "runs": 30,
-      "errors": 0,
-      "avg_ms": 11.8811,
-      "p50_ms": 11.4329,
-      "p95_ms": 15.538,
-      "p99_ms": 15.7651,
-      "min_ms": 8.9554,
-      "max_ms": 17.9166,
-      "std_dev": 2.1667,
-      "confidence": "HIGH",
-      "tool_count": 2316,
-      "mode": "verified_local"
-    },
-    "sl5": {
-      "label": "SL5_SCAN",
-      "runs": 30,
-      "errors": 0,
-      "avg_ms": 8.7865,
-      "p50_ms": 8.7368,
-      "p95_ms": 10.6006,
-      "p99_ms": 10.6735,
-      "min_ms": 6.4837,
-      "max_ms": 11.339,
-      "std_dev": 1.2683,
-      "confidence": "HIGH"
-    },
-    "hybrid_consensus": {
-      "label": "HYBRID_CONSENSUS",
-      "runs": 30,
-      "errors": 0,
-      "avg_ms": 200.0607,
-      "p50_ms": 192.4928,
-      "p95_ms": 231.6364,
-      "p99_ms": 248.9304,
-      "min_ms": 169.1994,
-      "max_ms": 341.6256,
-      "std_dev": 31.8372,
-      "confidence": "LOW"
-    },
-    "thermal": {
-      "label": "THERMAL_CHECK",
-      "runs": 30,
-      "errors": 0,
-      "avg_ms": 12.9928,
-      "p50_ms": 12.5702,
-      "p95_ms": 15.7679,
-      "p99_ms": 16.777,
-      "min_ms": 10.7992,
-      "max_ms": 17.2568,
-      "std_dev": 1.6318,
-      "confidence": "HIGH"
-    }
-  },
-  "insights": {
-    "sovereign_efficiency_gain_pct": {
-      "value": 81.83,
-      "definition": "Local tool retrieval latency vs the market average cloud round-trip time."
-    },
-    "stability_score": {
-      "value": 97.83,
-      "definition": "Mathematical consistency of system performance (100 - standard deviation)."
-    },
-    "local_priority_index": {
-      "value": 5.5,
-      "definition": "Ratio of cloud latency to local ingestion speed."
-    }
-  }
+﻿{
+    "_meta":  {
+                  "timestamp":  1776133600.9130168,
+                  "system":  "Windows",
+                  "arch":  "AMD64",
+                  "runs":  30,
+                  "cloud_market_average_ms":  65.38,
+                  "cloud_stack_details":  {
+                                              "Anthropic":  77.81,
+                                              "OpenAI":  56.81,
+                                              "Groq":  29.78,
+                                              "DeepSeek":  113.93,
+                                              "Google_AI":  48.58
+                                          }
+              },
+    "validation":  {
+                       "all_tests_real":  true,
+                       "simulated_components":  [
+
+                                                ]
+                   },
+    "tests":  {
+                  "omega":  {
+                                "label":  "OMEGA",
+                                "runs":  30,
+                                "errors":  0,
+                                "avg_ms":  11.8811,
+                                "p50_ms":  11.4329,
+                                "p95_ms":  15.538,
+                                "p99_ms":  15.7651,
+                                "min_ms":  8.9554,
+                                "max_ms":  17.9166,
+                                "std_dev":  2.1667,
+                                "confidence":  "HIGH",
+                                "tool_count":  2316,
+                                "mode":  "verified_local"
+                            },
+                  "sl5":  {
+                              "label":  "SL5_SCAN",
+                              "runs":  30,
+                              "errors":  0,
+                              "avg_ms":  8.7865,
+                              "p50_ms":  8.7368,
+                              "p95_ms":  10.6006,
+                              "p99_ms":  10.6735,
+                              "min_ms":  6.4837,
+                              "max_ms":  11.339,
+                              "std_dev":  1.2683,
+                              "confidence":  "HIGH"
+                          },
+                  "hybrid_consensus":  {
+                                           "label":  "HYBRID_CONSENSUS",
+                                           "runs":  30,
+                                           "errors":  0,
+                                           "avg_ms":  200.0607,
+                                           "p50_ms":  192.4928,
+                                           "p95_ms":  231.6364,
+                                           "p99_ms":  248.9304,
+                                           "min_ms":  169.1994,
+                                           "max_ms":  341.6256,
+                                           "std_dev":  31.8372,
+                                           "confidence":  "LOW"
+                                       },
+                  "thermal":  {
+                                  "label":  "THERMAL_CHECK",
+                                  "runs":  30,
+                                  "errors":  0,
+                                  "avg_ms":  12.9928,
+                                  "p50_ms":  12.5702,
+                                  "p95_ms":  15.7679,
+                                  "p99_ms":  16.777,
+                                  "min_ms":  10.7992,
+                                  "max_ms":  17.2568,
+                                  "std_dev":  1.6318,
+                                  "confidence":  "HIGH"
+                              }
+              },
+    "insights":  {
+                     "sovereign_efficiency_gain_pct":  {
+                                                           "value":  81.83,
+                                                           "definition":  "Local tool retrieval latency vs the market average cloud round-trip time."
+                                                       },
+                     "stability_score":  {
+                                             "value":  97.83,
+                                             "definition":  "Mathematical consistency of system performance (100 - standard deviation)."
+                                         },
+                     "local_priority_index":  {
+                                                  "value":  5.5,
+                                                  "definition":  "Ratio of cloud latency to local ingestion speed."
+                                              }
+                 }
 }
