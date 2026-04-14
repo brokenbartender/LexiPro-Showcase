@@ -1,4 +1,4 @@
-﻿# The Sovereign Architecture Advantage
+# The Sovereign Architecture Advantage
 **Eradicating Cloud Egress Vulnerabilities via Air-Gapped, Hardware-Aware Agentic Swarms**
 
 **Author:** Cody M.  
@@ -86,9 +86,19 @@ We subjected the Sovereign OS core to a 25-iteration stress test to measure the 
     *   **Significance:** Deterministic, hallucination-resistant outputs are generated in less than a quarter of a second, making the system viable for real-time, high-stakes analysis.
 
 *   **Hardware Stability (Thermal Governance):**
-    *   **Metric:** System reaction time to detect simulated thermal spikes (Δ ≥ 2°C/s) and initiate active throttling.
+    *   **Metric:** System reaction time to detect simulated thermal spikes (? = 2�C/s) and initiate active throttling.
     *   **Result:** **12.99 ms (p95)**
     *   **Significance:** Guarantees sustained operation on edge hardware (e.g., standard enterprise laptops) during massive document ingestion without risk of catastrophic thermal failure.
+
+**Architectural Integrity & Agent DNA (v2.0 Audit)**
+
+To ensure the "Serial Swarm" remains deterministic, Sovereign OS enforces a strict "DNA Integrity" protocol. Every agent in the hierarchy is audited against a canonical standard for structural completeness, thermal awareness, and SL5 compliance.
+
+*   **Audit Metric:** Compliance of all 18 swarm agents (The Sovereign 13 + sub-agents) against the master workflow and security manifest.
+*   **Result:** **100% DNA Pass (v22.4 Integrity Level)**
+*   **Significance:** This verifies that 100% of the swarm is "Hardware-Aware" (Thermal Self-Governance) and "Context-Sovereign" (SL5 Mandatory Mandates), preventing "unauthorized agent drift" that often plagues less governed agentic systems.
+
+*(Audit reports are available in the /telemetry/agent_dna_report.json file for technical review.)*
 
 ## 6. Business Value & ROI
 

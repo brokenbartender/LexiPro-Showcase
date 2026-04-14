@@ -1,0 +1,101 @@
+{
+  "summary": {
+    "total": 18,
+    "failed": 0,
+    "passed": 18
+  },
+  "missing_agents": [],
+  "error_breakdown": {},
+  "results": [
+    {
+      "file": "council-critic.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "dj-bae.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "ghost-protocol.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "hardware-empath.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "legal-agent.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "lora-forge.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "manager.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "master-cortex.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "media-sovereign.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "negentropy-swarm.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "nexus-sentinel.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "panopticon-director.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "sanitization-agent.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "security-master.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "supreme-sovereign.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "temporal-archivist.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "triad-investigator.md",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "file": "web-scout.md",
+      "ok": true,
+      "errors": []
+    }
+  ]
+}
