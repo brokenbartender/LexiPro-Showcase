@@ -4,10 +4,12 @@ import { LexiProLogo } from "./Logo";
 import { Menu, X, Send, Loader2, CheckCircle2 } from "lucide-react";
 
 const NAV_LINKS = [
-  { id: "/technology",  label: "Technology" },
-  { id: "/compliance",  label: "Compliance" },
-  { id: "/domex",       label: "DOMEX Triage" },
-  { id: "/security",    label: "Security Policy" },
+  { id: "/technology",   label: "Stack" },
+  { id: "/architecture", label: "Architecture" },
+  { id: "/security",     label: "Security" },
+  { id: "/engineering",  label: "Engineering" },
+  { id: "/compliance",   label: "Compliance" },
+  { id: "/domex",        label: "DOMEX" },
 ];
 
 export default function Navbar() {
