@@ -46,7 +46,7 @@ export default function Domex() {
           </h2>
           <p className="text-[#8888a0] mt-6 text-lg leading-relaxed font-sans">
             LexiPro provides immediate, field-ready intelligence by exploiting
-            captured materials entirely on local hardware — no cloud connectivity
+            captured materials entirely on local hardware â€” no cloud connectivity
             required, no data egress possible.
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export default function Domex() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                 </span>
                 <span className="font-mono text-[10px] tracking-tighter text-secondary uppercase">
-                  ACTIVE DEPLOYMENT — NODE 09
+                  ACTIVE DEPLOYMENT â€” NODE 09
                 </span>
               </div>
               <h3 className="text-4xl font-black text-white uppercase tracking-tight font-display">Project TITAN</h3>
@@ -77,7 +77,7 @@ export default function Domex() {
                   "Forensic timeline reconstruction",
                   "PII detection & redaction pipeline",
                   "Chain-of-custody cryptographic receipts",
-                  "Offline-first — zero connectivity required",
+                  "Offline-first â€” zero connectivity required",
                 ].map((item) => (
                   <li key={item} className="flex items-center space-x-3">
                     <ChevronRight className="w-4 h-4 text-secondary flex-shrink-0" />
@@ -87,7 +87,7 @@ export default function Domex() {
               </ul>
             </div>
 
-            {/* Simulated terminal — Wired to real system logs */}
+            {/* Simulated terminal â€” Wired to real system logs */}
             <div className="bg-[#050507] p-8 rounded-2xl border border-white/5 font-mono text-[10px] min-h-[350px] flex flex-col shadow-2xl relative overflow-hidden"> 
               <div className="absolute top-0 right-0 p-4 opacity-10"><Shield className="w-12 h-12 text-secondary" /></div>
               <div className="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
@@ -114,7 +114,7 @@ export default function Domex() {
                 </AnimatePresence>
               </div>
               <div className="mt-6 pt-4 border-t border-white/5">
-                <p className="text-white font-bold uppercase tracking-tighter">&gt; ? TRIAGE REPLAY COMPLETE — ZERO EGRESS EVENTS</p>
+                <p className="text-white font-bold uppercase tracking-tighter">&gt; ? TRIAGE REPLAY COMPLETE â€” ZERO EGRESS EVENTS</p>
                 <p className="text-secondary/60 text-[8px] mt-1 uppercase font-bold tracking-widest">Receipt: SHA-256 // AES-256-GCM // FIPS-140-3 ALIGNED</p>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function Domex() {
             <p className="text-[#8888a0] text-sm leading-relaxed font-sans">
               Every AI-generated finding produced by the DOMEX pipeline is accompanied
               by a tamper-evident cryptographic receipt. This receipt logs the input hash,
-              agent consensus state, timestamp, and hardware node ID — providing a
+              agent consensus state, timestamp, and hardware node ID â€” providing a
               legally admissible chain of custody under <span className="text-white font-mono font-bold">FRE 902(13)</span>.
             </p>
             <div className="font-mono text-[9px] text-secondary/40 pt-2 uppercase font-bold tracking-[0.2em]">
