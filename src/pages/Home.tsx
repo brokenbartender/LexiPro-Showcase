@@ -1,9 +1,12 @@
 ﻿import { motion, AnimatePresence } from "motion/react";
-import { Cpu, Shield, Activity, Database, FileText, CheckCircle2, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Cpu, Shield, Activity, Database, FileText } from "lucide-react";
 import { useTelemetry } from "../hooks/useTelemetry";
 import { useSystemFeed } from "../hooks/useSystemFeed";
 import { useState } from "react";
 import telemetryData from '../../telemetry/telemetry_output.json';
+import GovernedByStrip from "../components/elements/GovernedByStrip";
+import { SYSTEM } from "../data/system";
 
 export default function Home() {
   const throughput = useTelemetry(482.15);
@@ -40,12 +43,12 @@ export default function Home() {
             </div>
 
             <h1 className="text-6xl md:text-8xl font-black font-display leading-[0.9] tracking-tighter text-white uppercase">        
-              LexiPro:<br/>The Sovereign<br/><span className="text-primary">Forensic OS</span>
+              Sovereign<br/>runtime for<br/><span className="text-primary">frontier AI</span>
             </h1>
 
             <p className="text-[#8888a0] max-w-lg text-lg leading-relaxed font-sans">
-              Hardware-aware intelligence for the <span className="text-white font-bold">Pontiac-Detroit Innovation Corridor</span>. 
-              Local-first execution, strict data sovereignty, and recursive liability auditing.
+              <span className="text-white font-bold">{SYSTEM.serverCount} MCP servers · {SYSTEM.toolCount} tools · {SYSTEM.agentCount} agents.</span>
+              Hardware-aware. Air-gap capable. Every output gated by SL5.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -82,7 +85,7 @@ export default function Home() {
                   className="font-mono text-[10px] text-secondary/80 bg-secondary/5 border border-secondary/20 p-3 rounded-lg w-fit backdrop-blur-sm"
                 >
                   DNA_HASH: 4eb2a1c7f3a9d... [MATCH_SUCCESS]
-                  <div className="text-[8px] opacity-60 mt-1 uppercase">Manifest v22.4 // 18/18 Agents Verified</div>
+                  <div className="text-[8px] opacity-60 mt-1 uppercase">Manifest v22.8 // 20/20 Agents Verified</div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -164,7 +167,7 @@ export default function Home() {
             </div>
             <div className="max-w-md">
               <p className="text-[#8888a0] mb-6 font-sans text-lg">
-                LexiPro executes a swarm of 18 adversarial agents locally on your hardware. Each transaction is cross-validated through recursive loops to ensure zero hallucinations.
+                LexiPro orchestrates 20 specialized agents on your hardware. Every output passes the same MSCL gate — Claude, Gemini, or local model — with HMAC-mutex on every write.
               </p>
               <div className="font-mono bg-surface-container/50 backdrop-blur-md p-5 rounded-xl border border-primary/20 text-xs shadow-xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-2 opacity-20"><Activity className="w-4 h-4 text-primary" /></div>
