@@ -4,9 +4,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Technology from "./pages/Technology";
+import Architecture from "./pages/Architecture";
 import Compliance from "./pages/Compliance";
 import Domex from "./pages/Domex";
 import Security from "./pages/Security";
+import Engineering from "./pages/Engineering";
 import NotFound from "./pages/NotFound";
 
 const PageWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -33,12 +35,14 @@ export default function App() {
         <Navbar />
         <main className="pt-20">
           <Routes>
-            <Route path="/"            element={<PageWrapper><Home /></PageWrapper>} />
-            <Route path="/technology"  element={<PageWrapper><Technology /></PageWrapper>} />
-            <Route path="/compliance"  element={<PageWrapper><Compliance /></PageWrapper>} />
-            <Route path="/domex"       element={<PageWrapper><Domex /></PageWrapper>} />
-            <Route path="/security"    element={<PageWrapper><Security /></PageWrapper>} />
-            <Route path="*"            element={<PageWrapper><NotFound /></PageWrapper>} />
+            <Route path="/"             element={<PageWrapper><Home /></PageWrapper>} />
+            <Route path="/technology"   element={<PageWrapper><Technology /></PageWrapper>} />
+            <Route path="/architecture" element={<PageWrapper><Architecture /></PageWrapper>} />
+            <Route path="/compliance"   element={<PageWrapper><Compliance /></PageWrapper>} />
+            <Route path="/domex"        element={<PageWrapper><Domex /></PageWrapper>} />
+            <Route path="/security"     element={<PageWrapper><Security /></PageWrapper>} />
+            <Route path="/engineering"  element={<PageWrapper><Engineering /></PageWrapper>} />
+            <Route path="*"             element={<PageWrapper><NotFound /></PageWrapper>} />
           </Routes>
         </main>
         <Footer />
