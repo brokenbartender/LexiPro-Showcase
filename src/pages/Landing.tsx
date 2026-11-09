@@ -17,7 +17,6 @@ export default function Landing() {
           <LexiProLogo className="h-8 w-8" />
           <span className="font-display text-lg font-bold tracking-tight text-white">LexiPro</span>
         </div>
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#6a6a80]">Private beta</span>
       </header>
 
       <section className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center">
