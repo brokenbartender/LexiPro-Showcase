@@ -676,7 +676,7 @@
         verified re-test. One flat fee. Seven days. No retainer.</p>
 
         <div class="hero-actions">
-          <a class="btn" id="heroReserveBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
+          <a class="btn" id="heroReserveBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%3A%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
           <a class="btn-secondary" href="#worksheet">Complete intake worksheet</a>
         </div>
       </div>
@@ -845,7 +845,7 @@
         </div>
         <pre class="ws-code" id="wsOutputPreview"></pre>
         <div class="ws-actions">
-          <a class="btn" id="sendWorksheetMailBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot" style="font-size:14px;padding:11px 20px;">Email worksheet &amp; reserve slot →</a>
+          <a class="btn" id="sendWorksheetMailBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%3A%20reserve%20my%20slot" style="font-size:14px;padding:11px 20px;">Email worksheet &amp; reserve slot →</a>
           <button type="button" class="btn-secondary" id="copyWorksheetBtn" style="font-size:13.5px;padding:10px 16px;">Copy summary</button>
           <span class="toast" id="copyToast" role="status" aria-live="polite">Copied!</span>
         </div>
@@ -866,7 +866,7 @@
         </p>
       </div>
       <div>
-        <a class="btn" id="bottomReserveBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
+        <a class="btn" id="bottomReserveBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%3A%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
       </div>
     </div>
   </div>
@@ -1048,7 +1048,7 @@
     function updateWorksheet() {
       const summary = buildSummaryText();
       wsOutputPreview.textContent = summary;
-      const subject = encodeURIComponent('AI Discovery & Bookability Sprint — reserve my slot');
+      const subject = encodeURIComponent('AI Discovery & Bookability Sprint: reserve my slot');
       const body = encodeURIComponent(summary);
       const href = 'mailto:partnerships@lexipro.online?subject=' + subject + '&body=' + body;
       sendWorksheetMailBtn.setAttribute('href', href);
