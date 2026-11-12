@@ -676,7 +676,7 @@
         verified re-test. One flat fee. Seven days. No retainer.</p>
 
         <div class="hero-actions">
-          <a class="btn" id="heroReserveBtn" href="mailto:admin@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
+          <a class="btn" id="heroReserveBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
           <a class="btn-secondary" href="#worksheet">Complete intake worksheet</a>
         </div>
       </div>
@@ -845,7 +845,7 @@
         </div>
         <pre class="ws-code" id="wsOutputPreview"></pre>
         <div class="ws-actions">
-          <a class="btn" id="sendWorksheetMailBtn" href="mailto:admin@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot" style="font-size:14px;padding:11px 20px;">Email worksheet &amp; reserve slot →</a>
+          <a class="btn" id="sendWorksheetMailBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot" style="font-size:14px;padding:11px 20px;">Email worksheet &amp; reserve slot →</a>
           <button type="button" class="btn-secondary" id="copyWorksheetBtn" style="font-size:13.5px;padding:10px 16px;">Copy summary</button>
           <span class="toast" id="copyToast" role="status" aria-live="polite">Copied!</span>
         </div>
@@ -859,14 +859,14 @@
         <div class="eyebrow">Lock Your Sprint Window</div>
         <h2 style="margin:10px 0 10px;">Ready to fix what AI reads about your business?</h2>
         <p class="smallprint" style="margin:0;">
-          The button opens an email to <a href="mailto:admin@lexipro.online">admin@lexipro.online</a>
+          The button opens an email to <a href="mailto:partnerships@lexipro.online">partnerships@lexipro.online</a>
           <button type="button" id="copyEmailBtn" class="btn-secondary" style="padding:3px 9px;font-size:11.5px;margin-left:6px;">Copy email</button>
           <span class="toast" id="emailToast" role="status" aria-live="polite">Copied!</span>
           <br>Prefer to pay online? Say so in your reply and the payment link will be sent the same day.
         </p>
       </div>
       <div>
-        <a class="btn" id="bottomReserveBtn" href="mailto:admin@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
+        <a class="btn" id="bottomReserveBtn" href="mailto:partnerships@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
       </div>
     </div>
   </div>
@@ -1050,7 +1050,7 @@
       wsOutputPreview.textContent = summary;
       const subject = encodeURIComponent('AI Discovery & Bookability Sprint — reserve my slot');
       const body = encodeURIComponent(summary);
-      const href = 'mailto:admin@lexipro.online?subject=' + subject + '&body=' + body;
+      const href = 'mailto:partnerships@lexipro.online?subject=' + subject + '&body=' + body;
       sendWorksheetMailBtn.setAttribute('href', href);
       heroReserveBtn.setAttribute('href', href);
       bottomReserveBtn.setAttribute('href', href);
@@ -1105,7 +1105,7 @@
     });
 
     copyEmailBtn.addEventListener('click', function () {
-      copyText('admin@lexipro.online', emailToast);
+      copyText('partnerships@lexipro.online', emailToast);
     });
 
     updateWorksheet();
