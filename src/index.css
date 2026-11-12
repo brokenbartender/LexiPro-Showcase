@@ -1,37 +1,41 @@
-﻿@import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;700&family=Instrument+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap');
 
 @theme {
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-display: "Syne", sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Space Grotesk", sans-serif;
 
-  --color-surface: #09090b;
-  --color-surface-container: #111114;
-  --color-surface-container-low: #0d0d10;
-  --color-surface-container-lowest: #050507;
+  --color-surface: #05070b;
+  --color-surface-container: #0b0f17;
+  --color-surface-container-low: #090d14;
+  --color-surface-container-lowest: #040609;
   --color-primary: #22d3ee;
   --color-primary-container: #0891b2;
-  --color-secondary: #4ade80;
+  --color-secondary: #10b981;
   --color-tertiary: #fbbf24;
   --color-outline-variant: rgba(255,255,255,0.08);
 }
 
 @layer base {
   body {
-    @apply bg-surface text-[#e4e4f0] font-sans selection:bg-primary-container selection:text-white;
+    @apply bg-surface text-[#f8fafc] font-sans selection:bg-primary-container selection:text-white;
     background-image:
-        linear-gradient(rgba(34,211,238,0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,211,238,0.015) 1px, transparent 1px);
-    background-size: 48px 48px;
+      radial-gradient(circle at 50% 0%, rgba(34,211,238,0.09) 0%, transparent 55%),
+      radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 100% 100%, 24px 24px;
     background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 }
 
 .glass-panel {
-  background: rgba(26, 26, 30, 0.4);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.78) 0%, rgba(9, 13, 22, 0.92) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
 .terminal-glow {

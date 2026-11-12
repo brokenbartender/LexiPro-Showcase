@@ -26,19 +26,22 @@ export default function Landing() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/[0.03] px-3 py-1 backdrop-blur-md">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 border-t-white/20 bg-white/[0.04] px-3.5 py-1.5 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-secondary" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-secondary">In private development</span>
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-secondary">In private development</span>
           </div>
 
-          <h1 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-white md:text-7xl">
-            Proof,<br />not guesses.
+          <h1 className="font-display text-5xl font-bold leading-[1.03] tracking-[-0.035em] text-white md:text-7xl">
+            Proof,<br />
+            <span className="bg-gradient-to-br from-[#22d3ee] via-[#38bdf8] to-[#a5f3fc] bg-clip-text text-transparent drop-shadow-[0_0_32px_rgba(34,211,238,0.22)]">
+              not guesses.
+            </span>
           </h1>
 
-          <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-[#8f8fa6]">
+          <p className="mx-auto mt-7 max-w-xl text-[17.5px] leading-[1.65] text-[#94a3b8]">
             LexiPro builds AI that states only what the evidence proves, and withholds the
             rest. For work where being right isn&rsquo;t enough. It has to be provable.
           </p>
@@ -46,7 +49,7 @@ export default function Landing() {
           <div className="mt-10 flex justify-center">
             <a
               href="mailto:partnerships@lexipro.online?subject=LexiPro%20early%20access"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-[#05080c] transition hover:opacity-90"
+              className="group inline-flex items-center gap-2 rounded-full border border-[#a5f3fc] bg-gradient-to-b from-[#22f4ff] to-[#06b6d4] px-7 py-3.5 font-semibold tracking-[-0.01em] text-[#030712] shadow-[0_0_24px_rgba(34,211,238,0.32),inset_0_1px_0_rgba(255,255,255,0.65)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(34,211,238,0.5),inset_0_1px_0_rgba(255,255,255,0.85)]"
             >
               Request early access
               <span className="transition group-hover:translate-x-0.5">&rarr;</span>

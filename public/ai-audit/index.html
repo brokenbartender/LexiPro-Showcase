@@ -219,11 +219,19 @@
 
   /* Hero Live Diagnostic Card */
   .diag-card {
-    background: rgba(9,9,11,.92);
-    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(17,24,39,.82) 0%, rgba(9,13,22,.94) 100%);
+    border: 1px solid rgba(255,77,109,.28);
+    border-top: 1px solid rgba(255,77,109,.55);
     border-radius: 16px;
     padding: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.6);
+    box-shadow: 0 20px 50px -12px rgba(255,77,109,.15), 0 20px 50px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.06);
+    backdrop-filter: blur(12px);
+    transition: border-color .25s ease, box-shadow .25s ease;
+  }
+  .diag-card.state-pass {
+    border-color: rgba(16,185,129,.32);
+    border-top-color: rgba(16,185,129,.65);
+    box-shadow: 0 20px 50px -12px rgba(16,185,129,.18), 0 20px 50px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.08);
   }
   .diag-top {
     display: flex;
@@ -234,7 +242,7 @@
     margin-bottom: 14px;
   }
   .diag-title {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 11px;
     letter-spacing: .16em;
     text-transform: uppercase;
@@ -242,7 +250,7 @@
   }
   .toggle-pill {
     display: inline-flex;
-    background: #050507;
+    background: #05070b;
     border: 1px solid var(--line);
     border-radius: 999px;
     padding: 3px;
@@ -251,7 +259,7 @@
     background: transparent;
     border: none;
     color: var(--muted);
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 11px;
     padding: 5px 11px;
     border-radius: 999px;
@@ -279,7 +287,7 @@
   }
   .prompt-box strong { color: #fff; font-weight: 600; }
   .ai-response {
-    background: #050507;
+    background: #040609;
     border: 1px solid var(--line);
     border-radius: 12px;
     padding: 14px;
@@ -291,7 +299,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 11px;
     padding: 3px 9px;
     border-radius: 6px;
@@ -305,7 +313,8 @@
     border-top: 1px dashed var(--line);
     display: flex;
     justify-content: space-between;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
     font-size: 11px;
     color: var(--faint);
   }
@@ -318,10 +327,12 @@
     margin: 36px 0 8px;
   }
   .cell {
-    background: rgba(9,9,11,.88);
+    background: linear-gradient(180deg, rgba(17,24,39,.78) 0%, rgba(9,13,22,.92) 100%);
     border: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,.16);
     border-radius: 14px;
     padding: 18px 20px;
+    box-shadow: 0 16px 40px -12px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.05);
     transition: border-color .2s ease, transform .2s ease;
   }
   .cell:hover {
@@ -329,20 +340,28 @@
     transform: translateY(-2px);
   }
   .cell .k {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 11px;
-    letter-spacing: .24em;
+    letter-spacing: .20em;
     text-transform: uppercase;
     color: var(--faint);
   }
   .cell .v {
-    font-family: "Syne", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
+    font-variant-numeric: tabular-nums;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 27px;
+    letter-spacing: -.03em;
     color: #fff;
     margin-top: 6px;
   }
   .cell .v.cy { color: var(--cyan); }
+  .cell .v s {
+    font-size: 15px;
+    color: var(--faint);
+    font-weight: 500;
+    margin-left: 6px;
+  }
   .cell .note {
     font-size: 12px;
     color: var(--muted);
@@ -354,12 +373,12 @@
     border-top: 1px solid var(--line-soft);
   }
   h2 {
-    font-family: "Syne", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
     color: #fff;
     font-size: clamp(26px, 3.4vw, 36px);
-    letter-spacing: -.02em;
-    line-height: 1.12;
+    letter-spacing: -.03em;
+    line-height: 1.1;
     margin: 12px 0 16px;
   }
   p { max-width: 48rem; }
@@ -379,16 +398,19 @@
     align-items: start;
     gap: 16px;
     padding: 18px 20px;
-    background: rgba(9,9,11,.75);
+    background: linear-gradient(180deg, rgba(17,24,39,.72) 0%, rgba(9,13,22,.88) 100%);
     border: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,.15);
     border-radius: 14px;
-    transition: border-color .2s ease;
+    box-shadow: 0 12px 32px -12px rgba(0,0,0,.55);
+    transition: border-color .2s ease, transform .2s ease;
   }
-  .fixlist li:hover { border-color: var(--cyan-dim); }
+  .fixlist li:hover { border-color: var(--cyan-dim); transform: translateY(-1px); }
   .num {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
     color: var(--cyan);
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 600;
     background: var(--cyan-glow);
     border: 1px solid var(--cyan-dim);
@@ -407,13 +429,14 @@
     font-size: 16.5px;
   }
   .day-tag {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
     font-size: 11px;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--faint);
-    background: rgba(255,255,255,.03);
-    border: 1px solid var(--line-soft);
+    color: var(--cyan);
+    background: rgba(34,211,238,.07);
+    border: 1px solid rgba(34,211,238,.22);
     padding: 4px 10px;
     border-radius: 999px;
     white-space: nowrap;
@@ -421,11 +444,13 @@
 
   /* 9-Run Matrix Explorer */
   .matrix-box {
-    background: rgba(9,9,11,.88);
+    background: linear-gradient(180deg, rgba(17,24,39,.78) 0%, rgba(9,13,22,.92) 100%);
     border: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,.16);
     border-radius: 16px;
     padding: 24px;
     margin-top: 22px;
+    box-shadow: 0 16px 40px -12px rgba(0,0,0,.65);
   }
   .matrix-controls {
     display: flex;
@@ -441,7 +466,7 @@
     gap: 12px;
   }
   .engine-col {
-    background: #050507;
+    background: #040609;
     border: 1px solid var(--line-soft);
     border-radius: 12px;
     padding: 14px;
@@ -450,7 +475,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
     font-size: 12px;
     color: #fff;
     padding-bottom: 10px;
@@ -469,7 +495,8 @@
   }
   .run-row:last-child { margin-bottom: 0; }
   .pill {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
     font-size: 10.5px;
     padding: 2px 8px;
     border-radius: 999px;
@@ -481,10 +508,12 @@
 
   /* Interactive Worksheet Builder */
   .panel {
-    background: rgba(9,9,11,.92);
+    background: linear-gradient(180deg, rgba(17,24,39,.82) 0%, rgba(9,13,22,.94) 100%);
     border: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,.16);
     border-radius: 16px;
     padding: 28px 30px;
+    box-shadow: 0 16px 40px -12px rgba(0,0,0,.65);
   }
   .worksheet-grid {
     display: grid;
@@ -676,13 +705,13 @@
         verified re-test. One flat fee. Seven days. No retainer.</p>
 
         <div class="hero-actions">
-          <a class="btn" id="heroReserveBtn" href="https://buy.stripe.com/aFa6oH6oMgfmeK37932oE03">Reserve your slot — $199.50 deposit →</a>
+          <a class="btn" id="heroReserveBtn" href="https://buy.stripe.com/3cIbJ1dRe4wEgSb3WR2oE04">Reserve founding slot — $975 deposit →</a>
           <a class="btn-secondary" href="#worksheet">Complete intake worksheet</a>
         </div>
       </div>
 
       <!-- Interactive Before/After AI Answer Simulator -->
-      <div class="diag-card" aria-label="Before and After AI Response Preview">
+      <div class="diag-card" id="diagCard" aria-label="Before and After AI Response Preview">
         <div class="diag-top">
           <span class="diag-title">Live Buyer Prompt Simulation</span>
           <div class="toggle-pill" role="group" aria-label="Toggle audit state">
@@ -708,14 +737,14 @@
 
     <div class="offer">
       <div class="cell">
-        <div class="k">Flat fee</div>
-        <div class="v">$399</div>
-        <div class="note">One-time sprint, zero retainer</div>
+        <div class="k">Founding sprint (1–5)</div>
+        <div class="v">$1,950 <s>$2,950</s></div>
+        <div class="note">First 5 single-location slots · zero retainer</div>
       </div>
       <div class="cell">
         <div class="k">Deposit to reserve</div>
-        <div class="v cy">$199.50</div>
-        <div class="note">Locks your weekly sprint slot</div>
+        <div class="v cy">$975</div>
+        <div class="note">50% deposit locks your weekly sprint slot</div>
       </div>
       <div class="cell">
         <div class="k">Turnaround</div>
@@ -725,9 +754,12 @@
       <div class="cell">
         <div class="k">Balance due</div>
         <div class="v">On re-test</div>
-        <div class="note">$199.50 upon Day 7 proof</div>
+        <div class="note">$975 upon verified Day 7 9-run proof</div>
       </div>
     </div>
+    <p class="muted" style="font-size:13px;margin:10px 0 0;max-width:72rem;">
+      <strong>Founding cohort (5 sprints at $1,950; standard price $2,950 from sprint 6):</strong> Single-location med spa, caterer/venue, specialized legal, clinic, or trades — in exchange for permission to publish an anonymised-then-named before/after case study and a Day 14 testimonial request. <strong>Boutique fitness (single location, capped service/PDF scope):</strong> $1,495 ($748 deposit, or 40/30/30 split; $2,250 standard). <strong>Multi-location:</strong> +$750 per additional location (+$950 standard). <strong>Sprint + 30-Day Proof:</strong> $3,450 (adds Day 30 9-run re-test, 1 extra service/location extraction, and 30-day regression fix window).
+    </p>
   </div>
 
   <section id="deliverables">
@@ -859,13 +891,13 @@
         <div class="eyebrow">Lock Your Sprint Window</div>
         <h2 style="margin:10px 0 10px;">Ready to fix what AI reads about your business?</h2>
         <p class="smallprint" style="margin:0;">
-          Questions or intake worksheet? Email <a href="mailto:partnerships@lexipro.online">partnerships@lexipro.online</a>
+          Questions, boutique fitness ($1,495) or multi-location (+$750/loc) scoping, or intake worksheet? Email <a href="mailto:partnerships@lexipro.online">partnerships@lexipro.online</a>
           <button type="button" id="copyEmailBtn" class="btn-secondary" style="padding:3px 9px;font-size:11.5px;margin-left:6px;">Copy email</button>
           <span class="toast" id="emailToast" role="status" aria-live="polite">Copied!</span>
         </p>
       </div>
       <div>
-        <a class="btn" id="bottomReserveBtn" href="https://buy.stripe.com/aFa6oH6oMgfmeK37932oE03">Reserve your slot — $199.50 deposit →</a>
+        <a class="btn" id="bottomReserveBtn" href="https://buy.stripe.com/3cIbJ1dRe4wEgSb3WR2oE04">Reserve founding slot — $975 deposit →</a>
       </div>
     </div>
   </div>
@@ -874,8 +906,7 @@
 
 <footer>
   <div class="wrap foot-row">
-    <p>Offered by Broken Arrow Entertainment LLC under the LexiPro name. The sprint fixes published
-    business data and site structure; placement in AI answers is measured and reported, never guaranteed.</p>
+    <p>Offered by Broken Arrow Entertainment LLC under the LexiPro name. Deliverables guarantee: every fix on the agreed list is shipped and the 9-run re-test is delivered, or we fix it free; if we cannot ship an agreed item, that item's share is refunded. Placement in AI answers is measured and reported, never guaranteed.</p>
     <span class="mono" style="font-size:11px;color:var(--faint);">LEXIPRO // 7-DAY SPRINT SPEC</span>
   </div>
 </footer>
@@ -883,6 +914,7 @@
 <script>
   (function () {
     // 1. Hero Before / After Simulation
+    const diagCard = document.getElementById('diagCard');
     const btnStateBefore = document.getElementById('btnStateBefore');
     const btnStateAfter = document.getElementById('btnStateAfter');
     const simBadge = document.getElementById('simBadge');
@@ -892,18 +924,20 @@
 
     function setHeroState(mode) {
       if (mode === 'before') {
+        if (diagCard) diagCard.className = 'diag-card';
         btnStateBefore.className = 'active-fail';
         btnStateAfter.className = '';
         simBadge.className = 'ai-badge fail';
-        simBadge.textContent = 'DOUBLE FAILURE · UNQUOTABLE FACTS';
+        simBadge.textContent = '✗ DOUBLE FAILURE · UNQUOTABLE FACTS';
         simText.textContent = '“Pricing and consultation policies aren’t listed in crawlable text on their website (their menu is an image PDF, and Yelp lists different hours than Google). Here are two nearby competitors with published starting rates and direct online booking…”';
         simCrawlers.textContent = 'Crawlers: OAI/Perplexity blocked or blind';
         simScore.textContent = 'Audit Score: 2 / 9 runs passed';
       } else {
+        if (diagCard) diagCard.className = 'diag-card state-pass';
         btnStateBefore.className = '';
         btnStateAfter.className = 'active-pass';
         simBadge.className = 'ai-badge pass';
-        simBadge.textContent = 'VERIFIED PASS · QUOTED & BOOKABLE';
+        simBadge.textContent = '✓ VERIFIED PASS · QUOTED & BOOKABLE';
         simText.textContent = '“Services start at $185 (Express from $95). Their $50 consultation fee applies 100% toward your booked service, with a 48-hour rescheduling window and a 25% deposit to hold your date. You can book directly at their verified online endpoint.”';
         simCrawlers.textContent = 'Crawlers: OAI + Claude + Perplexity allowed';
         simScore.textContent = 'Re-Test Score: 9 / 9 runs passed';
@@ -990,9 +1024,10 @@
       const cols = matrixData[mode];
       matrixGrid.innerHTML = cols.map(function (col) {
         const rowsHtml = col.runs.map(function (r) {
+          const prefix = r.status === 'pass' ? '✓ ' : (r.status === 'fail' ? '✗ ' : '! ');
           return '<div class="run-row">' +
             '<span>' + r.label + '</span>' +
-            '<span class="pill ' + r.status + '">' + r.text + '</span>' +
+            '<span class="pill ' + r.status + '">' + prefix + r.text + '</span>' +
           '</div>';
         }).join('');
         return '<div class="engine-col">' +
@@ -1040,7 +1075,7 @@
         '04. Deposit / Retainer to Hold Date: ' + v4,
         '05. Direct Booking Endpoint: ' + v5,
         '',
-        'Please send the $199.50 deposit link to lock in my 7-day sprint slot.'
+        'Please lock in my Founding Cohort 7-day sprint slot ($1,950 flat / $975 deposit).'
       ].join('\n');
     }
 
