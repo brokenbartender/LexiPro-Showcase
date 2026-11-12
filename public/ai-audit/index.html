@@ -735,7 +735,7 @@
           </div>
           <div class="ai-meta">
             <span id="simCrawlers">Crawlers: OAI/Perplexity blocked or blind</span>
-            <span id="simScore">Audit Score: 2 / 9 runs passed</span>
+            <span id="simScore">Illustrative Baseline: 2 / 9 runs passed</span>
           </div>
         </div>
       </div>
@@ -760,7 +760,7 @@
       <div class="cell">
         <div class="k">Balance due</div>
         <div class="v">On re-test</div>
-        <div class="note">$975 upon verified Day 7 9-run proof</div>
+        <div class="note">$975 when Day 7 re-test is delivered against agreed checklist</div>
       </div>
     </div>
     <p class="muted" style="font-size:13px;margin:10px 0 0;max-width:72rem;">
@@ -804,8 +804,10 @@
         <span class="num">04</span>
         <div>
           <b>Schema &amp; booking form labeling.</b>
-          <span class="muted">Validated LocalBusiness / Service / Offer structured data, and labeled form
-          fields and buttons so browser agents don't stall at your booking step.</span>
+          <span class="muted">Validated LocalBusiness / Service / Offer structured data, plus labeled fields
+          and buttons on first-party forms. Third-party booking widgets (Tripleseat, Phorest, Calendly,
+          Mindbody, and similar) cannot be edited from outside, so the deliverable there is the corrected,
+          clearly labeled path and deep link to the booking endpoint.</span>
         </div>
         <span class="day-tag">Day 5–6</span>
       </li>
@@ -814,8 +816,10 @@
         <div>
           <b>Verified re-test.</b>
           <span class="muted">The same 9-run buyer matrix — 3 runs each on ChatGPT Search, Perplexity, and
-          Gemini — re-run on Day 7. You see the before and the after, side by side. The balance is due on
-          that re-test, not before.</span>
+          Gemini — re-run on Day 7. You see the before and the after, side by side. The balance is due when
+          the Day 7 re-test is delivered against the pre-agreed fix checklist (not contingent on all 9 runs
+          passing). Search indexes refresh on their own schedule, so if an engine has not re-read a fixed
+          page by Day 7, a follow-up re-run at Day 14 is included at no extra cost.</span>
         </div>
         <span class="day-tag">Day 7</span>
       </li>
@@ -850,7 +854,7 @@
   <section id="worksheet">
     <div class="eyebrow">What you must decide</div>
     <h2>The hardest failures are facts only you can set.</h2>
-    <p class="muted">The sprint clock starts when this 5-point worksheet comes back. Fill in your answers below to pre-build your intake email and generate a starter JSON-LD schema snippet:</p>
+    <p class="muted">The sprint clock starts when this 5-point worksheet comes back. Fill in your answers below to pre-build your intake email:</p>
 
     <div class="panel worksheet-grid">
       <ul class="decide">
@@ -878,7 +882,7 @@
 
       <div class="ws-preview">
         <div class="ws-preview-head">
-          <span class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);">Ready-to-send intake + schema preview</span>
+          <span class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);">Ready-to-send intake email preview</span>
           <button type="button" class="btn-secondary" id="fillSampleBtn" style="padding:5px 11px;font-size:11.5px;">Load sample</button>
         </div>
         <pre class="ws-code" id="wsOutputPreview"></pre>
@@ -937,7 +941,7 @@
         simBadge.textContent = '✗ DOUBLE FAILURE · UNQUOTABLE FACTS';
         simText.textContent = '“Pricing and consultation policies aren’t listed in crawlable text on their website (their menu is an image PDF, and Yelp lists different hours than Google). Here are two nearby competitors with published starting rates and direct online booking…”';
         simCrawlers.textContent = 'Crawlers: OAI/Perplexity blocked or blind';
-        simScore.textContent = 'Audit Score: 2 / 9 runs passed';
+        simScore.textContent = 'Illustrative Baseline: 2 / 9 runs passed';
       } else {
         if (diagCard) diagCard.className = 'diag-card state-pass';
         btnStateBefore.className = '';
@@ -946,7 +950,7 @@
         simBadge.textContent = '✓ VERIFIED PASS · QUOTED & BOOKABLE';
         simText.textContent = '“Services start at $185 (Express from $95). Their $50 consultation fee applies 100% toward your booked service, with a 48-hour rescheduling window and a 25% deposit to hold your date. You can book directly at their verified online endpoint.”';
         simCrawlers.textContent = 'Crawlers: OAI + Claude + Perplexity allowed';
-        simScore.textContent = 'Re-Test Score: 9 / 9 runs passed';
+        simScore.textContent = 'Illustrative Example: 9 / 9 runs passed';
       }
     }
 
@@ -1009,7 +1013,7 @@
           runs: [
             { label: 'Run 1 · Discovery & Name', status: 'pass', text: 'GBP + Site aligned' },
             { label: 'Run 2 · Starting Price & Terms', status: 'pass', text: 'Deposit & policy cited' },
-            { label: 'Run 3 · Direct Booking Link', status: 'pass', text: 'Actionable form labels' }
+            { label: 'Run 3 · Direct Booking Link', status: 'pass', text: 'Labeled form / deep link' }
           ]
         }
       ]
