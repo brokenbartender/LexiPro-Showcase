@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AI Discovery &amp; Bookability Sprint — LexiPro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --surface: #050507;
+    --panel: #09090b;
+    --panel-elevated: #0e0e13;
+    --ink: #e4e4f0;
+    --muted: #9c9cae;
+    --faint: #6d6d80;
+    --line: rgba(255,255,255,.10);
+    --line-soft: rgba(255,255,255,.06);
+    --cyan: #22d3ee;
+    --cyan-dim: rgba(34,211,238,.25);
+    --cyan-glow: rgba(34,211,238,.12);
+    --amber: #fbbf24;
+    --amber-dim: rgba(251,191,36,.15);
+    --green: #4ade80;
+    --green-dim: rgba(74,222,128,.15);
+    --red: #f87171;
+    --red-dim: rgba(248,113,113,.15);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background-color: var(--surface);
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(34,211,238,.08), transparent 60%),
+      linear-gradient(rgba(34,211,238,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,211,238,.035) 1px, transparent 1px);
+    background-size: 100% 100%, 48px 48px, 48px 48px;
+    background-attachment: fixed;
+    font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 1px;
+    background: var(--cyan);
+  }
+
+  /* Sticky Top Header */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding: 16px 0;
+    background: rgba(5,5,7,.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  header.site .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 21px;
+    letter-spacing: -.02em;
+    color: #fff;
+    text-decoration: none;
+  }
+  .wordmark span { color: var(--cyan); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: color .2s ease;
+  }
+  .nav-links a:hover { color: #fff; }
+  .status {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+  .status i {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-right: 8px;
+    box-shadow: 0 0 10px rgba(74,222,128,.8);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .55; transform: scale(.9); }
+  }
+
+  /* Hero Section */
+  .hero { padding: 68px 0 44px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 36px;
+    align-items: start;
+  }
+  h1 {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    color: #fff;
+    font-size: clamp(38px, 5.8vw, 66px);
+    line-height: 1.03;
+    letter-spacing: -.03em;
+    margin: 16px 0 20px;
+  }
+  h1 .accent {
+    color: var(--cyan);
+    text-shadow: 0 0 36px rgba(34,211,238,.25);
+  }
+  .lede {
+    font-size: 18.5px;
+    color: var(--ink);
+    max-width: 42rem;
+    margin: 0 0 14px;
+  }
+  .sub {
+    color: var(--muted);
+    max-width: 42rem;
+    margin: 0 0 28px;
+    font-size: 15.5px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--cyan);
+    color: #04222a;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px rgba(34,211,238,.4), 0 8px 32px rgba(34,211,238,.25);
+    transition: all .2s ease;
+    font-family: inherit;
+  }
+  .btn:hover {
+    background: #67e8f9;
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 1px rgba(103,232,249,.6), 0 12px 36px rgba(34,211,238,.35);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255,255,255,.04);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: all .2s ease;
+    font-family: inherit;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,.08);
+    border-color: var(--cyan-dim);
+    color: #fff;
+  }
+
+  /* Hero Live Diagnostic Card */
+  .diag-card {
+    background: rgba(9,9,11,.92);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.6);
+  }
+  .diag-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line-soft);
+    margin-bottom: 14px;
+  }
+  .diag-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .toggle-pill {
+    display: inline-flex;
+    background: #050507;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .toggle-pill button {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .18s ease;
+  }
+  .toggle-pill button.active-fail {
+    background: var(--red-dim);
+    color: var(--red);
+    font-weight: 600;
+  }
+  .toggle-pill button.active-pass {
+    background: var(--green-dim);
+    color: var(--green);
+    font-weight: 600;
+  }
+  .prompt-box {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--line-soft);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .prompt-box strong { color: #fff; font-weight: 600; }
+  .ai-response {
+    background: #050507;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    min-height: 154px;
+  }
+  .ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  .ai-badge.fail { background: var(--red-dim); color: var(--red); }
+  .ai-badge.pass { background: var(--green-dim); color: var(--green); }
+  .ai-meta {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--faint);
+  }
+
+  /* Offer Grid */
+  .offer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 36px 0 8px;
+  }
+  .cell {
+    background: rgba(9,9,11,.88);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .cell:hover {
+    border-color: var(--cyan-dim);
+    transform: translateY(-2px);
+  }
+  .cell .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .cell .v {
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #fff;
+    margin-top: 6px;
+  }
+  .cell .v.cy { color: var(--cyan); }
+  .cell .note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  section {
+    padding: 48px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  h2 {
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: clamp(26px, 3.4vw, 36px);
+    letter-spacing: -.02em;
+    line-height: 1.12;
+    margin: 12px 0 16px;
+  }
+  p { max-width: 48rem; }
+  .muted { color: var(--muted); }
+
+  /* 5-Step Deliverables + Day Timeline */
+  .fixlist {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .fixlist li {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    align-items: start;
+    gap: 16px;
+    padding: 18px 20px;
+    background: rgba(9,9,11,.75);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    transition: border-color .2s ease;
+  }
+  .fixlist li:hover { border-color: var(--cyan-dim); }
+  .num {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--cyan);
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--cyan-glow);
+    border: 1px solid var(--cyan-dim);
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fixlist b {
+    color: #fff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 16.5px;
+  }
+  .day-tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--faint);
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--line-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  /* 9-Run Matrix Explorer */
+  .matrix-box {
+    background: rgba(9,9,11,.88);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 22px;
+  }
+  .matrix-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .engine-col {
+    background: #050507;
+    border: 1px solid var(--line-soft);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .engine-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: #fff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .run-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.02);
+    margin-bottom: 6px;
+    font-size: 12.5px;
+  }
+  .run-row:last-child { margin-bottom: 0; }
+  .pill {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .pill.fail { background: var(--red-dim); color: var(--red); }
+  .pill.warn { background: var(--amber-dim); color: var(--amber); }
+  .pill.pass { background: var(--green-dim); color: var(--green); }
+
+  /* Interactive Worksheet Builder */
+  .panel {
+    background: rgba(9,9,11,.92);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 30px;
+  }
+  .worksheet-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 24px;
+    margin-top: 20px;
+    align-items: start;
+  }
+  .decide {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .decide li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink);
+  }
+  .decide li:last-child { border-bottom: none; }
+  .decide-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+    font-size: 14.5px;
+  }
+  .decide .n {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--amber);
+    font-size: 12.5px;
+    background: var(--amber-dim);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .ws-input {
+    width: 100%;
+    background: #050507;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 13.5px;
+    transition: border-color .15s ease;
+  }
+  .ws-input:focus {
+    outline: none;
+    border-color: var(--cyan);
+  }
+  .ws-preview {
+    background: #050507;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px;
+    position: sticky;
+    top: 86px;
+  }
+  .ws-preview-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .ws-code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    color: var(--ink);
+    background: rgba(255,255,255,.02);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    padding: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0 0 14px;
+    max-height: 290px;
+    overflow-y: auto;
+  }
+  .ws-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* CTA Block */
+  .cta-block {
+    padding: 52px 0 60px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .cta-card {
+    background: linear-gradient(135deg, rgba(34,211,238,.09), rgba(9,9,11,.95) 65%);
+    border: 1px solid var(--cyan-dim);
+    border-radius: 20px;
+    padding: 36px 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .smallprint {
+    color: var(--muted);
+    font-size: 13.5px;
+    margin-top: 14px;
+  }
+  .smallprint a { color: var(--cyan); text-decoration: none; }
+  .smallprint a:hover { text-decoration: underline; }
+  .toast {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    color: var(--green);
+    margin-left: 8px;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .toast.show { opacity: 1; }
+
+  footer {
+    border-top: 1px solid var(--line-soft);
+    padding: 28px 0 44px;
+  }
+  footer .foot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  footer p {
+    color: var(--faint);
+    font-size: 12.5px;
+    max-width: 48rem;
+    margin: 0;
+  }
+  a { color: var(--cyan); }
+
+  @media (max-width: 860px) {
+    .hero-grid, .worksheet-grid, .matrix-grid {
+      grid-template-columns: 1fr;
+    }
+    .offer { grid-template-columns: repeat(2, 1fr); }
+    .hero { padding: 44px 0 28px; }
+    .fixlist li { grid-template-columns: 36px 1fr; }
+    .day-tag { grid-column: 2; justify-self: start; }
+    .nav-links { display: none; }
+  }
+  @media print {
+    body { background: #fff; color: #111; background-image: none; }
+    header.site { position: static; background: #fff; border-color: #ccc; }
+    h1, h2, .cell .v, .fixlist b, .wordmark, .decide-head { color: #111; }
+    .cell, .panel, .diag-card, .matrix-box, .fixlist li, .cta-card {
+      background: #fff;
+      border-color: #ccc;
+      box-shadow: none;
+    }
+    .eyebrow, .num, .decide .n { color: #0e7490; }
+    .btn { background: #111; color: #fff; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap row">
+    <a href="/" class="wordmark">Lexi<span>Pro</span></a>
+    <nav class="nav-links" aria-label="Section navigation">
+      <a href="#deliverables">7-Day Deliverables</a>
+      <a href="#matrix">9-Run Matrix</a>
+      <a href="#worksheet">Client Worksheet</a>
+      <a href="#reserve">Reserve Slot</a>
+    </nav>
+    <div class="status"><i></i>Now booking — limited weekly slots</div>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">AI Discovery &amp; Bookability Sprint</div>
+        <h1>Be the answer<br>AI <span class="accent">actually gives.</span></h1>
+        <p class="lede">Your customers are asking ChatGPT, Perplexity, and Gemini who to book — and those
+        assistants answer from your published facts. When the facts conflict, sit trapped in PDFs and images,
+        or were never published at all, the assistant guesses, invents, or recommends somebody else.</p>
+        <p class="sub">This sprint reconciles what AI reads about your business, then proves the fix with a
+        verified re-test. One flat fee. Seven days. No retainer.</p>
+
+        <div class="hero-actions">
+          <a class="btn" id="heroReserveBtn" href="mailto:admin@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
+          <a class="btn-secondary" href="#worksheet">Complete intake worksheet</a>
+        </div>
+      </div>
+
+      <!-- Interactive Before/After AI Answer Simulator -->
+      <div class="diag-card" aria-label="Before and After AI Response Preview">
+        <div class="diag-top">
+          <span class="diag-title">Live Buyer Prompt Simulation</span>
+          <div class="toggle-pill" role="group" aria-label="Toggle audit state">
+            <button type="button" id="btnStateBefore" class="active-fail">Day 1: Unreconciled</button>
+            <button type="button" id="btnStateAfter">Day 7: Re-Tested</button>
+          </div>
+        </div>
+        <div class="prompt-box">
+          <strong>Buyer prompt:</strong> “Who should I book in town, what do they charge to start, and how do I lock in a date?”
+        </div>
+        <div class="ai-response" id="simResponseBox">
+          <span class="ai-badge fail" id="simBadge">DOUBLE FAILURE · UNQUOTABLE FACTS</span>
+          <div id="simText">
+            “Pricing and consultation policies aren’t listed in crawlable text on their website (their menu is an image PDF, and Yelp lists different hours than Google). Here are two nearby competitors with published starting rates and direct online booking…”
+          </div>
+          <div class="ai-meta">
+            <span id="simCrawlers">Crawlers: OAI/Perplexity blocked or blind</span>
+            <span id="simScore">Audit Score: 2 / 9 runs passed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer">
+      <div class="cell">
+        <div class="k">Flat fee</div>
+        <div class="v">$399</div>
+        <div class="note">One-time sprint, zero retainer</div>
+      </div>
+      <div class="cell">
+        <div class="k">Deposit to reserve</div>
+        <div class="v cy">$199.50</div>
+        <div class="note">Locks your weekly sprint slot</div>
+      </div>
+      <div class="cell">
+        <div class="k">Turnaround</div>
+        <div class="v">7 days</div>
+        <div class="note">Clock starts on worksheet return</div>
+      </div>
+      <div class="cell">
+        <div class="k">Balance due</div>
+        <div class="v">On re-test</div>
+        <div class="note">$199.50 upon Day 7 proof</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="deliverables">
+    <div class="eyebrow">What I fix &amp; ship in 7 days</div>
+    <h2>Proof, not guesses — applied to your listings.</h2>
+    <p class="muted">Every deliverable targets a specific reason AI assistants skip, misquote, or fail to book a local business:</p>
+    <ul class="fixlist">
+      <li>
+        <span class="num">01</span>
+        <div>
+          <b>Unblocking AI crawlers.</b>
+          <span class="muted">Your robots.txt and firewall settings checked and corrected so OAI-SearchBot,
+          Claude-SearchBot, and PerplexityBot can actually read your site.</span>
+        </div>
+        <span class="day-tag">Day 1–2</span>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div>
+          <b>Extracting trapped facts into plain text.</b>
+          <span class="muted">Services, starting prices, consultation fees, and cancellation policies pulled
+          out of PDFs, images, and pop-up calculators into server-rendered HTML the engines can quote.</span>
+        </div>
+        <span class="day-tag">Day 2–4</span>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div>
+          <b>Cross-platform fact reconciliation.</b>
+          <span class="muted">Name, address, phone, hours, and service menus made identical across your
+          website, Google Business Profile, Yelp, and the directories — so no source contradicts another.</span>
+        </div>
+        <span class="day-tag">Day 4–5</span>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <div>
+          <b>Schema &amp; booking form labeling.</b>
+          <span class="muted">Validated LocalBusiness / Service / Offer structured data, and labeled form
+          fields and buttons so browser agents don't stall at your booking step.</span>
+        </div>
+        <span class="day-tag">Day 5–6</span>
+      </li>
+      <li>
+        <span class="num">05</span>
+        <div>
+          <b>Verified re-test.</b>
+          <span class="muted">The same 9-run buyer matrix — 3 runs each on ChatGPT Search, Perplexity, and
+          Gemini — re-run on Day 7. You see the before and the after, side by side. The balance is due on
+          that re-test, not before.</span>
+        </div>
+        <span class="day-tag">Day 7</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="matrix">
+    <div class="eyebrow">How it starts</div>
+    <h2>It starts with the 9-run audit matrix.</h2>
+    <p class="muted">A one-page mini-audit of your business across the three engines, scored on the
+    pattern of 9 runs, not a single screenshot. If the audit shows a double failure (discovery + bookability), the sprint fixes it.
+    The deposit reserves one of this week's implementation slots.</p>
+
+    <div class="matrix-box">
+      <div class="matrix-controls">
+        <div>
+          <strong style="color:#fff;font-size:15px;">Sample 9-Run Buyer Verification Matrix</strong>
+          <div class="muted" style="font-size:13px;">Compare a typical Day 1 baseline audit against the Day 7 verified re-test.</div>
+        </div>
+        <div class="toggle-pill" role="group" aria-label="Matrix view mode">
+          <button type="button" id="matrixBtnBefore" class="active-fail">Day 1 Audit (Baseline)</button>
+          <button type="button" id="matrixBtnAfter">Day 7 Re-Test (Verified)</button>
+        </div>
+      </div>
+
+      <div class="matrix-grid" id="matrixGrid">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <section id="worksheet">
+    <div class="eyebrow">What you must decide</div>
+    <h2>The hardest failures are facts only you can set.</h2>
+    <p class="muted">The sprint clock starts when this 5-point worksheet comes back. Fill in your answers below to pre-build your intake email and generate a starter JSON-LD schema snippet:</p>
+
+    <div class="panel worksheet-grid">
+      <ul class="decide">
+        <li>
+          <div class="decide-head"><span class="n">01</span>Your top-3 service starting prices</div>
+          <input class="ws-input" id="wsField1" type="text" placeholder="e.g., Signature Service from $185, Express from $95, Full Package from $340">
+        </li>
+        <li>
+          <div class="decide-head"><span class="n">02</span>Consultation fee, and whether it applies toward the service</div>
+          <input class="ws-input" id="wsField2" type="text" placeholder="e.g., $50 consultation, 100% credited toward booked service">
+        </li>
+        <li>
+          <div class="decide-head"><span class="n">03</span>Cancellation / rescheduling window and fee</div>
+          <input class="ws-input" id="wsField3" type="text" placeholder="e.g., 48-hour notice required; $50 fee inside 48 hours">
+        </li>
+        <li>
+          <div class="decide-head"><span class="n">04</span>Deposit or retainer required to hold a date</div>
+          <input class="ws-input" id="wsField4" type="text" placeholder="e.g., 25% deposit required at booking to lock date">
+        </li>
+        <li>
+          <div class="decide-head"><span class="n">05</span>Your direct booking / inquiry endpoint</div>
+          <input class="ws-input" id="wsField5" type="text" placeholder="e.g., https://yourdomain.com/book">
+        </li>
+      </ul>
+
+      <div class="ws-preview">
+        <div class="ws-preview-head">
+          <span class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);">Ready-to-send intake + schema preview</span>
+          <button type="button" class="btn-secondary" id="fillSampleBtn" style="padding:5px 11px;font-size:11.5px;">Load sample</button>
+        </div>
+        <pre class="ws-code" id="wsOutputPreview"></pre>
+        <div class="ws-actions">
+          <a class="btn" id="sendWorksheetMailBtn" href="mailto:admin@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot" style="font-size:14px;padding:11px 20px;">Email worksheet &amp; reserve slot →</a>
+          <button type="button" class="btn-secondary" id="copyWorksheetBtn" style="font-size:13.5px;padding:10px 16px;">Copy summary</button>
+          <span class="toast" id="copyToast" role="status" aria-live="polite">Copied!</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-block" id="reserve">
+    <div class="cta-card">
+      <div>
+        <div class="eyebrow">Lock Your Sprint Window</div>
+        <h2 style="margin:10px 0 10px;">Ready to fix what AI reads about your business?</h2>
+        <p class="smallprint" style="margin:0;">
+          The button opens an email to <a href="mailto:admin@lexipro.online">admin@lexipro.online</a>
+          <button type="button" id="copyEmailBtn" class="btn-secondary" style="padding:3px 9px;font-size:11.5px;margin-left:6px;">Copy email</button>
+          <span class="toast" id="emailToast" role="status" aria-live="polite">Copied!</span>
+          <br>Prefer to pay online? Say so in your reply and the payment link will be sent the same day.
+        </p>
+      </div>
+      <div>
+        <a class="btn" id="bottomReserveBtn" href="mailto:admin@lexipro.online?subject=AI%20Discovery%20%26%20Bookability%20Sprint%20%E2%80%94%20reserve%20my%20slot">Reserve your slot — $199.50 deposit →</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>Offered by Broken Arrow Entertainment LLC under the LexiPro name. The sprint fixes published
+    business data and site structure; placement in AI answers is measured and reported, never guaranteed.</p>
+    <span class="mono" style="font-size:11px;color:var(--faint);">LEXIPRO // 7-DAY SPRINT SPEC</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    // 1. Hero Before / After Simulation
+    const btnStateBefore = document.getElementById('btnStateBefore');
+    const btnStateAfter = document.getElementById('btnStateAfter');
+    const simBadge = document.getElementById('simBadge');
+    const simText = document.getElementById('simText');
+    const simCrawlers = document.getElementById('simCrawlers');
+    const simScore = document.getElementById('simScore');
+
+    function setHeroState(mode) {
+      if (mode === 'before') {
+        btnStateBefore.className = 'active-fail';
+        btnStateAfter.className = '';
+        simBadge.className = 'ai-badge fail';
+        simBadge.textContent = 'DOUBLE FAILURE · UNQUOTABLE FACTS';
+        simText.textContent = '“Pricing and consultation policies aren’t listed in crawlable text on their website (their menu is an image PDF, and Yelp lists different hours than Google). Here are two nearby competitors with published starting rates and direct online booking…”';
+        simCrawlers.textContent = 'Crawlers: OAI/Perplexity blocked or blind';
+        simScore.textContent = 'Audit Score: 2 / 9 runs passed';
+      } else {
+        btnStateBefore.className = '';
+        btnStateAfter.className = 'active-pass';
+        simBadge.className = 'ai-badge pass';
+        simBadge.textContent = 'VERIFIED PASS · QUOTED & BOOKABLE';
+        simText.textContent = '“Services start at $185 (Express from $95). Their $50 consultation fee applies 100% toward your booked service, with a 48-hour rescheduling window and a 25% deposit to hold your date. You can book directly at their verified online endpoint.”';
+        simCrawlers.textContent = 'Crawlers: OAI + Claude + Perplexity allowed';
+        simScore.textContent = 'Re-Test Score: 9 / 9 runs passed';
+      }
+    }
+
+    btnStateBefore.addEventListener('click', function () { setHeroState('before'); });
+    btnStateAfter.addEventListener('click', function () { setHeroState('after'); });
+
+    // 2. 9-Run Buyer Matrix Interactive Comparison
+    const matrixData = {
+      before: [
+        {
+          engine: 'ChatGPT Search',
+          summary: '1 / 3 passed',
+          runs: [
+            { label: 'Run 1 · Discovery & Name', status: 'warn', text: 'Named, no price' },
+            { label: 'Run 2 · Starting Price & Terms', status: 'fail', text: 'PDF unreadable' },
+            { label: 'Run 3 · Direct Booking Link', status: 'fail', text: 'Unlabeled form' }
+          ]
+        },
+        {
+          engine: 'Perplexity',
+          summary: '1 / 3 passed',
+          runs: [
+            { label: 'Run 1 · Discovery & Name', status: 'pass', text: 'Cited directory' },
+            { label: 'Run 2 · Starting Price & Terms', status: 'fail', text: 'Conflicting hours' },
+            { label: 'Run 3 · Direct Booking Link', status: 'fail', text: 'Dead-end modal' }
+          ]
+        },
+        {
+          engine: 'Google Gemini',
+          summary: '0 / 3 passed',
+          runs: [
+            { label: 'Run 1 · Discovery & Name', status: 'warn', text: 'Guessed range' },
+            { label: 'Run 2 · Starting Price & Terms', status: 'fail', text: 'Omitted policy' },
+            { label: 'Run 3 · Direct Booking Link', status: 'fail', text: 'Sent to competitor' }
+          ]
+        }
+      ],
+      after: [
+        {
+          engine: 'ChatGPT Search',
+          summary: '3 / 3 passed',
+          runs: [
+            { label: 'Run 1 · Discovery & Name', status: 'pass', text: 'Exact match' },
+            { label: 'Run 2 · Starting Price & Terms', status: 'pass', text: 'Quoted HTML + Schema' },
+            { label: 'Run 3 · Direct Booking Link', status: 'pass', text: 'Direct endpoint cited' }
+          ]
+        },
+        {
+          engine: 'Perplexity',
+          summary: '3 / 3 passed',
+          runs: [
+            { label: 'Run 1 · Discovery & Name', status: 'pass', text: 'Reconciled NAP' },
+            { label: 'Run 2 · Starting Price & Terms', status: 'pass', text: 'All 3 tiers quoted' },
+            { label: 'Run 3 · Direct Booking Link', status: 'pass', text: 'Verified booking URL' }
+          ]
+        },
+        {
+          engine: 'Google Gemini',
+          summary: '3 / 3 passed',
+          runs: [
+            { label: 'Run 1 · Discovery & Name', status: 'pass', text: 'GBP + Site aligned' },
+            { label: 'Run 2 · Starting Price & Terms', status: 'pass', text: 'Deposit & policy cited' },
+            { label: 'Run 3 · Direct Booking Link', status: 'pass', text: 'Actionable form labels' }
+          ]
+        }
+      ]
+    };
+
+    const matrixGrid = document.getElementById('matrixGrid');
+    const matrixBtnBefore = document.getElementById('matrixBtnBefore');
+    const matrixBtnAfter = document.getElementById('matrixBtnAfter');
+
+    function renderMatrix(mode) {
+      if (mode === 'before') {
+        matrixBtnBefore.className = 'active-fail';
+        matrixBtnAfter.className = '';
+      } else {
+        matrixBtnBefore.className = '';
+        matrixBtnAfter.className = 'active-pass';
+      }
+      const cols = matrixData[mode];
+      matrixGrid.innerHTML = cols.map(function (col) {
+        const rowsHtml = col.runs.map(function (r) {
+          return '<div class="run-row">' +
+            '<span>' + r.label + '</span>' +
+            '<span class="pill ' + r.status + '">' + r.text + '</span>' +
+          '</div>';
+        }).join('');
+        return '<div class="engine-col">' +
+          '<div class="engine-head"><span>' + col.engine + '</span><span style="color:var(--muted)">' + col.summary + '</span></div>' +
+          rowsHtml +
+        '</div>';
+      }).join('');
+    }
+
+    matrixBtnBefore.addEventListener('click', function () { renderMatrix('before'); });
+    matrixBtnAfter.addEventListener('click', function () { renderMatrix('after'); });
+    renderMatrix('before');
+
+    // 3. Interactive Client Worksheet + Mailto & Copy Generator
+    const fields = [
+      document.getElementById('wsField1'),
+      document.getElementById('wsField2'),
+      document.getElementById('wsField3'),
+      document.getElementById('wsField4'),
+      document.getElementById('wsField5')
+    ];
+    const wsOutputPreview = document.getElementById('wsOutputPreview');
+    const sendWorksheetMailBtn = document.getElementById('sendWorksheetMailBtn');
+    const heroReserveBtn = document.getElementById('heroReserveBtn');
+    const bottomReserveBtn = document.getElementById('bottomReserveBtn');
+    const fillSampleBtn = document.getElementById('fillSampleBtn');
+    const copyWorksheetBtn = document.getElementById('copyWorksheetBtn');
+    const copyToast = document.getElementById('copyToast');
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const emailToast = document.getElementById('emailToast');
+
+    function buildSummaryText() {
+      const v1 = fields[0].value.trim() || '[To be confirmed]';
+      const v2 = fields[1].value.trim() || '[To be confirmed]';
+      const v3 = fields[2].value.trim() || '[To be confirmed]';
+      const v4 = fields[3].value.trim() || '[To be confirmed]';
+      const v5 = fields[4].value.trim() || '[To be confirmed]';
+
+      return [
+        'AI DISCOVERY & BOOKABILITY SPRINT — INTAKE WORKSHEET',
+        '----------------------------------------------------',
+        '01. Top-3 Starting Prices: ' + v1,
+        '02. Consultation Fee & Credit: ' + v2,
+        '03. Cancellation / Reschedule Policy: ' + v3,
+        '04. Deposit / Retainer to Hold Date: ' + v4,
+        '05. Direct Booking Endpoint: ' + v5,
+        '',
+        'Please send the $199.50 deposit link to lock in my 7-day sprint slot.'
+      ].join('\n');
+    }
+
+    function updateWorksheet() {
+      const summary = buildSummaryText();
+      wsOutputPreview.textContent = summary;
+      const subject = encodeURIComponent('AI Discovery & Bookability Sprint — reserve my slot');
+      const body = encodeURIComponent(summary);
+      const href = 'mailto:admin@lexipro.online?subject=' + subject + '&body=' + body;
+      sendWorksheetMailBtn.setAttribute('href', href);
+      heroReserveBtn.setAttribute('href', href);
+      bottomReserveBtn.setAttribute('href', href);
+    }
+
+    fields.forEach(function (input) {
+      input.addEventListener('input', updateWorksheet);
+    });
+
+    fillSampleBtn.addEventListener('click', function () {
+      fields[0].value = 'Core Package from $185, Express Tier from $95, Full Day from $450';
+      fields[1].value = '$50 consultation fee (100% applied toward booked service)';
+      fields[2].value = '48-hour notice required to reschedule; $50 fee within 48 hours';
+      fields[3].value = '25% deposit required at booking to hold date';
+      fields[4].value = 'https://examplebusiness.com/book-now';
+      updateWorksheet();
+    });
+
+    function copyText(text, toastEl) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          showToast(toastEl);
+        }).catch(function () {
+          fallbackCopy(text, toastEl);
+        });
+      } else {
+        fallbackCopy(text, toastEl);
+      }
+    }
+
+    function fallbackCopy(text, toastEl) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      showToast(toastEl);
+    }
+
+    function showToast(el) {
+      el.classList.add('show');
+      setTimeout(function () {
+        el.classList.remove('show');
+      }, 1800);
+    }
+
+    copyWorksheetBtn.addEventListener('click', function () {
+      copyText(buildSummaryText(), copyToast);
+    });
+
+    copyEmailBtn.addEventListener('click', function () {
+      copyText('admin@lexipro.online', emailToast);
+    });
+
+    updateWorksheet();
+  })();
+</script>
+
+</body>
+</html>
