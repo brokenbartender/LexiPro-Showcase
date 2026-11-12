@@ -3,10 +3,12 @@
 // All page components import from here — never hardcode tool counts / server lists inline.
 
 export const SYSTEM = {
-  toolCount: 228,
+  toolCount: 213,          // VERIFIED: 213 @mcp.tool decorators in nexus_mcp/servers/*.py
   sdcCoverage: 100,        // % SDC coverage
-  serverCount: 15,         // VERIFIED: 14 Python servers (mcp.run() in source) + 1 npx github-server
-  agentCount: 20,
+  serverCount: 30,         // VERIFIED: 30 registered servers in mcp_config.json (26 local Python + 4 external bridges)
+  agentCount: 19,          // VERIFIED: 19 agent personas in .gemini/agents/ (GEMINI.md §IV)
+  testCount: 1797,         // VERIFIED: 1,797 collected tests in tests/
+  workflowCount: 15,       // VERIFIED: 15 workflow patterns (A–O) in .antigravity/workflows.json
   tierCount: 6,
   shortlistCount: 47,
   kernelVersion: "v22.6 APEX",

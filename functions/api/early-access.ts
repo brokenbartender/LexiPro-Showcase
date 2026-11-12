@@ -8,7 +8,10 @@ export const onRequestPost = async (context) => {
       return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400 });
     }
 
-    const webhookUrl = 'https://discord.com/api/webhooks/1493464358746067115/Pd_iNzFF7DxtTtHItIMY11zisU9PcOff9_YHLJ5HYZ8Tbs-LgOwCXCLcsmQNkLJP2Byo';
+    const webhookUrl = env.DISCORD_WEBHOOK_URL;
+    if (!webhookUrl) {
+      return new Response(JSON.stringify({ error: 'Webhook not configured' }), { status: 500 });
+    }
 
     const discordPayload = {
       embeds: [{
