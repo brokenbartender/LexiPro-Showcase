@@ -45,7 +45,7 @@ export default function Landing() {
 
           <div className="mt-10 flex justify-center">
             <a
-              href="mailto:admin@lexipro.online?subject=LexiPro%20early%20access"
+              href="mailto:partnerships@lexipro.online?subject=LexiPro%20early%20access"
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-[#05080c] transition hover:opacity-90"
             >
               Request early access
