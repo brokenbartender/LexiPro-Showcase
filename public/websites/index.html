@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One-Page Websites for Local Businesses — LexiPro</title>
+<meta name="description" content="A one-page website for local businesses that run on Facebook only. $150 flat, you own it outright, built from your real hours, prices, and photos.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lexipro.online/websites">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#05070b">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lexipro.online/websites">
+<meta property="og:title" content="One-Page Websites for Local Businesses — LexiPro">
+<meta property="og:description" content="A one-page website for local businesses that run on Facebook only. $150 flat, you own it outright, built from your real hours, prices, and photos.">
+<meta property="og:image" content="https://lexipro.online/og-image.png">
+<meta property="og:site_name" content="LexiPro">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://lexipro.online/websites">
+<meta name="twitter:title" content="One-Page Websites for Local Businesses — LexiPro">
+<meta name="twitter:description" content="A one-page website for local businesses that run on Facebook only. $150 flat, you own it outright, built from your real hours, prices, and photos.">
+<meta name="twitter:image" content="https://lexipro.online/og-image.png">
+
+<!-- Structured Data: Service/Offer -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "One-Page Website for Local Businesses",
+  "description": "A one-page website for local businesses that run on Facebook only. Built from your real hours, prices, and photos. You own it outright.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Broken Arrow Entertainment LLC",
+    "url": "https://lexipro.online"
+  },
+  "url": "https://lexipro.online/websites",
+  "offers": {
+    "@type": "Offer",
+    "name": "One-Page Website",
+    "price": "150",
+    "priceCurrency": "USD",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "150",
+      "priceCurrency": "USD",
+      "unitText": "one-time"
+    },
+    "url": "https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --surface: #05070b;
+    --panel: #0b0f17;
+    --panel-elevated: #111827;
+    --ink: #f8fafc;
+    --muted: #94a3b8;
+    --faint: #64748b;
+    --line: rgba(255,255,255,.09);
+    --line-soft: rgba(255,255,255,.06);
+    --cyan: #22d3ee;
+    --cyan-dim: rgba(34,211,238,.28);
+    --cyan-glow: rgba(34,211,238,.12);
+    --amber: #fbbf24;
+    --amber-dim: rgba(251,191,36,.15);
+    --green: #10b981;
+    --green-dim: rgba(16,185,129,.15);
+    --red: #ff4d6d;
+    --red-dim: rgba(255,77,109,.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background-color: var(--surface);
+    background-image:
+      radial-gradient(circle at 18% 10%, rgba(34,211,238,.08) 0%, transparent 45%),
+      radial-gradient(circle at 82% 20%, rgba(255,77,109,.04) 0%, transparent 40%),
+      radial-gradient(rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 24px 24px;
+    background-attachment: fixed;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  .eyebrow {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 1px;
+    background: var(--cyan);
+  }
+
+  /* Sticky Top Header */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding: 16px 0;
+    background: rgba(5,7,11,.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  header.site .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -.03em;
+    color: #fff;
+    text-decoration: none;
+  }
+  .wordmark span { color: var(--cyan); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: color .2s ease;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.active { color: var(--cyan); }
+
+  /* Hero Section */
+  .hero { padding: 68px 0 44px; }
+  h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+    margin: 16px 0 20px;
+  }
+  h1 .accent {
+    background: linear-gradient(135deg, #22d3ee 0%, #38bdf8 55%, #a5f3fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--cyan);
+    text-shadow: 0 0 36px rgba(34,211,238,.22);
+  }
+  .lede {
+    font-size: 18px;
+    color: var(--ink);
+    max-width: 42rem;
+    margin: 0 0 14px;
+  }
+  .sub {
+    color: var(--muted);
+    max-width: 42rem;
+    margin: 0 0 28px;
+    font-size: 15.5px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(180deg, #22f4ff 0%, #06b6d4 100%);
+    color: #030712;
+    font-weight: 700;
+    font-size: 15.5px;
+    letter-spacing: -.01em;
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 999px;
+    border: 1px solid #a5f3fc;
+    cursor: pointer;
+    box-shadow: 0 0 24px rgba(34,211,238,.32), inset 0 1px 0 rgba(255,255,255,.65);
+    transition: all .18s cubic-bezier(.16, 1, .3, 1);
+    font-family: inherit;
+  }
+  .btn:hover {
+    background: linear-gradient(180deg, #67e8f9 0%, #22d3ee 100%);
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 0 34px rgba(34,211,238,.48), inset 0 1px 0 rgba(255,255,255,.85);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255,255,255,.04);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: all .2s ease;
+    font-family: inherit;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,.08);
+    border-color: var(--cyan-dim);
+    color: #fff;
+  }
+
+  section {
+    padding: 48px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: clamp(26px, 3.4vw, 36px);
+    letter-spacing: -.03em;
+    line-height: 1.1;
+    margin: 12px 0 16px;
+  }
+  p { max-width: 48rem; }
+  .muted { color: var(--muted); }
+
+  /* Offer Card */
+  .offer-card {
+    background: linear-gradient(180deg, rgba(17,24,39,.82) 0%, rgba(9,13,22,.94) 100%);
+    border: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,.16);
+    border-radius: 16px;
+    padding: 28px 30px;
+    box-shadow: 0 16px 40px -12px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.05);
+    margin-top: 22px;
+  }
+  .offer-price {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    letter-spacing: -.03em;
+    color: var(--cyan);
+  }
+  .offer-price .note {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-left: 8px;
+  }
+
+  /* Includes List */
+  .includes {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .includes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .includes li:last-child { border-bottom: none; }
+  .check {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: var(--green-dim);
+    color: var(--green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .own-line {
+    font-weight: 600;
+    color: #fff;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--cyan-dim);
+    font-size: 15.5px;
+  }
+
+  /* Care plan section */
+  .care-card {
+    background: linear-gradient(180deg, rgba(17,24,39,.72) 0%, rgba(9,13,22,.88) 100%);
+    border: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,.15);
+    border-radius: 14px;
+    padding: 24px 26px;
+    box-shadow: 0 12px 32px -12px rgba(0,0,0,.55);
+    margin-top: 20px;
+  }
+  .care-price {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -.02em;
+    color: #fff;
+  }
+  .care-price .note {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-left: 6px;
+  }
+
+  /* Example section */
+  .example-box {
+    background: linear-gradient(180deg, rgba(17,24,39,.78) 0%, rgba(9,13,22,.92) 100%);
+    border: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,.16);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-top: 20px;
+    box-shadow: 0 16px 40px -12px rgba(0,0,0,.65);
+  }
+  .example-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    background: var(--amber-dim);
+    padding: 3px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+
+  /* CTA Block */
+  .cta-block {
+    padding: 52px 0 60px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .cta-card {
+    background: linear-gradient(135deg, rgba(34,211,238,.09), rgba(9,9,11,.95) 65%);
+    border: 1px solid var(--cyan-dim);
+    border-radius: 20px;
+    padding: 36px 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .smallprint {
+    color: var(--muted);
+    font-size: 13.5px;
+    margin-top: 14px;
+  }
+  .smallprint a { color: var(--cyan); text-decoration: none; }
+  .smallprint a:hover { text-decoration: underline; }
+
+  footer {
+    border-top: 1px solid var(--line-soft);
+    padding: 28px 0 44px;
+  }
+  footer .foot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  footer p {
+    color: var(--faint);
+    font-size: 12.5px;
+    max-width: 48rem;
+    margin: 0;
+  }
+  a { color: var(--cyan); }
+
+  @media (max-width: 860px) {
+    .hero { padding: 44px 0 28px; }
+    .nav-links { display: none; }
+    .cta-card { flex-direction: column; text-align: center; }
+  }
+  @media print {
+    body { background: #fff; color: #111; background-image: none; }
+    header.site { position: static; background: #fff; border-color: #ccc; }
+    h1, h2, .offer-price, .care-price, .wordmark { color: #111; }
+    .offer-card, .care-card, .example-box, .cta-card {
+      background: #fff;
+      border-color: #ccc;
+      box-shadow: none;
+    }
+    .eyebrow { color: #0e7490; }
+    .btn { background: #111; color: #fff; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap row">
+    <a href="/" class="wordmark">Lexi<span>Pro</span></a>
+    <nav class="nav-links" aria-label="Site navigation">
+      <a href="/ai-audit">AI Audit Sprint</a>
+      <a href="/websites" class="active">Websites</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <div class="eyebrow">One-Page Websites</div>
+    <h1>Your customers Google you.<br>They land on <span class="accent">Facebook.</span></h1>
+    <p class="lede">About half of all clicks on a Google Business Profile go to the website button. For a business that runs on Facebook only, that button leads to a Facebook page or nowhere at all.</p>
+    <p class="sub">Your hours, your prices, and your schedule are trapped inside Facebook graphics and posts. Google cannot read them. AI assistants like ChatGPT cannot quote them when a customer asks where to go. The information exists, but nothing outside Facebook can find it.</p>
+  </div>
+
+  <section id="offer">
+    <div class="eyebrow">The fix</div>
+    <h2>One-Page Website -- $150 flat, one time.</h2>
+
+    <div class="offer-card">
+      <div class="offer-price">$150 <span class="note">flat, one time</span></div>
+
+      <ul class="includes">
+        <li>
+          <span class="check">&#10003;</span>
+          <span>Your own domain connected. You buy it in your name (about $11 a year) and it stays yours.</span>
+        </li>
+        <li>
+          <span class="check">&#10003;</span>
+          <span>Your real hours, services, and prices written as readable text.</span>
+        </li>
+        <li>
+          <span class="check">&#10003;</span>
+          <span>Structured data (LocalBusiness schema) so Google and AI assistants can quote your facts.</span>
+        </li>
+        <li>
+          <span class="check">&#10003;</span>
+          <span>The website field updated on your Google Business Profile and your Facebook page.</span>
+        </li>
+        <li>
+          <span class="check">&#10003;</span>
+          <span>Built from your own photos and your own posted facts. Nothing invented.</span>
+        </li>
+        <li>
+          <span class="check">&#10003;</span>
+          <span>Two revision rounds included.</span>
+        </li>
+        <li>
+          <span class="check">&#10003;</span>
+          <span>Live in about two days.</span>
+        </li>
+      </ul>
+
+      <p class="own-line">You own the website and the domain outright. If we ever part ways, everything stays with you.</p>
+
+      <div style="margin-top:24px;">
+        <a class="btn" href="https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06">Get my website -- $150 &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="care">
+    <div class="eyebrow">Keep it current</div>
+    <h2>Website Care Plan -- $39/month, optional.</h2>
+
+    <div class="care-card">
+      <div class="care-price">$39<span class="note">/month, optional</span></div>
+      <p style="margin:14px 0 0;">Send us a message when your hours, prices, or specials change and we update the site for you. Cancel anytime.</p>
+
+      <div style="margin-top:20px;">
+        <a class="btn-secondary" href="https://buy.stripe.com/3cI7sL00od3adFZ8d72oE07">Add the care plan -- $39/month &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="example">
+    <div class="eyebrow">How it works</div>
+    <h2>What this looks like in practice.</h2>
+
+    <div class="example-box">
+      <span class="example-label">Typical scenario</span>
+      <p style="margin:0 0 14px;">A food truck posts its weekly schedule as graphics inside Facebook: an image of a chalkboard on Monday, a story on Wednesday, a flyer on Friday. The truck's Google listing has no website, or it points to the Facebook page.</p>
+      <p style="margin:0 0 14px;">A customer asks ChatGPT "where is the taco truck this Saturday?" The assistant cannot read the schedule because it lives inside images on Facebook. It either guesses, says it does not know, or recommends a competitor whose schedule is published as text on a real website.</p>
+      <p style="margin:0;">A one-page site turns that schedule into plain text with structured data. Google can index it. AI assistants can quote it. The customer finds the truck.</p>
+    </div>
+  </section>
+
+  <section id="crosslink">
+    <div class="eyebrow">Already have a website?</div>
+    <h2>Your problem may be what AI reads on it.</h2>
+    <p class="muted">If you already have a website but AI assistants still skip you, misquote your prices, or send customers to competitors, the issue may be how your facts are published. The AI Discovery and Bookability Sprint audits what three AI engines actually say about your business and fixes the gaps.</p>
+    <div style="margin-top:20px;">
+      <a class="btn-secondary" href="/ai-audit">Learn about the AI Audit Sprint &#8594;</a>
+    </div>
+  </section>
+
+  <div class="cta-block" id="start">
+    <div class="cta-card">
+      <div>
+        <div class="eyebrow">Get started</div>
+        <h2 style="margin:10px 0 10px;">A real website for your business. $150, done.</h2>
+        <p class="smallprint" style="margin:0;">
+          Questions? Email <a href="mailto:partnerships@lexipro.online">partnerships@lexipro.online</a>
+        </p>
+      </div>
+      <div>
+        <a class="btn" href="https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06">Get my website -- $150 &#8594;</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>Services provided by Broken Arrow Entertainment LLC under the LexiPro name. Search and AI placement is measured and reported, never guaranteed.</p>
+    <span class="mono" style="font-size:11px;color:var(--faint);">LEXIPRO // ONE-PAGE WEBSITES</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -21,6 +21,9 @@ export default function Landing() {
           <a href="#shiftedge" className="transition-colors hover:text-white">
             ShiftEdge
           </a>
+          <a href="/websites" className="transition-colors hover:text-white">
+            Websites
+          </a>
           <a
             href="mailto:partnerships@lexipro.online?subject=LexiPro%20early%20access"
             className="font-mono text-xs uppercase tracking-[0.18em] text-[#22d3ee] transition-colors hover:text-white"
@@ -159,6 +162,10 @@ export default function Landing() {
       </section>
 
       <footer className="relative z-10 px-6 py-8 text-center">
+        <nav className="mb-4 flex justify-center gap-6 text-sm text-[#94a3b8]">
+          <a href="/websites" className="transition-colors hover:text-white">Websites</a>
+          <a href="/ai-audit" className="transition-colors hover:text-white">AI Audit Sprint</a>
+        </nav>
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#55556a]">
           A product of Broken Arrow Entertainment LLC
         </p>
