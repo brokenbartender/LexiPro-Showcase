@@ -33,9 +33,106 @@
 
     <!-- Theme color for browser chrome -->
     <meta name="theme-color" content="#05070b" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LexiPro",
+      "url": "https://lexipro.online",
+      "email": "partnerships@lexipro.online",
+      "description": "LexiPro is the engineering standard operated by Broken Arrow Entertainment LLC, based in Pontiac, Michigan, serving Oakland County and Michigan local businesses.",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Broken Arrow Entertainment LLC"
+      },
+      "areaServed": "Oakland County, Michigan",
+      "sameAs": ["https://github.com/brokenbartender"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "LexiPro services and products",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "One-Page Website for Local Businesses",
+            "price": "150",
+            "priceCurrency": "USD",
+            "url": "https://lexipro.online/websites/",
+            "availability": "https://schema.org/InStock",
+            "description": "$150 flat, one time. Live in about 2 days. The client owns the domain and the code outright. Optional Website Care is $39 per month and can be canceled anytime."
+          },
+          {
+            "@type": "Offer",
+            "name": "AI Discovery and Bookability Sprint",
+            "price": "1950",
+            "priceCurrency": "USD",
+            "url": "https://lexipro.online/ai-audit/",
+            "availability": "https://schema.org/InStock",
+            "description": "7-day sprint. Founding price $1,950 for sprints 1 to 5: a $975 deposit plus $975 on Day 7 delivery. $2,950 from sprint 6. Agreed fixes ship and the re-test is delivered, or we fix it free. If an agreed item cannot ship, that item's share is refunded. A $399 diagnostic is credited in full toward the sprint."
+          },
+          {
+            "@type": "Offer",
+            "name": "ShiftEdge",
+            "price": "0",
+            "priceCurrency": "USD",
+            "url": "https://shiftedge.app",
+            "availability": "https://schema.org/InStock",
+            "description": "Free Michigan tipped-worker shift and tip-credit ledger."
+          }
+        ]
+      }
+    }
+    </script>
+    <style>
+      body { margin: 0; background: #05070b; color: #f8fafc; }
+      .static-fallback {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 48px 24px 72px;
+        font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+        line-height: 1.65;
+      }
+      .static-fallback h1,
+      .static-fallback h2 { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.03em; line-height: 1.15; }
+      .static-fallback h1 { font-size: 2.4rem; margin: 0 0 12px; }
+      .static-fallback h2 { font-size: 1.25rem; margin: 28px 0 8px; }
+      .static-fallback p { margin: 0 0 12px; }
+      .static-fallback a { color: #22d3ee; }
+      .static-fallback ul { margin: 0; padding-left: 1.2rem; }
+      .static-fallback li { margin: 0 0 8px; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <article class="static-fallback">
+        <p>Broken Arrow Entertainment LLC</p>
+        <h1>LexiPro</h1>
+        <p>LexiPro is the engineering standard operated by Broken Arrow Entertainment LLC, based in Pontiac, Michigan, serving Oakland County and Michigan local businesses. Products under this name state only what the record supports, and withhold the rest.</p>
+        <p>Contact: <a href="mailto:partnerships@lexipro.online">partnerships@lexipro.online</a></p>
+
+        <h2>ShiftEdge</h2>
+        <p>Free Michigan tipped-worker shift and tip-credit ledger. A worker can plan the week, understand pay, and check a paystub. Records stay on the device. It is not legal advice. <a href="https://shiftedge.app">shiftedge.app</a></p>
+
+        <h2>Holdfast</h2>
+        <p>Private forensic and legal evidence platform for Michigan case work. It is in private development and keeps its own codebase, separate from ShiftEdge. Private briefing by request: <a href="mailto:partnerships@lexipro.online?subject=Holdfast%20private%20briefing">partnerships@lexipro.online</a></p>
+
+        <h2>Open-source libraries</h2>
+        <ul>
+          <li><a href="https://pypi.org/project/sovereign-vault/">sovereign-vault</a>: reversible, RAM-only HMAC PII tokenization and MCP proxy for LLM pipelines.</li>
+          <li><a href="https://pypi.org/project/writeguard/">writeguard</a>: zero-dependency filesystem hash verifier for coding-agent claims. Source: <a href="https://github.com/brokenbartender/writeguard">github.com/brokenbartender/writeguard</a>.</li>
+          <li><a href="https://pypi.org/project/causal-field/">causal-field</a>: Gaussian resource-contention field primitive for multi-agent coordination.</li>
+          <li><a href="https://pypi.org/project/impact-radius/">impact-radius</a>: AST impact-analysis CLI and pre-commit hook for mapping code blast radius.</li>
+        </ul>
+
+        <h2>Services</h2>
+        <ul>
+          <li><a href="/websites/">One-page websites</a>: $150 flat, one time. Live in about 2 days. You own the domain and the code outright. Optional Website Care is $39/month. Cancel anytime.</li>
+          <li><a href="/ai-audit/">AI Discovery and Bookability Sprint</a>: 7-day sprint. Founding price $1,950 for sprints 1 to 5 ($975 deposit plus $975 on Day 7 delivery). $2,950 from sprint 6. A $399 diagnostic is credited in full toward the sprint.</li>
+          <li><a href="/llms.txt">llms.txt</a>: the same facts in a short file for AI assistants.</li>
+        </ul>
+      </article>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -556,6 +556,14 @@ export default function Landing() {
       </main>
 
       <footer className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-5 pt-8 sm:px-6">
+          <nav aria-label="Local guides" className="flex flex-wrap items-baseline gap-x-5 gap-y-2 border-b border-white/10 pb-6 text-sm text-[#94a3b8]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Local Guides</span>
+            <a href="/websites/oakland-county/" className="transition hover:text-[#22d3ee]">Pontiac and Oakland County websites</a>
+            <a href="/websites/food-trucks-and-trades/" className="transition hover:text-[#22d3ee]">Food trucks, bars, and trades</a>
+            <a href="/guides/why-chatgpt-skips-facebook-only-businesses/" className="transition hover:text-[#22d3ee]">Why AI skips Facebook-only businesses</a>
+          </nav>
+        </div>
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-12 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <a href="#top" className="inline-flex items-center gap-2.5">

@@ -707,6 +707,31 @@
   }
   .toast.show { opacity: 1; }
 
+  .guides {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 18px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .guides-label {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .guides a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+  .guides a:hover,
+  .guides a[aria-current="page"] { color: var(--cyan); }
+
   footer {
     border-top: 1px solid var(--line-soft);
     padding: 28px 0 44px;
@@ -992,10 +1017,18 @@
 </main>
 
 <footer>
-  <div class="wrap foot-row">
-    <p>Offered by Broken Arrow Entertainment LLC under the LexiPro name. Deliverables guarantee: every fix on the agreed list is shipped and the 9-run re-test is delivered, or we fix it free; if we cannot ship an agreed item, that item's share is refunded. Placement in AI answers is measured and reported, never guaranteed.</p>
-    <a href="/websites/" style="color:var(--faint);text-decoration:none;font-size:12.5px;transition:color .2s;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='var(--faint)'">One-Page Websites</a>
-    <span class="mono" style="font-size:11px;color:var(--faint);">LEXIPRO // 7-DAY SPRINT SPEC</span>
+  <div class="wrap">
+    <nav class="guides" aria-label="Local guides">
+      <span class="guides-label">Local Guides</span>
+      <a href="/websites/oakland-county/">Pontiac and Oakland County websites</a>
+      <a href="/websites/food-trucks-and-trades/">Food trucks, bars, and trades</a>
+      <a href="/guides/why-chatgpt-skips-facebook-only-businesses/">Why AI skips Facebook-only businesses</a>
+    </nav>
+    <div class="foot-row">
+      <p>Offered by Broken Arrow Entertainment LLC under the LexiPro name. Deliverables guarantee: every fix on the agreed list is shipped and the 9-run re-test is delivered, or we fix it free; if we cannot ship an agreed item, that item's share is refunded. Placement in AI answers is measured and reported, never guaranteed.</p>
+      <a href="/websites/" style="color:var(--faint);text-decoration:none;font-size:12.5px;transition:color .2s;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='var(--faint)'">One-Page Websites</a>
+      <span class="mono" style="font-size:11px;color:var(--faint);">LEXIPRO // 7-DAY SPRINT SPEC</span>
+    </div>
   </div>
 </footer>
 
