@@ -281,6 +281,43 @@
   }
   .guides a { color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 500; }
   .guides a:hover, .guides a[aria-current="page"] { color: var(--cyan); }
+  .live-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  .live-card {
+    display: flex; flex-direction: column; text-decoration: none; color: inherit;
+    background: linear-gradient(180deg, rgba(17,24,39,.82) 0%, rgba(9,13,22,.94) 100%);
+    border: 1px solid var(--line); border-top: 1px solid rgba(255,255,255,.16);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 16px 40px -12px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.05);
+    transition: border-color .2s ease, transform .18s ease;
+  }
+  .live-card:hover { border-color: var(--cyan-dim); transform: translateY(-2px); }
+  .live-card:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+  .live-mini { padding: 16px 16px 14px; min-height: 176px; }
+  .live-mini.smoke {
+    background: radial-gradient(circle at 88% 12%, rgba(228,87,46,.5), transparent 42%), linear-gradient(160deg, #2a1610, #140c09 72%);
+    color: #f6ead8;
+  }
+  .live-mini.plumb {
+    background: radial-gradient(circle at 100% 0%, rgba(15,110,98,.2), transparent 42%), linear-gradient(180deg, #f7f5f2, #e7eef0);
+    color: #102a43;
+  }
+  .mini-bar { display: flex; gap: 5px; margin-bottom: 12px; }
+  .mini-bar i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.28); display: block; }
+  .live-mini.plumb .mini-bar i { background: rgba(16,42,67,.28); }
+  .mini-kicker { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; opacity: .75; }
+  .mini-title { font-family: "Space Grotesk", sans-serif; font-size: 22px; letter-spacing: -.03em; margin: 4px 0 12px; line-height: 1.1; }
+  .mini-lines { display: grid; gap: 6px; font-size: 12.5px; }
+  .mini-lines span { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 4px; border-bottom: 1px dashed rgba(255,255,255,.18); }
+  .live-mini.plumb .mini-lines span { border-bottom-color: rgba(16,42,67,.16); }
+  .live-body { padding: 16px 18px 18px; }
+  .live-body .k { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); }
+  .live-body h3 { font-family: "Space Grotesk", sans-serif; color: #fff; font-size: 18px; letter-spacing: -.02em; margin: 6px 0 4px; }
+  .live-body p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .live-go { display: inline-block; margin-top: 12px; color: var(--cyan); font-weight: 700; font-size: 14px; }
+  @media (prefers-reduced-motion: reduce) {
+    .live-card { transition: none; }
+    .live-card:hover { transform: none; }
+  }
   footer { border-top: 1px solid var(--line-soft); padding: 28px 0 44px; }
   footer .foot-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
   footer p { color: var(--faint); font-size: 12.5px; max-width: 48rem; margin: 0; }
@@ -288,7 +325,7 @@
   @media (max-width: 860px) {
     .hero { padding: 44px 0 28px; }
     .nav-links { display: none; }
-    .need-grid, .trade-grid { grid-template-columns: 1fr; }
+    .need-grid, .trade-grid, .live-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -434,6 +471,50 @@
       <span class="example-label">Realistic scenario, not a client</span>
       <p style="margin:0 0 14px;">A food truck announces stops with a photo of a whiteboard. A neighborhood bar puts kitchen hours in a story graphic. A plumber uploads a price sheet as a JPEG. None of those files is a sentence.</p>
       <p style="margin:0;">A customer, or the assistant that customer asked, cannot reliably quote a stop, a closing time, or a service-call fee from those pictures. This is an illustration. It is not a LexiPro client and not a result we are claiming. The <a href="/websites/">$150 website</a> turns the current facts into text.</p>
+    </div>
+  </section>
+
+  <section id="live-demos">
+    <div class="eyebrow">Live examples</div>
+    <h2>See what a $150 site looks like live.</h2>
+    <p class="muted">One food truck example and one trades example. The stops, the menu, and the service prices are plain text you can tap through. They are fictional, not clients.</p>
+    <div class="live-grid">
+      <a class="live-card" href="/demos/motor-city-smoke/">
+        <div class="live-mini smoke" aria-hidden="true">
+          <div class="mini-bar"><i></i><i></i><i></i></div>
+          <div class="mini-kicker">Food truck</div>
+          <div class="mini-title">Motor City Smoke</div>
+          <div class="mini-lines">
+            <span><b>Tue, Pontiac</b><b>11 to 2</b></span>
+            <span>Brisket sandwich <b>$15</b></span>
+            <span>Pulled pork <b>$13</b></span>
+          </div>
+        </div>
+        <div class="live-body">
+          <div class="k">Food truck and catering</div>
+          <h3>Motor City Smoke BBQ</h3>
+          <p>Weekly stops, menu prices, and a catering inquiry. Fictional placeholder (248) 555-0142.</p>
+          <span class="live-go">Open the live example &#8594;</span>
+        </div>
+      </a>
+      <a class="live-card" href="/demos/pontiac-pro-plumbing/">
+        <div class="live-mini plumb" aria-hidden="true">
+          <div class="mini-bar"><i></i><i></i><i></i></div>
+          <div class="mini-kicker">Local trade</div>
+          <div class="mini-title">Pontiac Pro Plumbing</div>
+          <div class="mini-lines">
+            <span>Same-day before 2 p.m.</span>
+            <span>Drain cleaning <b>from $149</b></span>
+            <span>Leak repair <b>from $189</b></span>
+          </div>
+        </div>
+        <div class="live-body">
+          <div class="k">Trades and service area</div>
+          <h3>Pontiac Pro Plumbing</h3>
+          <p>Same-day callout, service cards with prices, and five Oakland County cities. Fictional placeholder (248) 555-0198.</p>
+          <span class="live-go">Open the live example &#8594;</span>
+        </div>
+      </a>
     </div>
   </section>
 

@@ -732,6 +732,53 @@
   .guides a:hover,
   .guides a[aria-current="page"] { color: var(--cyan); }
 
+  .crawl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .crawl-col {
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+    border: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,.16);
+    background: linear-gradient(180deg, rgba(17,24,39,.82) 0%, rgba(9,13,22,.94) 100%);
+  }
+  .crawl-col.miss { box-shadow: inset 3px 0 0 #ff4d6d; }
+  .crawl-col.hit { box-shadow: inset 3px 0 0 #10b981; }
+  .crawl-col h3 {
+    font-family: "Space Grotesk", sans-serif;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: -.02em;
+    margin: 6px 0 8px;
+  }
+  .crawl-kicker {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0;
+  }
+  .crawl-col ul { margin: 12px 0; padding-left: 18px; color: var(--ink); font-size: 14.5px; }
+  .crawl-col li { margin: 4px 0; }
+  .crawl-col pre {
+    margin: 0;
+    padding: 12px;
+    border-radius: 10px;
+    background: #070b12;
+    color: #d5dee8;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    overflow: auto;
+    white-space: pre-wrap;
+  }
+  .crawl-note { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+  .crawl-links { margin-top: 18px; }
+
   footer {
     border-top: 1px solid var(--line-soft);
     padding: 28px 0 44px;
@@ -752,7 +799,7 @@
   a { color: var(--cyan); }
 
   @media (max-width: 860px) {
-    .hero-grid, .worksheet-grid, .matrix-grid {
+    .hero-grid, .worksheet-grid, .matrix-grid, .crawl-grid {
       grid-template-columns: 1fr;
     }
     .offer { grid-template-columns: repeat(2, 1fr); }
@@ -864,6 +911,52 @@
       <strong>Founding cohort (5 sprints at $1,950; standard price $2,950 from sprint 6):</strong> Single-location med spa, caterer/venue, specialized legal, clinic, or trades, in exchange for permission to publish the anonymised-then-named before/after data. <strong>Boutique fitness:</strong> Boutique fitness enters through the $399 baseline diagnostic, credited in full toward the $1,950 sprint. The sprint price does not vary by segment. <strong>Multi-location:</strong> +$750 per additional location (+$950 standard). <strong>Sprint + 30-Day Proof:</strong> $3,450 (adds Day 30 9-run re-test, 1 extra service/location extraction, and 30-day regression fix window).
     </p>
   </div>
+
+  <section id="crawler-view">
+    <div class="eyebrow">What a crawler receives</div>
+    <h2>What AI search actually sees: Facebook-only page vs. structured site</h2>
+    <p class="muted">An assistant answers from text it can fetch. A Facebook-only page usually stops at a login wall and a photo. A structured site publishes the same kind of facts as plain HTML, as LocalBusiness JSON-LD, and in <a href="/llms.txt">/llms.txt</a>. This block is an illustration, not a client result.</p>
+    <div class="crawl-grid">
+      <article class="crawl-col miss">
+        <p class="crawl-kicker">Facebook-only page</p>
+        <h3>What the crawler gets</h3>
+        <ul>
+          <li>A login wall, not the posts</li>
+          <li>Hours and prices trapped in images</li>
+          <li>No LocalBusiness JSON-LD</li>
+          <li>No plain-HTML service list</li>
+          <li>No /llms.txt</li>
+        </ul>
+        <pre>visible_text: "Log in or sign up"
+json_ld: none
+services_html: none
+llms_txt: none
+hours: trapped in a photo
+phone: trapped in a photo</pre>
+      </article>
+      <article class="crawl-col hit">
+        <p class="crawl-kicker">Structured site</p>
+        <h3>What the crawler gets</h3>
+        <ul>
+          <li>LocalBusiness JSON-LD in the source</li>
+          <li>Services and prices in plain HTML</li>
+          <li><a href="/llms.txt">/llms.txt</a> for assistants</li>
+          <li>Phone, hours, and cities as text</li>
+        </ul>
+        <pre>@type: Plumber, LocalBusiness
+telephone: +1-248-555-0198
+areaServed: Pontiac, Waterford,
+  Auburn Hills, Clarkston, Rochester
+services_html: Drain cleaning from $149
+llms_txt: /llms.txt</pre>
+        <p class="crawl-note">Sample facts from the fictional Pontiac Pro Plumbing example. Not a client result.</p>
+      </article>
+    </div>
+    <div class="hero-actions crawl-links">
+      <a class="btn-secondary" href="/guides/why-chatgpt-skips-facebook-only-businesses/">Why assistants skip Facebook-only pages &#8594;</a>
+      <a class="btn-secondary" href="/demos/pontiac-pro-plumbing/">Open the structured example &#8594;</a>
+    </div>
+  </section>
 
   <section id="deliverables">
     <div class="eyebrow">What I fix &amp; ship in 7 days</div>
