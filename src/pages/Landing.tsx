@@ -352,6 +352,7 @@ export default function Landing() {
               <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-[#94a3b8]">
                 ShiftEdge is its own product, with its own codebase. It is a consumer tool for the person doing the work.
               </p>
+              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Powered by Holdfast</p>
               <div className="mt-6 max-w-xl rounded-xl border border-[#22d3ee]/20 bg-[#22d3ee]/[0.06] px-4 py-3 text-sm leading-relaxed text-[#d7f7fc]">
                 Not legal advice. ShiftEdge organizes a worker&rsquo;s own record and withholds legal conclusions.
               </div>
