@@ -468,8 +468,14 @@
   @media (max-width: 860px) {
     .hero { padding: 44px 0 28px; }
     .nav-links { display: none; }
-    .place-grid { grid-template-columns: 1fr 1fr; }
+    .place-grid { grid-template-columns: 1fr; }
     .live-grid { grid-template-columns: 1fr; }
+    header.site { padding: 6px 0; }
+    .wordmark { display: inline-flex; align-items: center; min-height: 44px; }
+    .btn, .btn-secondary { min-height: 44px; max-width: 100%; white-space: normal; text-align: center; line-height: 1.3; }
+    .actions { width: 100%; }
+    .actions .btn, .actions .btn-secondary { width: 100%; }
+    .guides a { display: inline-flex; align-items: center; min-height: 44px; }
   }
   @media print {
     body { background: #fff; color: #111; background-image: none; }

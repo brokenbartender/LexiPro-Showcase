@@ -154,7 +154,7 @@ function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-6">
-        <a href="#top" className="flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee] rounded-md">
+        <a href="#top" className="flex min-h-11 items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee] rounded-md">
           <LexiProLogo className="h-8 w-8 text-[#22d3ee]" />
           <span className="font-display text-[1.05rem] font-bold tracking-[-0.03em] text-white">LexiPro</span>
         </a>
@@ -180,13 +180,13 @@ function SiteHeader() {
         <div className="flex items-center gap-2">
           <a
             href={CONTACT}
-            className="inline-flex h-9 items-center rounded-full bg-[#22d3ee] px-3.5 text-[13px] font-semibold text-[#041016] shadow-[0_0_0_1px_rgba(165,243,252,0.45)] transition hover:bg-[#67e8f9] outline-none focus-visible:ring-2 focus-visible:ring-[#a5f3fc] focus-visible:ring-offset-2 focus-visible:ring-offset-[#05070b]"
+            className="inline-flex h-11 items-center rounded-full bg-[#22d3ee] px-4 text-[13px] font-semibold text-[#041016] shadow-[0_0_0_1px_rgba(165,243,252,0.45)] transition hover:bg-[#67e8f9] outline-none focus-visible:ring-2 focus-visible:ring-[#a5f3fc] focus-visible:ring-offset-2 focus-visible:ring-offset-[#05070b]"
           >
             Contact
           </a>
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white lg:hidden outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white lg:hidden outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -268,7 +268,7 @@ function InstallPill({ command }: { command: string }) {
     <button
       type="button"
       onClick={onCopy}
-      className="group/pill flex w-full items-center justify-between gap-3 rounded-full border border-white/10 bg-[#05070b] py-2 pl-3.5 pr-2 text-left transition hover:border-[#22d3ee]/40 outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]"
+      className="group/pill flex min-h-11 w-full items-center justify-between gap-3 rounded-full border border-white/10 bg-[#05070b] py-2 pl-3.5 pr-2 text-left transition hover:border-[#22d3ee]/40 outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]"
     >
       <span className="truncate font-mono text-[12px] text-[#e2e8f0]">{command}</span>
       <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-white/[0.05] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-[#22d3ee]">
@@ -429,7 +429,7 @@ export default function Landing() {
 
             <a
               href={HOLDFAST_BRIEFING}
-              className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-[#fbbf24] transition hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-[#fbbf24]"
+              className="mt-8 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-[#fbbf24] transition hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-[#fbbf24]"
             >
               Request private briefing
               <ArrowUpRight className="h-4 w-4" />
@@ -475,7 +475,7 @@ export default function Landing() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[12px] font-medium text-[#22d3ee] transition hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]"
+                          className="inline-flex min-h-11 items-center px-1 text-[12px] font-medium text-[#22d3ee] transition hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]"
                         >
                           {link.label}
                         </a>
@@ -541,7 +541,7 @@ export default function Landing() {
             <div className="mt-6 flex flex-col items-start justify-between gap-5 rounded-2xl border border-white/10 bg-gradient-to-r from-[#111827] to-[#0b1018] px-6 py-6 sm:flex-row sm:items-center">
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#22d3ee]">Partnerships</p>
-                <a href={CONTACT} className="mt-2 block font-display text-2xl font-semibold tracking-[-0.03em] text-white hover:text-[#a5f3fc]">
+                <a href={CONTACT} className="mt-2 inline-flex min-h-11 items-center font-display text-2xl font-semibold tracking-[-0.03em] text-white hover:text-[#a5f3fc]">
                   partnerships@lexipro.online
                 </a>
               </div>
@@ -558,16 +558,16 @@ export default function Landing() {
 
       <footer className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-5 pt-8 sm:px-6">
-          <nav aria-label="Local guides" className="flex flex-wrap items-baseline gap-x-5 gap-y-2 border-b border-white/10 pb-6 text-sm text-[#94a3b8]">
+          <nav aria-label="Local guides" className="flex flex-col gap-1 border-b border-white/10 pb-4 text-sm text-[#94a3b8] sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-5 sm:gap-y-2 sm:pb-6">
             <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Local Guides</span>
-            <a href="/websites/oakland-county/" className="transition hover:text-[#22d3ee]">Pontiac and Oakland County websites</a>
-            <a href="/websites/food-trucks-and-trades/" className="transition hover:text-[#22d3ee]">Food trucks, bars, and trades</a>
-            <a href="/guides/why-chatgpt-skips-facebook-only-businesses/" className="transition hover:text-[#22d3ee]">Why AI skips Facebook-only businesses</a>
+            <a href="/websites/oakland-county/" className="inline-flex min-h-11 items-center transition hover:text-[#22d3ee] sm:min-h-0">Pontiac and Oakland County websites</a>
+            <a href="/websites/food-trucks-and-trades/" className="inline-flex min-h-11 items-center transition hover:text-[#22d3ee] sm:min-h-0">Food trucks, bars, and trades</a>
+            <a href="/guides/why-chatgpt-skips-facebook-only-businesses/" className="inline-flex min-h-11 items-center transition hover:text-[#22d3ee] sm:min-h-0">Why AI skips Facebook-only businesses</a>
           </nav>
         </div>
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-12 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <a href="#top" className="inline-flex items-center gap-2.5">
+            <a href="#top" className="inline-flex min-h-11 items-center gap-2.5">
               <LexiProLogo className="h-7 w-7 text-[#22d3ee]" />
               <span className="font-display text-lg font-bold tracking-[-0.03em] text-white">LexiPro</span>
             </a>
@@ -576,12 +576,12 @@ export default function Landing() {
               Operated by Broken Arrow Entertainment LLC
             </p>
           </div>
-          <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#cbd5e1]">
-            <a href="https://shiftedge.app" target="_blank" rel="noopener noreferrer" className="transition hover:text-white">ShiftEdge</a>
-            <a href="/websites/" className="transition hover:text-white">Websites</a>
-            <a href="/ai-audit/" className="transition hover:text-white">AI Audit</a>
-            <a href="https://github.com/brokenbartender" target="_blank" rel="noopener noreferrer" className="transition hover:text-white">GitHub</a>
-            <a href={CONTACT} className="transition hover:text-white">partnerships@lexipro.online</a>
+          <nav aria-label="Footer" className="flex flex-col text-sm text-[#cbd5e1] sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
+            <a href="https://shiftedge.app" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center transition hover:text-white sm:min-h-0">ShiftEdge</a>
+            <a href="/websites/" className="inline-flex min-h-11 items-center transition hover:text-white sm:min-h-0">Websites</a>
+            <a href="/ai-audit/" className="inline-flex min-h-11 items-center transition hover:text-white sm:min-h-0">AI Audit</a>
+            <a href="https://github.com/brokenbartender" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center transition hover:text-white sm:min-h-0">GitHub</a>
+            <a href={CONTACT} className="inline-flex min-h-11 items-center transition hover:text-white sm:min-h-0">partnerships@lexipro.online</a>
           </nav>
         </div>
       </footer>
