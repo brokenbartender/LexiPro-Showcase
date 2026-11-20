@@ -11,8 +11,8 @@ const NAV = [
   { href: "#holdfast", label: "Holdfast", id: "holdfast" },
   { href: "#libraries", label: "Libraries", id: "libraries" },
   { href: "#services", label: "Services", id: "services" },
-  { href: "/websites", label: "Websites", id: "" },
-  { href: "/ai-audit", label: "AI Audit", id: "" },
+  { href: "/websites/", label: "Websites", id: "" },
+  { href: "/ai-audit/", label: "AI Audit", id: "" },
 ] as const;
 
 const RECORD = [
@@ -501,7 +501,7 @@ export default function Landing() {
 
             <div className="mt-10 grid gap-4 md:grid-cols-2">
               <a
-                href="/websites"
+                href="/websites/"
                 className="group flex min-h-52 flex-col justify-between rounded-2xl border border-white/10 bg-[#0c111a] p-6 transition hover:-translate-y-0.5 hover:border-[#22d3ee]/40 outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]"
               >
                 <div>
@@ -520,7 +520,7 @@ export default function Landing() {
               </a>
 
               <a
-                href="/ai-audit"
+                href="/ai-audit/"
                 className="group flex min-h-52 flex-col justify-between rounded-2xl border border-white/10 bg-[#0c111a] p-6 transition hover:-translate-y-0.5 hover:border-[#22d3ee]/40 outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]"
               >
                 <div>
@@ -569,8 +569,8 @@ export default function Landing() {
           </div>
           <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#cbd5e1]">
             <a href="https://shiftedge.app" target="_blank" rel="noopener noreferrer" className="transition hover:text-white">ShiftEdge</a>
-            <a href="/websites" className="transition hover:text-white">Websites</a>
-            <a href="/ai-audit" className="transition hover:text-white">AI Audit</a>
+            <a href="/websites/" className="transition hover:text-white">Websites</a>
+            <a href="/ai-audit/" className="transition hover:text-white">AI Audit</a>
             <a href="https://github.com/brokenbartender" target="_blank" rel="noopener noreferrer" className="transition hover:text-white">GitHub</a>
             <a href={CONTACT} className="transition hover:text-white">partnerships@lexipro.online</a>
           </nav>

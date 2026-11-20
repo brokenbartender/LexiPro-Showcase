@@ -3,8 +3,63 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>AI Discovery &amp; Bookability Sprint | LexiPro</title>
+<meta name="description" content="A 7-day AI Discovery and Bookability Sprint for local and service businesses. Founding price $1,950: $975 deposit, and $975 billed on Day 7 delivery. The $399 diagnostic is credited toward the sprint.">
+<link rel="canonical" href="https://lexipro.online/ai-audit/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#05070b">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lexipro.online/ai-audit/">
+<meta property="og:title" content="AI Discovery &amp; Bookability Sprint | LexiPro">
+<meta property="og:description" content="A 7-day AI Discovery and Bookability Sprint for local and service businesses. Founding price $1,950: $975 deposit, and $975 billed on Day 7 delivery. The $399 diagnostic is credited toward the sprint.">
+<meta property="og:image" content="https://lexipro.online/og-ai-audit.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="LexiPro">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://lexipro.online/ai-audit/">
+<meta name="twitter:title" content="AI Discovery &amp; Bookability Sprint | LexiPro">
+<meta name="twitter:description" content="A 7-day AI Discovery and Bookability Sprint for local and service businesses. Founding price $1,950: $975 deposit, and $975 billed on Day 7 delivery. The $399 diagnostic is credited toward the sprint.">
+<meta name="twitter:image" content="https://lexipro.online/og-ai-audit.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Discovery and Bookability Sprint",
+  "description": "A 7-day sprint that reconciles what AI assistants read about a local or service business, then delivers a verified re-test. Founding price is $1,950: a $975 deposit reserves the slot, and the remaining $975 is billed when the Day 7 re-test is delivered. A $399 diagnostic is credited in full toward the sprint.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Broken Arrow Entertainment LLC",
+    "url": "https://lexipro.online"
+  },
+  "url": "https://lexipro.online/ai-audit/",
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Oakland County, Michigan"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Founding 7-day sprint",
+      "price": "1950",
+      "priceCurrency": "USD",
+      "description": "$975 deposit to reserve the weekly slot, plus $975 billed on Day 7 when the re-test is delivered against the agreed checklist.",
+      "url": "https://buy.stripe.com/3cIbJ1dRe4wEgSb3WR2oE04",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "$399 credited diagnostic",
+      "price": "399",
+      "priceCurrency": "USD",
+      "description": "Baseline diagnostic credited in full toward the $1,950 founding sprint.",
+      "url": "https://lexipro.online/ai-audit/"
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -221,6 +276,19 @@
     background: rgba(255,255,255,.08);
     border-color: var(--cyan-dim);
     color: #fff;
+  }
+  .pay-note {
+    margin: 14px 0 0;
+    max-width: 40rem;
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .trust-line {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 
   /* Hero Live Diagnostic Card */
@@ -692,7 +760,7 @@
       <a href="#matrix">9-Run Matrix</a>
       <a href="#worksheet">Client Worksheet</a>
       <a href="#reserve">Reserve Slot</a>
-      <a href="/websites">Websites</a>
+      <a href="/websites/">Websites</a>
     </nav>
     <div class="status"><i></i>Now booking: limited weekly slots</div>
   </div>
@@ -713,8 +781,11 @@
 
         <div class="hero-actions">
           <a class="btn" id="heroReserveBtn" href="https://buy.stripe.com/3cIbJ1dRe4wEgSb3WR2oE04">Reserve founding slot: $975 deposit →</a>
+          <a class="btn-secondary" href="mailto:partnerships@lexipro.online?subject=AI%20Audit%20%24399%20Diagnostic">Request the $399 credited diagnostic</a>
           <a class="btn-secondary" href="#worksheet">Complete intake worksheet</a>
         </div>
+        <p class="pay-note">Agreed fixes ship and the 9-run re-test is delivered, or we fix it free. If an agreed item cannot ship, that item's share is refunded. The remaining $975 is billed when the Day 7 re-test is delivered.</p>
+        <p class="trust-line">Built in Pontiac, serving Oakland County and Michigan local businesses.</p>
       </div>
 
       <!-- Interactive Before/After AI Answer Simulator -->
@@ -908,7 +979,12 @@
         </p>
       </div>
       <div>
-        <a class="btn" id="bottomReserveBtn" href="https://buy.stripe.com/3cIbJ1dRe4wEgSb3WR2oE04">Reserve founding slot: $975 deposit →</a>
+        <div class="hero-actions">
+          <a class="btn" id="bottomReserveBtn" href="https://buy.stripe.com/3cIbJ1dRe4wEgSb3WR2oE04">Reserve founding slot: $975 deposit →</a>
+          <a class="btn-secondary" href="mailto:partnerships@lexipro.online?subject=AI%20Audit%20%24399%20Diagnostic">Request the $399 credited diagnostic</a>
+        </div>
+        <p class="pay-note">Agreed fixes ship and the 9-run re-test is delivered, or we fix it free. If an agreed item cannot ship, that item's share is refunded. The remaining $975 is billed when the Day 7 re-test is delivered.</p>
+        <p class="trust-line">Built in Pontiac, serving Oakland County and Michigan local businesses.</p>
       </div>
     </div>
   </div>
@@ -918,7 +994,7 @@
 <footer>
   <div class="wrap foot-row">
     <p>Offered by Broken Arrow Entertainment LLC under the LexiPro name. Deliverables guarantee: every fix on the agreed list is shipped and the 9-run re-test is delivered, or we fix it free; if we cannot ship an agreed item, that item's share is refunded. Placement in AI answers is measured and reported, never guaranteed.</p>
-    <a href="/websites" style="color:var(--faint);text-decoration:none;font-size:12.5px;transition:color .2s;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='var(--faint)'">One-Page Websites</a>
+    <a href="/websites/" style="color:var(--faint);text-decoration:none;font-size:12.5px;transition:color .2s;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='var(--faint)'">One-Page Websites</a>
     <span class="mono" style="font-size:11px;color:var(--faint);">LEXIPRO // 7-DAY SPRINT SPEC</span>
   </div>
 </footer>
