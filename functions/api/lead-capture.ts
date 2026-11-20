@@ -13,14 +13,14 @@ export async function onRequestPost(context) {
 
     const discordPayload = {
       embeds: [{
-        title: '?? NEW LEXIPRO EARLY ACCESS REQUEST',
+        title: 'New LexiPro early access request',
         color: 0x06b6d4, // Cyan primary color
         fields: [
           { name: 'Email Address', value: email, inline: true },
           { name: 'Timestamp', value: new Date().toISOString(), inline: true },
-          { name: 'Node Status', value: 'V27.0-ALPHA-10 (DNA-VERIFIED)', inline: false }
+          { name: 'Status', value: 'New request', inline: false }
         ],
-        footer: { text: 'LexiPro Sovereign OS // Early Access Pipeline' }
+        footer: { text: 'LexiPro // Broken Arrow Entertainment LLC' }
       }]
     };
 

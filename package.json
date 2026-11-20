@@ -1,8 +1,8 @@
 {
-  "name": "lexipro-sovereign-os",
-  "description": "LexiPro — Hardware-Aware, Air-Gapped Agentic Intelligence for Legal Discovery & DOMEX",
+  "name": "lexipro-showcase",
+  "description": "Public showcase for LexiPro, the engineering standard of Broken Arrow Entertainment LLC.",
   "version": "1.0.0",
-  "author": "Broken Arrow Entertainment LLC <admin@lexipro.online>",
+  "author": "Broken Arrow Entertainment LLC <partnerships@lexipro.online>",
   "homepage": "https://lexipro.online",
   "repository": {
     "type": "git",

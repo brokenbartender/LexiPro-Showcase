@@ -15,15 +15,15 @@ export const onRequestPost = async (context) => {
 
     const discordPayload = {
       embeds: [{
-        title: '?? NEW ELITE LEAD: EARLY ACCESS REQUEST',
+        title: 'New LexiPro early access request',
         color: 0x06b6d4, // Primary Cyan
         fields: [
           { name: 'Email Address', value: email, inline: false },
-          { name: 'Source', value: 'LexiPro.Online Portal', inline: true },
+          { name: 'Source', value: 'lexipro.online', inline: true },
           { name: 'Timestamp', value: new Date().toISOString(), inline: true },
-          { name: 'Status', value: 'DNA-VERIFIED LEAD', inline: false }
+          { name: 'Status', value: 'New request', inline: false }
         ],
-        footer: { text: 'LexiPro Sovereign OS // Node 0 Lead Capture' }
+        footer: { text: 'LexiPro // Broken Arrow Entertainment LLC' }
       }]
     };
 
