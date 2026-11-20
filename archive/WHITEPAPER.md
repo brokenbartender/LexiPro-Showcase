@@ -1,3 +1,21 @@
+# Historical draft (not a current LexiPro product)
+
+**Status:** Archived. This document is not a description of the live site, of ShiftEdge, or of Holdfast.
+
+It is an earlier Sovereign OS and DOMEX draft. Current products are summarized in the repository README and on [lexipro.online](https://lexipro.online).
+
+- **LexiPro** is the umbrella engineering standard operated by Broken Arrow Entertainment LLC.
+- **ShiftEdge** ([shiftedge.app](https://shiftedge.app)) is a standalone Michigan tipped-worker wage and shift-tracking ledger. It does not use Holdfast.
+- **Holdfast** is a private-development Michigan forensic evidence and pro se case platform (evidence vault, hash-linked audit chain, chronology, proof-packet export, PII scanning). It is a single full-stack application, and it is separate from ShiftEdge.
+
+Telemetry files this draft cites have been removed. They are not current product evidence.
+
+**Contact:** [partnerships@lexipro.online](mailto:partnerships@lexipro.online)
+
+The text below is the historical draft, kept so the old claims are not mistaken for missing pages.
+
+---
+
 # The Sovereign Architecture Advantage
 **Eradicating Cloud Egress Vulnerabilities via Air-Gapped, Hardware-Aware Agentic Swarms**
 
@@ -118,6 +136,6 @@ The Sovereign OS core is proprietary and available strictly via enterprise licen
 
 *   **Review the Telemetry:** Examine the 	elemetry/run_tests.py script in this repository to audit our benchmarking methodology.
 *   **Explore the Frontend:** Review the React architecture of our marketing node to see how we build performant, hardware-optimized clients.
-*   **Contact:** To request an integration demo or discuss developer program funding, contact [admin@lexipro.online](mailto:admin@lexipro.online).
+*   **Contact:** Historical draft only. Current contact is [partnerships@lexipro.online](mailto:partnerships@lexipro.online).
 
 
