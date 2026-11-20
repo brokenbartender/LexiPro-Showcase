@@ -1,0 +1,31 @@
+# LexiPro
+
+> LexiPro is the engineering standard operated by Broken Arrow Entertainment LLC, based in Pontiac, Michigan, serving Oakland County and Michigan local businesses.
+
+Contact: partnerships@lexipro.online
+
+Products under this name state only what the record supports, and withhold the rest. Search and AI placement is measured and reported, never guaranteed.
+
+## Services
+
+- [One-Page Websites for Local Businesses](https://lexipro.online/websites/): $150 flat, one time. Live in about 2 days. The client owns the domain and the code outright. Optional Website Care is $39/month. Cancel anytime.
+- [AI Discovery and Bookability Sprint](https://lexipro.online/ai-audit/): 7-day sprint. Founding price $1,950 for sprints 1 to 5 ($975 deposit plus $975 on Day 7 delivery). $2,950 from sprint 6. Fix-free-or-refund guarantee: agreed fixes ship and the re-test is delivered, or we fix it free. If an agreed item cannot ship, that item's share is refunded. A $399 diagnostic is credited in full toward the sprint.
+
+## Products and open-source libraries
+
+- [ShiftEdge](https://shiftedge.app): Free Michigan tipped-worker shift and tip-credit ledger.
+- Holdfast: Private forensic and legal evidence platform. Private briefing by request at partnerships@lexipro.online.
+- [sovereign-vault](https://pypi.org/project/sovereign-vault/): Reversible, RAM-only HMAC PII tokenization and MCP proxy for LLM pipelines.
+- [writeguard](https://pypi.org/project/writeguard/): Zero-dependency filesystem hash verifier for coding-agent claims. Source: [github.com/brokenbartender/writeguard](https://github.com/brokenbartender/writeguard).
+- [causal-field](https://pypi.org/project/causal-field/): Gaussian resource-contention field primitive for multi-agent coordination.
+- [impact-radius](https://pypi.org/project/impact-radius/): AST impact-analysis CLI and pre-commit hook for mapping code blast radius.
+
+## Key URLs
+
+- [Home](https://lexipro.online/)
+- [Websites](https://lexipro.online/websites/)
+- [Oakland County websites](https://lexipro.online/websites/oakland-county/)
+- [Food trucks and trades](https://lexipro.online/websites/food-trucks-and-trades/)
+- [AI Audit](https://lexipro.online/ai-audit/)
+- [Why ChatGPT and Google skip Facebook-only businesses](https://lexipro.online/guides/why-chatgpt-skips-facebook-only-businesses/)
+- [Sitemap](https://lexipro.online/sitemap.xml)
