@@ -6,25 +6,27 @@
 <title>One-Page Websites for Local Businesses | LexiPro</title>
 <meta name="description" content="A one-page website for local businesses that run on Facebook only. $150 flat, you own it outright, built from your real hours, prices, and photos.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://lexipro.online/websites">
+<link rel="canonical" href="https://lexipro.online/websites/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#05070b">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://lexipro.online/websites">
+<meta property="og:url" content="https://lexipro.online/websites/">
 <meta property="og:title" content="One-Page Websites for Local Businesses | LexiPro">
 <meta property="og:description" content="A one-page website for local businesses that run on Facebook only. $150 flat, you own it outright, built from your real hours, prices, and photos.">
-<meta property="og:image" content="https://lexipro.online/og-image.png">
+<meta property="og:image" content="https://lexipro.online/og-websites.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:site_name" content="LexiPro">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://lexipro.online/websites">
+<meta name="twitter:url" content="https://lexipro.online/websites/">
 <meta name="twitter:title" content="One-Page Websites for Local Businesses | LexiPro">
 <meta name="twitter:description" content="A one-page website for local businesses that run on Facebook only. $150 flat, you own it outright, built from your real hours, prices, and photos.">
-<meta name="twitter:image" content="https://lexipro.online/og-image.png">
+<meta name="twitter:image" content="https://lexipro.online/og-websites.png">
 
 <!-- Structured Data: Service/Offer -->
 <script type="application/ld+json">
@@ -38,21 +40,42 @@
     "name": "Broken Arrow Entertainment LLC",
     "url": "https://lexipro.online"
   },
-  "url": "https://lexipro.online/websites",
-  "offers": {
-    "@type": "Offer",
-    "name": "One-Page Website",
-    "price": "150",
-    "priceCurrency": "USD",
-    "priceSpecification": {
-      "@type": "UnitPriceSpecification",
+  "url": "https://lexipro.online/websites/",
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Oakland County, Michigan"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "One-Page Website",
       "price": "150",
       "priceCurrency": "USD",
-      "unitText": "one-time"
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "150",
+        "priceCurrency": "USD",
+        "unitText": "one-time"
+      },
+      "url": "https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06",
+      "availability": "https://schema.org/InStock"
     },
-    "url": "https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06",
-    "availability": "https://schema.org/InStock"
-  }
+    {
+      "@type": "Offer",
+      "name": "Website Care",
+      "description": "Optional monthly updates when hours, prices, or specials change. Cancel anytime.",
+      "price": "39",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "39",
+        "priceCurrency": "USD",
+        "unitText": "month"
+      },
+      "url": "https://buy.stripe.com/3cI7sL00od3adFZ8d72oE07",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
 }
 </script>
 
@@ -234,6 +257,18 @@
     background: rgba(255,255,255,.08);
     border-color: var(--cyan-dim);
     color: #fff;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+  .trust-line {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 
   section {
@@ -435,7 +470,7 @@
   <div class="wrap row">
     <a href="/" class="wordmark">Lexi<span>Pro</span></a>
     <nav class="nav-links" aria-label="Site navigation">
-      <a href="/ai-audit">AI Audit Sprint</a>
+      <a href="/ai-audit/">AI Audit Sprint</a>
       <a href="/websites" class="active">Websites</a>
     </nav>
   </div>
@@ -452,7 +487,7 @@
 
   <section id="offer">
     <div class="eyebrow">The fix</div>
-    <h2>One-Page Website -- $150 flat, one time.</h2>
+    <h2>One-Page Website · $150 flat, one time.</h2>
 
     <div class="offer-card">
       <div class="offer-price">$150 <span class="note">flat, one time</span></div>
@@ -490,22 +525,24 @@
 
       <p class="own-line">You own the website and the domain outright. If we ever part ways, everything stays with you.</p>
 
-      <div style="margin-top:24px;">
-        <a class="btn" href="https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06">Get my website -- $150 &#8594;</a>
+      <div class="actions" style="margin-top:24px;">
+        <a class="btn" href="https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06">Get my website · $150 &#8594;</a>
+        <a class="btn-secondary" href="mailto:partnerships@lexipro.online?subject=One-Page%20Website%20Question">Ask a question or request a free preview</a>
       </div>
+      <p class="trust-line">Built in Pontiac, serving Oakland County and Michigan local businesses.</p>
     </div>
   </section>
 
   <section id="care">
     <div class="eyebrow">Keep it current</div>
-    <h2>Website Care Plan -- $39/month, optional.</h2>
+    <h2>Website Care Plan · $39/month, optional.</h2>
 
     <div class="care-card">
       <div class="care-price">$39<span class="note">/month, optional</span></div>
       <p style="margin:14px 0 0;">Send us a message when your hours, prices, or specials change and we update the site for you. Cancel anytime.</p>
 
       <div style="margin-top:20px;">
-        <a class="btn-secondary" href="https://buy.stripe.com/3cI7sL00od3adFZ8d72oE07">Add the care plan -- $39/month &#8594;</a>
+        <a class="btn-secondary" href="https://buy.stripe.com/3cI7sL00od3adFZ8d72oE07">Add the care plan · $39/month &#8594;</a>
       </div>
     </div>
   </section>
@@ -527,7 +564,7 @@
     <h2>Your problem may be what AI reads on it.</h2>
     <p class="muted">If you already have a website but AI assistants still skip you, misquote your prices, or send customers to competitors, the issue may be how your facts are published. The AI Discovery and Bookability Sprint audits what three AI engines actually say about your business and fixes the gaps.</p>
     <div style="margin-top:20px;">
-      <a class="btn-secondary" href="/ai-audit">Learn about the AI Audit Sprint &#8594;</a>
+      <a class="btn-secondary" href="/ai-audit/">Learn about the AI Audit Sprint &#8594;</a>
     </div>
   </section>
 
@@ -541,7 +578,11 @@
         </p>
       </div>
       <div>
-        <a class="btn" href="https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06">Get my website -- $150 &#8594;</a>
+        <div class="actions">
+          <a class="btn" href="https://buy.stripe.com/fZueVd5kI4wE1XheBv2oE06">Get my website · $150 &#8594;</a>
+          <a class="btn-secondary" href="mailto:partnerships@lexipro.online?subject=One-Page%20Website%20Question">Ask a question or request a free preview</a>
+        </div>
+        <p class="trust-line">Built in Pontiac, serving Oakland County and Michigan local businesses.</p>
       </div>
     </div>
   </div>
