@@ -89,7 +89,7 @@
     --panel-elevated: #111827;
     --ink: #f8fafc;
     --muted: #94a3b8;
-    --faint: #64748b;
+    --faint: #8494aa;
     --line: rgba(255,255,255,.09);
     --line-soft: rgba(255,255,255,.06);
     --cyan: #22d3ee;
@@ -224,6 +224,11 @@
     letter-spacing: -.01em;
     text-decoration: none;
     padding: 14px 26px;
+    min-height: 44px;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
     border-radius: 999px;
     border: 1px solid #a5f3fc;
     cursor: pointer;
@@ -247,6 +252,11 @@
     font-size: 15px;
     text-decoration: none;
     padding: 13px 22px;
+    min-height: 44px;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
     border-radius: 999px;
     border: 1px solid var(--line);
     cursor: pointer;
@@ -557,6 +567,13 @@
     .nav-links { display: none; }
     .cta-card { flex-direction: column; text-align: center; }
     .live-grid { grid-template-columns: 1fr; }
+    header.site { padding: 6px 0; }
+    .wordmark { display: inline-flex; align-items: center; min-height: 44px; }
+    .actions { width: 100%; }
+    .actions .btn, .actions .btn-secondary,
+    .cta-card .btn, .cta-card .btn-secondary { width: 100%; }
+    .guides-label { letter-spacing: .12em; }
+    .guides a { display: inline-flex; align-items: center; min-height: 44px; }
   }
   @media print {
     body { background: #fff; color: #111; background-image: none; }
@@ -589,7 +606,7 @@
   <div class="hero">
     <div class="eyebrow">One-Page Websites</div>
     <h1>Your customers Google you.<br>They land on <span class="accent">Facebook.</span></h1>
-    <p class="lede">About half of all clicks on a Google Business Profile go to the website button. For a business that runs on Facebook only, that button leads to a Facebook page or nowhere at all.</p>
+    <p class="lede">When customers find a local business on Google Maps, the website link is often their first stop before calling or visiting. For a business that runs on Facebook only, that link leads to a Facebook page or nowhere at all.</p>
     <p class="sub">Your hours, your prices, and your schedule are trapped inside Facebook graphics and posts. Google cannot read them. AI assistants like ChatGPT cannot quote them when a customer asks where to go. The information exists, but nothing outside Facebook can find it.</p>
   </div>
 

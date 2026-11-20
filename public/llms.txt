@@ -13,7 +13,7 @@ Products under this name state only what the record supports, and withhold the r
 
 ## Products and open-source libraries
 
-- [ShiftEdge](https://shiftedge.app): Free Michigan tipped-worker shift and tip-credit ledger.
+- [ShiftEdge](https://shiftedge.app): Free Michigan tipped-worker shift and tip-credit ledger. Powered by Holdfast. ShiftEdge is its own product, with its own codebase.
 - Holdfast: Private forensic and legal evidence platform. Private briefing by request at partnerships@lexipro.online.
 - [sovereign-vault](https://pypi.org/project/sovereign-vault/): Reversible, RAM-only HMAC PII tokenization and MCP proxy for LLM pipelines.
 - [writeguard](https://pypi.org/project/writeguard/): Zero-dependency filesystem hash verifier for coding-agent claims. Source: [github.com/brokenbartender/writeguard](https://github.com/brokenbartender/writeguard).

@@ -137,7 +137,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 40px;
+    min-height: 44px;
     padding: 8px 14px;
     border-radius: 999px;
     background: #22d3ee;
@@ -159,6 +159,7 @@
   .brand {
     display: flex;
     align-items: center;
+    min-height: 44px;
     gap: 10px;
     color: var(--ink);
     text-decoration: none;
@@ -180,7 +181,7 @@
     margin-left: auto;
     display: inline-flex;
     align-items: center;
-    min-height: 42px;
+    min-height: 44px;
     padding: 8px 14px;
     border-radius: 999px;
     background: var(--ember);
@@ -342,7 +343,9 @@
   @media (max-width: 840px) {
     .sticky-top { position: static; }
     .demo-banner { position: sticky; top: 0; z-index: 40; align-items: center; padding: 8px 12px; font-size: 12.5px; }
-    .demo-banner-btn { padding: 8px 10px; font-size: 12.5px; }
+    .demo-banner p { flex: 1 1 auto; min-width: 0; }
+    .demo-banner-btn { padding: 8px 12px; font-size: 13px; }
+    .biz nav a { display: inline-flex; align-items: center; min-height: 44px; }
     .hero, .cater, .menu-grid, .form-row { grid-template-columns: 1fr; }
     .stops li { grid-template-columns: 1fr; gap: 2px; }
     .stops .when { text-align: left; }
