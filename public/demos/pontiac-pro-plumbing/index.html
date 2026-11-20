@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pontiac Pro Plumbing | Example $150 LexiPro site</title>
+<meta name="description" content="Interactive example of a $150 LexiPro one-page site for a fictional Pontiac plumber: same-day service, plain-text prices, and an Oakland County service area. Not a real contractor.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://lexipro.online/demos/pontiac-pro-plumbing/">
+<meta name="theme-color" content="#102a43">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23102a43'/%3E%3Cpath d='M9 20l6-8 3 3 5-7' fill='none' stroke='%237dcec2' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='9' r='2' fill='%237dcec2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Plumber", "LocalBusiness"],
+  "name": "Pontiac Pro Plumbing",
+  "description": "Fictional example plumbing business serving north Oakland County, published to show a $150 LexiPro one-page website. Not a real contractor.",
+  "url": "https://lexipro.online/demos/pontiac-pro-plumbing/",
+  "telephone": "+1-248-555-0198",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pontiac",
+    "addressRegion": "MI",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Pontiac" },
+    { "@type": "City", "name": "Waterford" },
+    { "@type": "City", "name": "Auburn Hills" },
+    { "@type": "City", "name": "Clarkston" },
+    { "@type": "City", "name": "Rochester" }
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "16:00" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Sample services",
+    "itemListElement": [
+      { "@type": "Offer", "name": "Drain cleaning", "description": "Starting price for a standard drain cleaning on this fictional example.", "price": "149", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Leak repair", "description": "Starting price for a visible supply or drain leak on this fictional example.", "price": "189", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Water heater replacement", "description": "Starting price for a standard tank swap on this fictional example.", "price": "1150", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Fixture install", "description": "Starting price for a faucet, toilet, or disposal on this fictional example.", "price": "225", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Sewer camera inspection", "description": "Flat sample price for a camera inspection with a recording.", "price": "249", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Same-day dispatch", "description": "Sample dispatch fee, waived when the repair is booked the same day.", "price": "89", "priceCurrency": "USD" }
+    ]
+  }
+}
+</script>
+<style>
+  :root {
+    --ink: #14202b;
+    --muted: #3e4e5c;
+    --faint: #5c6b78;
+    --bg: #f3f1ec;
+    --card: #fffcf8;
+    --line: #e2ddd4;
+    --navy: #102a43;
+    --navy-2: #1b3b58;
+    --green: #0f6e62;
+    --green-2: #0c5b52;
+    --mint: #e5f4f1;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--bg);
+    background-image: linear-gradient(180deg, rgba(16,42,67,.05), transparent 320px);
+    font-family: Manrope, "Avenir Next", "Segoe UI", sans-serif;
+    line-height: 1.6;
+    font-size: 16.5px;
+    color-scheme: light;
+  }
+  .skip {
+    position: absolute;
+    left: 12px;
+    top: -40px;
+    background: var(--navy);
+    color: #fff;
+    padding: 8px 12px;
+    z-index: 80;
+    border-radius: 8px;
+  }
+  .skip:focus { top: 8px; }
+  .sticky-top { position: sticky; top: 0; z-index: 40; }
+  .demo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 18px;
+    padding: 8px 20px;
+    background: #05070b;
+    color: #f8fafc;
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+  .demo-banner p { margin: 0; }
+  .demo-banner-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #22d3ee;
+    color: #041016;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+  .demo-banner-btn:hover { background: #67e8f9; }
+  .biz {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 20px;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    font-size: 18px;
+  }
+  .brand small { display: block; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 10px; color: var(--green); }
+  .biz nav { display: flex; gap: 16px; }
+  .biz nav a { color: var(--muted); text-decoration: none; font-weight: 700; font-size: 14.5px; }
+  .biz nav a:hover { color: var(--navy); }
+  .call {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: var(--green);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+  }
+  .call:hover { background: var(--green-2); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 28px;
+    align-items: center;
+    padding: 48px 0 18px;
+  }
+  .kicker {
+    margin: 0 0 10px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  h1, h2 { font-family: "Source Serif 4", Georgia, serif; letter-spacing: -.03em; line-height: 1.12; color: var(--navy); }
+  h1 { font-size: clamp(38px, 5vw, 58px); margin: 0 0 14px; }
+  h2 { font-size: clamp(30px, 4vw, 40px); margin: 0 0 8px; }
+  h3 { margin: 0 0 6px; font-size: 18px; color: var(--navy); }
+  .lede { font-size: 18.5px; margin: 0 0 8px; max-width: 40rem; }
+  .note { color: var(--faint); margin: 0 0 18px; font-size: 14.5px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn, .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+  }
+  .btn { background: var(--navy); color: #fff; }
+  .btn:hover { background: var(--navy-2); }
+  .btn-ghost { background: transparent; color: var(--navy); border: 1px solid #c9c2b6; }
+  .btn-ghost:hover { border-color: var(--navy); }
+  .hero-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 16px 40px rgba(16,42,67,.06);
+  }
+  .hero-card svg { width: 100%; height: auto; display: block; }
+  .hours { list-style: none; margin: 12px 0 0; padding: 0; }
+  .hours li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 8px;
+    border-top: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+  .today-flag { display: none; margin-left: 8px; background: var(--mint); color: var(--green-2); border-radius: 999px; padding: 1px 7px; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+  .is-today { background: var(--mint); border-radius: 8px; }
+  .is-today .today-flag { display: inline; }
+  .same-day {
+    margin: 22px 0;
+    background: var(--navy);
+    color: #f4f7f8;
+    border-radius: 18px;
+    padding: 22px 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+  }
+  .same-day h2 { color: #fff; margin: 0 0 6px; font-size: clamp(26px, 3vw, 34px); }
+  .same-day p { margin: 0; color: #d5e2ea; max-width: 42rem; }
+  .same-day a {
+    flex-shrink: 0;
+    background: #fff;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 10px;
+    min-height: 48px;
+    padding: 12px 16px;
+    display: inline-flex;
+    align-items: center;
+  }
+  section { padding: 12px 0; }
+  .section-lead { margin: 0 0 16px; color: var(--muted); max-width: 42rem; }
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .card .price {
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+    color: var(--green-2);
+    font-size: 20px;
+  }
+  .card-top { display: flex; align-items: baseline; gap: 8px 12px; flex-wrap: wrap; }
+  .card-top h3 { margin-right: auto; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .card ul { margin: 6px 0 0; padding-left: 18px; color: var(--ink); }
+  .card li { margin: 2px 0; }
+  .area-layout {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 22px;
+    align-items: start;
+    margin-top: 8px;
+  }
+  .cities { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+  .cities li {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 8px;
+    padding: 14px 16px;
+    border-top: 1px solid var(--line);
+  }
+  .cities li:first-child { border-top: 0; }
+  .cities b { color: var(--navy); }
+  .cities span { display: block; color: var(--faint); font-size: 14px; font-weight: 500; }
+  .num { color: var(--green); font-weight: 800; }
+  .quote {
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    gap: 18px;
+    margin: 10px 0 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .quote-side { background: var(--mint); padding: 24px; }
+  .quote-side ol { margin: 12px 0 0; padding-left: 18px; }
+  .quote-side li { margin: 8px 0; }
+  .quote form { padding: 22px; display: grid; gap: 12px; }
+  label { display: grid; gap: 6px; font-size: 14px; font-weight: 700; color: var(--muted); }
+  input, select, textarea {
+    font: inherit;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid #d5d0c7;
+    border-radius: 10px;
+    padding: 12px;
+  }
+  textarea { min-height: 88px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-help, .status { margin: 0; font-size: 13.5px; color: var(--faint); }
+  .status { color: var(--green-2); font-weight: 700; }
+  footer { border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--faint); font-size: 14px; }
+  footer a { color: var(--green-2); font-weight: 700; }
+  .foot-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+  @media (max-width: 840px) {
+    .sticky-top { position: static; }
+    .demo-banner { position: sticky; top: 0; z-index: 40; align-items: center; padding: 8px 12px; font-size: 12.5px; }
+    .demo-banner-btn { padding: 8px 10px; font-size: 12.5px; }
+    .hero, .cards, .area-layout, .quote, .form-row { grid-template-columns: 1fr; }
+    .same-day { flex-direction: column; align-items: flex-start; }
+    .same-day a { width: 100%; justify-content: center; }
+    .biz { flex-wrap: wrap; }
+    .biz nav { width: 100%; }
+    .call { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="sticky-top">
+  <div class="demo-banner">
+    <p><strong>Example $150 LexiPro site.</strong> Interactive fictional demo. Not a real business.</p>
+    <a class="demo-banner-btn" href="/websites/">See the $150 websites</a>
+  </div>
+  <header class="biz">
+    <a class="brand" href="#content">
+      <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#102a43"/>
+        <path d="M10 24V14l8-6 8 6v10" fill="none" stroke="#f4f7f8" stroke-width="1.8"/>
+        <path d="M16 24v-6h4v6" fill="none" stroke="#7dcec2" stroke-width="1.8"/>
+      </svg>
+      <span>Pontiac Pro Plumbing<small>North Oakland County</small></span>
+    </a>
+    <nav aria-label="On this page">
+      <a href="#services">Services</a>
+      <a href="#area">Service area</a>
+      <a href="#quote">Quote</a>
+    </nav>
+    <a class="call" href="tel:+12485550198">Call (248) 555-0198</a>
+  </header>
+</div>
+
+<main id="content">
+  <div class="wrap hero">
+    <div>
+      <p class="kicker">Pontiac, Waterford, Auburn Hills, Clarkston, Rochester</p>
+      <h1>Same-day plumbing, with the price on the page.</h1>
+      <p class="lede">Pontiac Pro Plumbing is a sample trades page. The work, the starting price, and the cities are sentences a customer can read, and a crawler can quote.</p>
+      <p class="note">Sample prices and hours for this fictional example. Fictional placeholder phone: (248) 555-0198. This number is not in service. No state license is claimed.</p>
+      <div class="actions">
+        <a class="btn" href="tel:+12485550198">Call (248) 555-0198</a>
+        <a class="btn-ghost" href="#quote">Request a quote</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <svg viewBox="0 0 420 220" role="img" aria-labelledby="houseTitle">
+        <title id="houseTitle">Line drawing of a house and a water line</title>
+        <rect width="420" height="220" rx="16" fill="#f7f4ee"/>
+        <path d="M70 150V92l70-48 70 48v58" fill="#fff" stroke="#102a43" stroke-width="3"/>
+        <path d="M132 150v-36h36v36" fill="#e5f4f1" stroke="#0f6e62" stroke-width="3"/>
+        <path d="M250 78c40 10 62 10 92 0" fill="none" stroke="#0f6e62" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="346" cy="70" r="8" fill="#0f6e62"/>
+        <path d="M346 86v52" stroke="#102a43" stroke-width="3"/>
+        <rect x="328" y="138" width="36" height="22" rx="4" fill="none" stroke="#102a43" stroke-width="3"/>
+        <path d="M40 176h340" stroke="#d9d3c8" stroke-width="2"/>
+      </svg>
+      <p class="kicker" style="margin-top:8px;">Sample hours</p>
+      <ul class="hours">
+        <li data-days="Monday Tuesday Wednesday Thursday Friday"><span>Mon to Fri <span class="today-flag">Today</span></span><span>7:00 a.m. to 7:00 p.m.</span></li>
+        <li data-days="Saturday"><span>Saturday <span class="today-flag">Today</span></span><span>8:00 a.m. to 4:00 p.m.</span></li>
+        <li data-days="Sunday"><span>Sunday <span class="today-flag">Today</span></span><span>Emergency calls only</span></li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="wrap">
+    <section aria-labelledby="sameday-title">
+      <div class="same-day">
+        <div>
+          <p class="kicker" style="color:#8ee0d4;">Same-day service</p>
+          <h2 id="sameday-title">Call before 2:00 p.m. on a weekday.</h2>
+          <p>On this example, a call before 2:00 p.m. Monday through Friday can be booked for the same day. Dispatch is $89, and that fee is waived when the repair is booked the same day.</p>
+        </div>
+        <a href="tel:+12485550198">Call (248) 555-0198</a>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <p class="kicker">Plain-text prices</p>
+      <h2 id="services-title">Services, with the number written out.</h2>
+      <p class="section-lead">Starting prices for this fictional example. A real page would use the prices you actually charge. Parts that change the total are named before the work starts.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="card-top"><h3>Drain cleaning</h3><span class="price">From $149</span></div>
+          <p>Kitchen, bath, or a standard main-line clearing.</p>
+          <ul>
+            <li>One fixture or one main-line run</li>
+            <li>Camera inspection is a separate $249 visit</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-top"><h3>Leak repair</h3><span class="price">From $189</span></div>
+          <p>Visible supply or drain leaks. The visit is included if you approve the repair.</p>
+          <ul>
+            <li>Shutoff, repair, and a dry-check</li>
+            <li>Open-wall work is quoted after a look</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-top"><h3>Water heater replacement</h3><span class="price">From $1,150</span></div>
+          <p>Standard tank swap, haul-away included.</p>
+          <ul>
+            <li>Like-for-like 40 or 50 gallon tank</li>
+            <li>Tankless is quoted after a look</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-top"><h3>Fixture install</h3><span class="price">From $225</span></div>
+          <p>Faucet, toilet, or disposal.</p>
+          <ul>
+            <li>Customer-supplied or shop-supplied</li>
+            <li>Supply lines included on a standard install</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-top"><h3>Sewer camera inspection</h3><span class="price">$249</span></div>
+          <p>Flat sample price. You keep the recording.</p>
+          <ul>
+            <li>One line, from the cleanout</li>
+            <li>Marked depth if a break shows up</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-top"><h3>Same-day dispatch</h3><span class="price">$89</span></div>
+          <p>The fee to put a technician on the schedule today.</p>
+          <ul>
+            <li>Waived when the repair is booked the same day</li>
+            <li>Weekday calls before 2:00 p.m.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="area" aria-labelledby="area-title">
+      <div class="area-layout">
+        <div>
+          <p class="kicker">Where the truck goes</p>
+          <h2 id="area-title">Oakland County service area</h2>
+          <p class="section-lead">Five cities, written as a list. A shaded map with no labels is not a service area an assistant can quote.</p>
+        </div>
+        <ol class="cities">
+          <li><span class="num">01</span><span><b>Pontiac</b><span>Home city for this example.</span></span></li>
+          <li><span class="num">02</span><span><b>Waterford</b><span>Houses and small shops off the main roads.</span></span></li>
+          <li><span class="num">03</span><span><b>Auburn Hills</b><span>North of Pontiac, including the corridors.</span></span></li>
+          <li><span class="num">04</span><span><b>Clarkston</b><span>Village and the surrounding neighborhoods.</span></span></li>
+          <li><span class="num">05</span><span><b>Rochester</b><span>Downtown and the nearby subdivisions.</span></span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="quote" aria-labelledby="quote-title">
+      <div class="quote">
+        <div class="quote-side">
+          <p class="kicker">Quote request</p>
+          <h2 id="quote-title">Ask for a time.</h2>
+          <ol>
+            <li>You call (248) 555-0198 or use the form.</li>
+            <li>The example confirms a window and the starting price.</li>
+            <li>Anything that changes the total is named before the work.</li>
+          </ol>
+          <p class="form-help">Fictional placeholder. The number is not in service, and this form does not send a message.</p>
+        </div>
+        <form id="quote-form" novalidate>
+          <div class="form-row">
+            <label>Name
+              <input name="name" autocomplete="name" required>
+            </label>
+            <label>Phone
+              <input name="phone" type="tel" autocomplete="tel" required>
+            </label>
+          </div>
+          <div class="form-row">
+            <label>City
+              <select name="city" required>
+                <option value="">Choose a city</option>
+                <option>Pontiac</option>
+                <option>Waterford</option>
+                <option>Auburn Hills</option>
+                <option>Clarkston</option>
+                <option>Rochester</option>
+              </select>
+            </label>
+            <label>Service
+              <select name="service" required>
+                <option value="">What do you need?</option>
+                <option>Drain cleaning</option>
+                <option>Leak repair</option>
+                <option>Water heater replacement</option>
+                <option>Fixture install</option>
+                <option>Sewer camera inspection</option>
+                <option>Same-day dispatch</option>
+              </select>
+            </label>
+          </div>
+          <label>What is going on?
+            <textarea name="notes" placeholder="Which fixture, and how long it has been happening."></textarea>
+          </label>
+          <button class="btn" type="submit">Request a quote</button>
+          <p class="status" id="quote-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+        </form>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>Pontiac Pro Plumbing is a fictional example, built to show a $150 LexiPro page. Plumber and LocalBusiness JSON-LD on this page matches the phone, the hours, the cities, and the prices above. It is not a real contractor.</p>
+    <p><a href="/websites/">$150 websites</a> · <a href="/demos/motor-city-smoke/">Food truck example</a> · <a href="tel:+12485550198">(248) 555-0198</a></p>
+  </div>
+</footer>
+<script>
+(function () {
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var today = days[new Date().getDay()];
+  var rows = document.querySelectorAll("[data-days]");
+  for (var i = 0; i < rows.length; i++) {
+    var list = rows[i].getAttribute("data-days").split(" ");
+    if (list.indexOf(today) !== -1) rows[i].classList.add("is-today");
+  }
+  var form = document.getElementById("quote-form");
+  var status = document.getElementById("quote-status");
+  if (!form || !status) return;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    status.hidden = false;
+    status.textContent = "This example does not send messages. On a real $150 site, this quote request would go to the business. Nothing was sent.";
+    form.reset();
+    status.focus();
+  });
+})();
+</script>
+</body>
+</html>

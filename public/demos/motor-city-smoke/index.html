@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motor City Smoke BBQ | Example $150 LexiPro site</title>
+<meta name="description" content="Interactive example of a $150 LexiPro one-page site for a fictional Pontiac food truck: weekly stops, menu prices, and a catering inquiry. Not a real restaurant.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://lexipro.online/demos/motor-city-smoke/">
+<meta name="theme-color" content="#16100e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316100e'/%3E%3Ccircle cx='16' cy='17' r='7' fill='none' stroke='%23e4572e' stroke-width='2'/%3E%3Cpath d='M16 6v4M12 8c1 2 2 2 4 0M16 8c1 2 2 2 4 0' stroke='%23f3e6d4' stroke-width='1.4' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,680;1,9..144,560&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Motor City Smoke BBQ",
+  "description": "Fictional example food truck and catering business in Pontiac, Michigan, published to show a $150 LexiPro one-page website. Not a real restaurant.",
+  "url": "https://lexipro.online/demos/motor-city-smoke/",
+  "telephone": "+1-248-555-0142",
+  "servesCuisine": "Barbecue",
+  "priceRange": "$$",
+  "acceptsReservations": false,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pontiac",
+    "addressRegion": "MI",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Pontiac" },
+    { "@type": "City", "name": "Waterford" },
+    { "@type": "City", "name": "Auburn Hills" },
+    { "@type": "City", "name": "Clarkston" },
+    { "@type": "City", "name": "Rochester" },
+    { "@type": "AdministrativeArea", "name": "Oakland County, Michigan" }
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "11:00", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "16:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "11:00", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "16:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:00", "closes": "19:00" }
+  ],
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Sample menu highlights",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "From the window",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Brisket sandwich", "offers": { "@type": "Offer", "price": "15", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Pulled pork sandwich", "offers": { "@type": "Offer", "price": "13", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Half chicken", "offers": { "@type": "Offer", "price": "16", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "St. Louis ribs, half rack", "offers": { "@type": "Offer", "price": "21", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Two-meat plate", "offers": { "@type": "Offer", "price": "18", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Mac and cheese", "offers": { "@type": "Offer", "price": "5", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Smoked beans", "offers": { "@type": "Offer", "price": "4", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Peach cobbler cup", "offers": { "@type": "Offer", "price": "6", "priceCurrency": "USD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Catering",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Drop-off trays", "description": "From $16 a person, 12 person minimum.", "offers": { "@type": "Offer", "price": "16", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "On-site service", "description": "From $28 a person, 20 person minimum.", "offers": { "@type": "Offer", "price": "28", "priceCurrency": "USD" } }
+        ]
+      }
+    ]
+  }
+}
+</script>
+<style>
+  :root {
+    --ink: #f6eadc;
+    --muted: #d2bfae;
+    --faint: #b39b8a;
+    --bg: #16100e;
+    --panel: #241814;
+    --line: rgba(246,234,220,.14);
+    --ember: #e4572e;
+    --ember-deep: #b83a18;
+    --gold: #f0c14a;
+    --cream: #f4eadc;
+    --cream-ink: #2a160f;
+    --bark: #3a241c;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 100% 0%, rgba(228,87,46,.2), transparent 34%),
+      radial-gradient(circle at 0% 48%, rgba(240,193,74,.07), transparent 28%);
+    font-family: Outfit, "Avenir Next", "Segoe UI", sans-serif;
+    line-height: 1.6;
+    font-size: 16.5px;
+    color-scheme: dark;
+  }
+  .skip {
+    position: absolute;
+    left: 12px;
+    top: -40px;
+    background: var(--gold);
+    color: #1a100c;
+    padding: 8px 12px;
+    z-index: 80;
+    border-radius: 8px;
+  }
+  .skip:focus { top: 8px; }
+  .sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+  .demo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 18px;
+    padding: 8px 20px;
+    background: #05070b;
+    color: #f8fafc;
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+  .demo-banner p { margin: 0; }
+  .demo-banner strong { color: #fff; }
+  .demo-banner-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #22d3ee;
+    color: #041016;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+  .demo-banner-btn:hover { background: #67e8f9; }
+  .biz {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 20px;
+    background: rgba(22,16,14,.94);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: Fraunces, Georgia, serif;
+    font-weight: 680;
+    font-size: 20px;
+    letter-spacing: -.03em;
+  }
+  .brand em { font-style: italic; color: var(--gold); font-weight: 560; }
+  .biz nav { display: flex; gap: 16px; margin-left: 8px; }
+  .biz nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+  }
+  .biz nav a:hover { color: #fff; }
+  .call {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--ember);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14.5px;
+  }
+  .call:hover { background: var(--ember-deep); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 36px;
+    align-items: center;
+    padding: 54px 0 28px;
+  }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 680; letter-spacing: -.03em; line-height: 1.08; }
+  h1 { font-size: clamp(40px, 6vw, 68px); margin: 0 0 16px; color: #fff8ef; }
+  h2 { font-size: clamp(30px, 4vw, 44px); margin: 0 0 10px; color: #fff8ef; }
+  h3 { margin: 0; font-size: 22px; }
+  .lede { font-size: 18.5px; max-width: 38rem; margin: 0 0 8px; color: var(--ink); }
+  .note { color: var(--faint); margin: 0 0 22px; font-size: 14.5px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn, .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15.5px;
+  }
+  .btn { background: var(--cream); color: var(--cream-ink); }
+  .btn:hover { background: #fff; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--gold); color: #fff; }
+  .art-frame {
+    background: linear-gradient(180deg, #2c1c16, #1a110e);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 18px 18px 8px;
+    box-shadow: 0 24px 50px rgba(0,0,0,.28);
+  }
+  .art-frame svg { width: 100%; height: auto; display: block; }
+  .art-cap { margin: 4px 4px 10px; color: var(--faint); font-size: 13px; }
+  section { padding: 28px 0 10px; }
+  .stops-card, .cater-panel, .menu-board {
+    border-radius: 24px;
+  }
+  .stops-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--ember);
+    padding: 26px 26px 12px;
+    margin: 18px 0 10px;
+  }
+  .stops-head { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: end; margin-bottom: 8px; }
+  .stops-head p { margin: 0; color: var(--muted); max-width: 36rem; }
+  .stops { list-style: none; margin: 12px 0 8px; padding: 0; }
+  .stops li {
+    display: grid;
+    grid-template-columns: 92px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 13px 10px;
+    border-top: 1px solid var(--line);
+  }
+  .stops .day { font-weight: 700; color: var(--gold); }
+  .stops .where { color: var(--ink); }
+  .stops .where span { display: block; color: var(--faint); font-size: 14px; }
+  .stops .when { color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
+  .today-flag { display: none; margin-left: 6px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; background: var(--ember); color: #fff; border-radius: 999px; padding: 2px 6px; vertical-align: 2px; }
+  .is-today { background: rgba(228,87,46,.12); border-radius: 12px; }
+  .is-today .today-flag { display: inline-block; }
+  .menu-board {
+    background: var(--cream);
+    color: var(--cream-ink);
+    padding: 32px 28px 18px;
+    margin-top: 28px;
+  }
+  .menu-board h2, .menu-board .kicker { color: var(--cream-ink); }
+  .menu-board .kicker { color: var(--ember-deep); }
+  .menu-intro { margin: 0 0 8px; max-width: 40rem; }
+  .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 36px; }
+  .menu-grid ul { list-style: none; margin: 0; padding: 0; }
+  .menu-grid li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(42,22,15,.12);
+  }
+  .item-name { font-weight: 700; display: block; }
+  .item-desc { display: block; color: #6d5346; font-size: 14.5px; }
+  .item-price { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ember-deep); }
+  .cater {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 22px;
+    margin: 28px 0 10px;
+  }
+  .cater-copy h2 { margin-bottom: 12px; }
+  .price-pair { display: grid; gap: 10px; margin: 18px 0; }
+  .price-pair div {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 16px;
+  }
+  .price-pair strong { display: block; font-size: 18px; }
+  .price-pair span { color: var(--muted); font-size: 14.5px; }
+  .cater-panel {
+    background: #2a1814;
+    border: 1px solid var(--line);
+    padding: 22px;
+  }
+  form { display: grid; gap: 12px; }
+  label { display: grid; gap: 6px; font-size: 14px; font-weight: 600; color: var(--muted); }
+  input, select, textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--cream-ink);
+    background: var(--cream);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 12px 12px;
+    color-scheme: light;
+  }
+  textarea { min-height: 90px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-help, .status { color: var(--faint); font-size: 13.5px; margin: 0; }
+  .status { color: var(--gold); font-weight: 600; }
+  .full { width: 100%; }
+  footer {
+    margin-top: 20px;
+    padding: 28px 0 40px;
+    border-top: 1px solid var(--line);
+    color: var(--faint);
+    font-size: 14px;
+  }
+  footer a { color: var(--gold); }
+  .foot-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  @media (max-width: 840px) {
+    .sticky-top { position: static; }
+    .demo-banner { position: sticky; top: 0; z-index: 40; align-items: center; padding: 8px 12px; font-size: 12.5px; }
+    .demo-banner-btn { padding: 8px 10px; font-size: 12.5px; }
+    .hero, .cater, .menu-grid, .form-row { grid-template-columns: 1fr; }
+    .stops li { grid-template-columns: 1fr; gap: 2px; }
+    .stops .when { text-align: left; }
+    .biz { flex-wrap: wrap; }
+    .biz nav { width: 100%; }
+    .call { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .smoke path { animation: none !important; }
+  }
+  .smoke path { animation: rise 4.8s ease-in-out infinite; }
+  @keyframes rise {
+    0%, 100% { transform: translateY(0); opacity: .45; }
+    50% { transform: translateY(-7px); opacity: .9; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="sticky-top">
+  <div class="demo-banner">
+    <p><strong>Example $150 LexiPro site.</strong> Interactive fictional demo. Not a real business.</p>
+    <a class="demo-banner-btn" href="/websites/">See the $150 websites</a>
+  </div>
+  <header class="biz">
+    <a class="brand" href="#content">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <rect width="34" height="34" rx="10" fill="#e4572e"/>
+        <path d="M8 22c0-6 4-10 9-10s9 4 9 10" fill="none" stroke="#fff8ef" stroke-width="1.8"/>
+        <circle cx="17" cy="22" r="3" fill="#fff8ef"/>
+        <path d="M17 8c.6 2 1.6 2.4 2.6.4M14 9c.7 1.8 1.6 2 2.4.2" stroke="#fff8ef" stroke-width="1.4" fill="none"/>
+      </svg>
+      Motor City <em>Smoke</em>
+    </a>
+    <nav aria-label="On this page">
+      <a href="#stops">Stops</a>
+      <a href="#menu">Menu</a>
+      <a href="#catering">Catering</a>
+    </nav>
+    <a class="call" href="tel:+12485550142">Call (248) 555-0142</a>
+  </header>
+</div>
+
+<main id="content">
+  <div class="wrap hero">
+    <div>
+      <p class="kicker">Pontiac / Oakland County, MI</p>
+      <h1>Barbecue that tells you where it parks.</h1>
+      <p class="lede">Motor City Smoke BBQ is a sample food truck and catering page. This week's stops, the menu, and the phone number are written as text a customer can read without opening Facebook.</p>
+      <p class="note">Sample hours, prices, and stops for this fictional example. Fictional placeholder phone: (248) 555-0142.</p>
+      <div class="actions">
+        <a class="btn" href="#stops">This week's stops</a>
+        <a class="btn-ghost" href="#catering">Catering inquiry</a>
+      </div>
+    </div>
+    <div class="art-frame">
+      <svg viewBox="0 0 440 320" role="img" aria-labelledby="smokerTitle">
+        <title id="smokerTitle">Line drawing of a barbecue smoker and a plated brisket</title>
+        <rect x="18" y="18" width="404" height="284" rx="22" fill="#1a110e"/>
+        <g class="smoke" fill="none" stroke="#f3e6d4" stroke-width="3" stroke-linecap="round">
+          <path d="M286 78c10-18 8-28 18-40"/>
+          <path d="M308 84c12-16 8-30 20-44"/>
+          <path d="M330 90c8-14 6-26 16-38"/>
+        </g>
+        <rect x="78" y="150" width="250" height="92" rx="46" fill="#3a241c" stroke="#f0c14a" stroke-width="3"/>
+        <circle cx="168" cy="196" r="28" fill="#16100e" stroke="#f6eadc" stroke-width="3"/>
+        <circle cx="168" cy="196" r="6" fill="#e4572e"/>
+        <rect x="300" y="108" width="22" height="52" rx="4" fill="#2a1814" stroke="#f6eadc" stroke-width="2"/>
+        <path d="M118 242c8 18 18 26 28 26h150c12 0 22-10 28-26" fill="none" stroke="#e4572e" stroke-width="4"/>
+        <rect x="108" y="236" width="16" height="36" rx="4" fill="#f0c14a"/>
+        <rect x="286" y="236" width="16" height="36" rx="4" fill="#f0c14a"/>
+        <ellipse cx="118" cy="168" rx="16" ry="8" fill="#e4572e"/>
+        <path d="M70 188h28" stroke="#f6eadc" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <p class="art-cap">Sample artwork drawn in the page. No photo to wait on, and no broken image.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="stops" aria-labelledby="stops-title">
+      <article class="stops-card">
+        <div class="stops-head">
+          <div>
+            <p class="kicker">Weekly schedule</p>
+            <h2 id="stops-title">This week's stops</h2>
+          </div>
+          <p>A sample week for this fictional truck. A real $150 site would publish the stops you actually post, as text, not as a photo of a whiteboard.</p>
+        </div>
+        <ol class="stops">
+          <li data-day="Monday">
+            <span class="day">Mon <span class="today-flag">Today</span></span>
+            <span class="where"><strong>Kitchen closed</strong><span>Prep only. No public stop.</span></span>
+            <span class="when">Closed</span>
+          </li>
+          <li data-day="Tuesday">
+            <span class="day">Tue <span class="today-flag">Today</span></span>
+            <span class="where"><strong>Pontiac</strong><span>Downtown lot on Saginaw</span></span>
+            <span class="when">11:00 a.m. to 2:00 p.m.</span>
+          </li>
+          <li data-day="Wednesday">
+            <span class="day">Wed <span class="today-flag">Today</span></span>
+            <span class="where"><strong>Waterford</strong><span>Civic Center lot</span></span>
+            <span class="when">4:00 p.m. to 8:00 p.m.</span>
+          </li>
+          <li data-day="Thursday">
+            <span class="day">Thu <span class="today-flag">Today</span></span>
+            <span class="where"><strong>Auburn Hills</strong><span>Along Opdyke</span></span>
+            <span class="when">11:00 a.m. to 2:00 p.m.</span>
+          </li>
+          <li data-day="Friday">
+            <span class="day">Fri <span class="today-flag">Today</span></span>
+            <span class="where"><strong>Clarkston</strong><span>Depot Rd lot</span></span>
+            <span class="when">4:00 p.m. to 8:00 p.m.</span>
+          </li>
+          <li data-day="Saturday">
+            <span class="day">Sat <span class="today-flag">Today</span></span>
+            <span class="where"><strong>Rochester</strong><span>Downtown municipal lot</span></span>
+            <span class="when">11:00 a.m. to 7:00 p.m.</span>
+          </li>
+          <li data-day="Sunday">
+            <span class="day">Sun <span class="today-flag">Today</span></span>
+            <span class="where"><strong>Catering only</strong><span>No walk-up service.</span></span>
+            <span class="when">By booking</span>
+          </li>
+        </ol>
+      </article>
+    </section>
+
+    <section id="menu" aria-labelledby="menu-title">
+      <div class="menu-board">
+        <p class="kicker">From the window</p>
+        <h2 id="menu-title">Menu highlights</h2>
+        <p class="menu-intro">Sample prices, written on the page. Sauce is on the side unless you say otherwise.</p>
+        <div class="menu-grid">
+          <ul>
+            <li>
+              <span><span class="item-name">Brisket sandwich</span><span class="item-desc">Sliced brisket, pickles, onion, white bread.</span></span>
+              <span class="item-price">$15</span>
+            </li>
+            <li>
+              <span><span class="item-name">Pulled pork sandwich</span><span class="item-desc">Shoulder, vinegar slaw, soft bun.</span></span>
+              <span class="item-price">$13</span>
+            </li>
+            <li>
+              <span><span class="item-name">Half chicken</span><span class="item-desc">Smoked half bird, sauce on the side.</span></span>
+              <span class="item-price">$16</span>
+            </li>
+            <li>
+              <span><span class="item-name">St. Louis ribs, half rack</span><span class="item-desc">Dry rub, glazed at the window.</span></span>
+              <span class="item-price">$21</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <span><span class="item-name">Two-meat plate</span><span class="item-desc">Pick two meats, one side, and a bun.</span></span>
+              <span class="item-price">$18</span>
+            </li>
+            <li>
+              <span><span class="item-name">Mac and cheese</span><span class="item-desc">A cup, baked that morning.</span></span>
+              <span class="item-price">$5</span>
+            </li>
+            <li>
+              <span><span class="item-name">Smoked beans</span><span class="item-desc">Molasses and brisket ends.</span></span>
+              <span class="item-price">$4</span>
+            </li>
+            <li>
+              <span><span class="item-name">Peach cobbler cup</span><span class="item-desc">Sample dessert, served warm.</span></span>
+              <span class="item-price">$6</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="catering" aria-labelledby="cater-title">
+      <div class="cater">
+        <div class="cater-copy">
+          <p class="kicker">Off the truck</p>
+          <h2 id="cater-title">Catering for Oakland County tables.</h2>
+          <p>Drop-off trays or someone on site to slice. Sample starting prices, so a host can decide before they call.</p>
+          <div class="price-pair">
+            <div>
+              <strong>Drop-off trays, from $16 a person</strong>
+              <span>12 person minimum. Meats, buns, and two sides.</span>
+            </div>
+            <div>
+              <strong>On-site service, from $28 a person</strong>
+              <span>20 person minimum. Carving at the table, two hours on site.</span>
+            </div>
+          </div>
+          <p class="note">Fictional placeholder phone: <a href="tel:+12485550142" style="color:#f0c14a;">(248) 555-0142</a>. This number is not in service.</p>
+        </div>
+        <div class="cater-panel">
+          <h3>Catering inquiry</h3>
+          <p class="form-help">Tell the truck the date and the head count. On a real site this form reaches the business. Here, nothing is sent.</p>
+          <form id="catering-form" novalidate>
+            <label>Name
+              <input name="name" autocomplete="name" required>
+            </label>
+            <div class="form-row">
+              <label>Phone
+                <input name="phone" type="tel" autocomplete="tel" required>
+              </label>
+              <label>Date
+                <input name="date" type="date" required>
+              </label>
+            </div>
+            <div class="form-row">
+              <label>Guests
+                <input name="guests" type="number" min="12" value="12" required>
+              </label>
+              <label>Style
+                <select name="style" required>
+                  <option value="drop-off">Drop-off trays</option>
+                  <option value="on-site">On-site service</option>
+                </select>
+              </label>
+            </div>
+            <label>Notes
+              <textarea name="notes" placeholder="Meat choices, pickup city, or a question."></textarea>
+            </label>
+            <button class="btn full" type="submit">Request catering</button>
+            <p class="status" id="catering-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>Motor City Smoke BBQ is a fictional example, built to show a $150 LexiPro page. FoodEstablishment JSON-LD on this page matches the menu prices and the Tuesday through Saturday stops above. It is not a real listing.</p>
+    <p><a href="/websites/">$150 websites</a> · <a href="/demos/pontiac-pro-plumbing/">Plumbing example</a> · <a href="tel:+12485550142">(248) 555-0142</a></p>
+  </div>
+</footer>
+<script>
+(function () {
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var today = days[new Date().getDay()];
+  var rows = document.querySelectorAll("[data-day]");
+  for (var i = 0; i < rows.length; i++) {
+    if (rows[i].getAttribute("data-day") === today) rows[i].classList.add("is-today");
+  }
+  var form = document.getElementById("catering-form");
+  var status = document.getElementById("catering-status");
+  if (!form || !status) return;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    status.hidden = false;
+    status.textContent = "This example does not send messages. On a real $150 site, this catering request would go to the business. Nothing was sent.";
+    form.reset();
+    status.focus();
+  });
+})();
+</script>
+</body>
+</html>
